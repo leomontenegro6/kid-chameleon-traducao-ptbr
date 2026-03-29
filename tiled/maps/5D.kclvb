@@ -1,0 +1,9 @@
+{
+	"header":	"level/header/5D.bin",
+	"platform":	"level/platform/00.asm",
+	"bgscroll":	"level/bgscroll/5D.bin",
+	"enemy":	"level/enemy/5D.bin",
+	"foreground":	"level/foreground/5D.bin",
+	"block":	"level/block/5D.bin",
+	"background":	"level/background/5D.bin"
+}

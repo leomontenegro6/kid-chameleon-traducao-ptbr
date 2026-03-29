@@ -1,24 +1,12 @@
 kid.log
 kid.p
 kid.h
+kid.bin
 kid_built.bin
+Kid Chameleon*.md
 kid_built.prev.bin
-level/*.bin
-level/*/*.bin
-level/platform/*.asm
-level/platform_presets_inuse.asm
-level/levelnames.asm
-level/maporder.asm
-level/pathbonus.asm
-level/speedbonus.asm
-level/level_files.txt
-theme/*.bin
-theme/*/*.bin
-theme/*/*/*.bin
-scenes/*/*.bin
-ingame/*/*.bin
-sound/*.bin
 planeed_prj/*.dll
 planeed_prj/*.exe
 *.kcm
 /kid.lst
+test.bat

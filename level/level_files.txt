@@ -1,0 +1,127 @@
+
+00	platform/00.asm bgscroll/00.bin header/00.bin enemy/00.bin foreground/00.bin block/00.bin background/00.bin 
+01	platform/00.asm bgscroll/01.bin header/01.bin enemy/01.bin foreground/01.bin block/01.bin background/01.bin 
+02	platform/02.asm bgscroll/02.bin header/02.bin enemy/02.bin foreground/02.bin block/02.bin background/04.bin 
+03	platform/03.asm bgscroll/03.bin header/03.bin enemy/03.bin foreground/03.bin block/03.bin background/03.bin 
+04	platform/04.asm bgscroll/04.bin header/04.bin enemy/04.bin foreground/04.bin block/04.bin background/04.bin 
+05	platform/05.asm bgscroll/05.bin header/05.bin enemy/05.bin foreground/05.bin block/05.bin background/00.bin 
+06	platform/00.asm bgscroll/06.bin 
+07	platform/00.asm bgscroll/06.bin 
+08	platform/00.asm bgscroll/08.bin header/08.bin enemy/08.bin foreground/08.bin block/08.bin background/00.bin 
+09	platform/00.asm bgscroll/09.bin header/09.bin enemy/09.bin foreground/09.bin block/09.bin background/09.bin 
+0A	platform/0A.asm bgscroll/0A.bin header/0A.bin enemy/0A.bin foreground/0A.bin block/0A.bin background/0A.bin 
+0B	platform/00.asm bgscroll/0B.bin header/0B.bin enemy/0B.bin foreground/0B.bin block/0B.bin background/0B.bin 
+0C	platform/00.asm bgscroll/0C.bin header/0C.bin enemy/0C.bin foreground/0C.bin block/0C.bin background/0C.bin 
+0D	platform/00.asm bgscroll/0D.bin header/0D.bin enemy/0D.bin foreground/0D.bin block/0D.bin background/0D.bin 
+0E	platform/00.asm bgscroll/0E.bin header/0E.bin enemy/0E.bin foreground/0E.bin block/0E.bin background/0C.bin 
+0F	platform/00.asm bgscroll/0F.bin header/0F.bin enemy/0F.bin foreground/0F.bin block/0F.bin background/0F.bin 
+10	platform/10.asm bgscroll/10.bin header/10.bin enemy/10.bin foreground/10.bin block/10.bin background/0B.bin 
+11	platform/11.asm bgscroll/11.bin header/11.bin enemy/11.bin foreground/11.bin block/11.bin background/0F.bin 
+12	platform/00.asm bgscroll/12.bin header/12.bin enemy/12.bin foreground/12.bin block/12.bin background/0F.bin 
+13	platform/00.asm bgscroll/13.bin header/13.bin enemy/13.bin foreground/13.bin block/13.bin background/0F.bin 
+14	platform/00.asm bgscroll/14.bin header/14.bin enemy/14.bin foreground/14.bin block/14.bin background/14.bin 
+15	platform/15.asm bgscroll/15.bin header/15.bin enemy/15.bin foreground/15.bin block/15.bin background/15.bin 
+16	platform/16.asm bgscroll/16.bin header/16.bin enemy/16.bin foreground/16.bin block/16.bin background/16.bin 
+17	platform/00.asm bgscroll/17.bin header/17.bin enemy/17.bin foreground/17.bin block/17.bin background/17.bin 
+18	platform/00.asm bgscroll/18.bin header/18.bin enemy/18.bin foreground/18.bin block/18.bin background/18.bin 
+19	platform/19.asm bgscroll/19.bin header/19.bin enemy/19.bin foreground/19.bin block/19.bin background/19.bin 
+1A	platform/1A.asm bgscroll/1A.bin header/09.bin 
+1B	platform/00.asm bgscroll/06.bin 
+1C	platform/1C.asm bgscroll/1A.bin header/1C.bin enemy/1C.bin foreground/1C.bin block/1C.bin background/1C.bin 
+1D	platform/1D.asm bgscroll/1D.bin header/1D.bin enemy/1D.bin foreground/1D.bin block/1D.bin background/1D.bin 
+1E	platform/00.asm bgscroll/06.bin 
+1F	platform/00.asm bgscroll/06.bin 
+20	platform/00.asm bgscroll/06.bin 
+21	platform/00.asm bgscroll/21.bin header/21.bin enemy/21.bin foreground/21.bin block/21.bin background/21.bin 
+22	platform/00.asm bgscroll/21.bin header/22.bin enemy/22.bin foreground/22.bin block/22.bin background/22.bin 
+23	platform/00.asm bgscroll/06.bin 
+24	platform/00.asm bgscroll/06.bin 
+25	platform/00.asm bgscroll/25.bin header/25.bin enemy/25.bin foreground/25.bin block/25.bin background/25.bin 
+26	platform/00.asm bgscroll/26.bin header/26.bin enemy/26.bin foreground/26.bin block/26.bin background/27.bin 
+27	platform/00.asm bgscroll/26.bin header/27.bin enemy/27.bin foreground/27.bin block/27.bin background/27.bin 
+28	platform/00.asm bgscroll/06.bin 
+29	platform/00.asm bgscroll/06.bin 
+2A	platform/00.asm bgscroll/06.bin 
+2B	platform/00.asm bgscroll/06.bin header/2B.bin enemy/2B.bin foreground/2B.bin block/2B.bin background/2B.bin 
+2C	platform/00.asm bgscroll/2C.bin header/2C.bin enemy/2C.bin foreground/2C.bin block/2C.bin background/2C.bin 
+2D	platform/00.asm bgscroll/2D.bin header/2D.bin enemy/2D.bin foreground/2D.bin block/2D.bin background/2D.bin 
+2E	platform/00.asm bgscroll/2E.bin header/2E.bin enemy/2E.bin foreground/2E.bin block/2E.bin background/2E.bin 
+2F	platform/00.asm bgscroll/2D.bin header/2F.bin enemy/2F.bin foreground/2F.bin block/2F.bin background/2D.bin 
+30	platform/00.asm bgscroll/30.bin header/30.bin enemy/30.bin foreground/30.bin block/30.bin background/30.bin 
+31	platform/00.asm bgscroll/06.bin header/31.bin enemy/31.bin foreground/31.bin block/31.bin background/2B.bin 
+32	platform/00.asm bgscroll/32.bin header/32.bin enemy/32.bin foreground/32.bin block/32.bin background/32.bin 
+33	platform/00.asm bgscroll/33.bin header/33.bin enemy/33.bin foreground/33.bin block/33.bin background/33.bin 
+34	platform/00.asm bgscroll/34.bin header/34.bin enemy/34.bin foreground/34.bin block/34.bin background/34.bin 
+35	platform/00.asm bgscroll/35.bin header/35.bin enemy/35.bin foreground/35.bin block/35.bin background/35.bin 
+36	platform/00.asm bgscroll/36.bin header/36.bin enemy/36.bin foreground/36.bin block/36.bin background/36.bin 
+37	platform/00.asm bgscroll/37.bin header/37.bin enemy/37.bin foreground/37.bin block/37.bin background/37.bin 
+38	platform/38.asm bgscroll/38.bin header/38.bin enemy/38.bin foreground/38.bin block/38.bin background/38.bin 
+39	platform/00.asm bgscroll/39.bin header/39.bin enemy/39.bin foreground/39.bin block/39.bin background/39.bin 
+3A	platform/00.asm bgscroll/3A.bin header/3A.bin enemy/3A.bin foreground/3A.bin block/3A.bin background/3A.bin 
+3B	platform/00.asm bgscroll/3B.bin header/3B.bin enemy/3B.bin foreground/3B.bin block/3B.bin background/3B.bin 
+3C	platform/00.asm bgscroll/25.bin header/3C.bin enemy/3C.bin foreground/3C.bin block/3C.bin background/25.bin 
+3D	platform/00.asm bgscroll/3D.bin header/3D.bin enemy/3D.bin foreground/3D.bin block/3D.bin background/37.bin 
+3E	platform/00.asm bgscroll/3E.bin header/3E.bin enemy/3E.bin foreground/3E.bin block/3E.bin background/3A.bin 
+3F	platform/00.asm bgscroll/0F.bin header/3F.bin enemy/3F.bin foreground/3F.bin block/3F.bin background/3F.bin 
+40	platform/40.asm bgscroll/40.bin header/40.bin enemy/40.bin foreground/40.bin block/40.bin background/40.bin 
+41	platform/41.asm bgscroll/41.bin header/09.bin 
+42	platform/00.asm bgscroll/09.bin header/09.bin 
+43	platform/00.asm bgscroll/43.bin 
+44	platform/00.asm bgscroll/43.bin 
+45	platform/00.asm bgscroll/43.bin 
+46	platform/00.asm bgscroll/43.bin 
+47	platform/00.asm bgscroll/09.bin header/47.bin enemy/47.bin foreground/47.bin block/47.bin background/47.bin 
+48	platform/00.asm bgscroll/41.bin header/09.bin 
+49	platform/49.asm bgscroll/49.bin header/49.bin enemy/49.bin foreground/49.bin block/49.bin background/49.bin 
+4A	platform/00.asm bgscroll/4A.bin header/4A.bin enemy/4A.bin foreground/4A.bin block/4A.bin background/4A.bin 
+4B	platform/00.asm bgscroll/49.bin header/4B.bin enemy/4B.bin foreground/4B.bin block/4B.bin background/49.bin 
+4C	platform/4C.asm bgscroll/4C.bin header/4C.bin enemy/4C.bin foreground/4C.bin block/4C.bin background/4C.bin 
+4D	platform/00.asm bgscroll/32.bin header/4D.bin enemy/4D.bin foreground/4D.bin block/4D.bin background/32.bin 
+4E	platform/00.asm bgscroll/32.bin header/4E.bin enemy/4E.bin foreground/4E.bin block/4E.bin background/32.bin 
+4F	platform/00.asm bgscroll/4F.bin header/4F.bin enemy/4F.bin foreground/4F.bin block/4F.bin background/4F.bin 
+50	platform/00.asm bgscroll/50.bin 
+51	platform/00.asm bgscroll/50.bin 
+52	platform/00.asm bgscroll/50.bin 
+53	platform/00.asm bgscroll/53.bin header/53.bin enemy/53.bin foreground/53.bin block/53.bin background/53.bin 
+54	platform/00.asm bgscroll/54.bin header/54.bin enemy/54.bin foreground/54.bin block/54.bin background/54.bin 
+55	platform/00.asm bgscroll/53.bin header/55.bin enemy/55.bin foreground/55.bin block/55.bin background/53.bin 
+56	platform/00.asm bgscroll/56.bin header/56.bin enemy/56.bin foreground/56.bin block/56.bin background/56.bin 
+57	platform/57.asm bgscroll/57.bin header/57.bin enemy/57.bin foreground/57.bin block/57.bin background/57.bin 
+58	platform/00.asm bgscroll/58.bin header/58.bin enemy/58.bin foreground/58.bin block/58.bin background/58.bin 
+59	platform/00.asm bgscroll/50.bin header/59.bin enemy/59.bin foreground/59.bin block/59.bin background/59.bin 
+5A	platform/5A.asm bgscroll/57.bin header/5A.bin enemy/5A.bin foreground/5A.bin block/5A.bin background/57.bin 
+5B	platform/00.asm bgscroll/43.bin 
+5C	platform/5C.asm bgscroll/56.bin header/5C.bin enemy/5C.bin foreground/5C.bin block/5C.bin background/56.bin 
+5D	platform/00.asm bgscroll/5D.bin header/5D.bin enemy/5D.bin foreground/5D.bin block/5D.bin background/5D.bin 
+5E	platform/00.asm bgscroll/5E.bin header/5E.bin enemy/5E.bin foreground/5E.bin block/5E.bin background/27.bin 
+5F	platform/00.asm bgscroll/5F.bin header/5F.bin enemy/5F.bin foreground/5F.bin block/5F.bin background/5F.bin 
+60	platform/00.asm bgscroll/60.bin header/60.bin enemy/60.bin foreground/60.bin block/60.bin background/0F.bin 
+61	platform/00.asm bgscroll/60.bin header/61.bin enemy/61.bin foreground/61.bin block/61.bin background/0F.bin 
+62	platform/00.asm bgscroll/06.bin header/62.bin enemy/62.bin foreground/62.bin block/62.bin background/2B.bin 
+63	platform/00.asm bgscroll/63.bin header/63.bin enemy/63.bin foreground/63.bin block/63.bin background/00.bin 
+64	platform/64.asm bgscroll/43.bin header/64.bin enemy/64.bin foreground/64.bin block/64.bin background/64.bin 
+65	platform/00.asm bgscroll/5E.bin header/65.bin enemy/65.bin foreground/65.bin block/65.bin background/27.bin 
+66	platform/00.asm bgscroll/5E.bin header/66.bin enemy/66.bin foreground/66.bin block/66.bin background/27.bin 
+67	platform/00.asm bgscroll/67.bin header/67.bin enemy/67.bin foreground/67.bin block/67.bin background/27.bin 
+68	platform/00.asm bgscroll/68.bin header/68.bin enemy/68.bin foreground/68.bin block/68.bin background/14.bin 
+69	platform/00.asm bgscroll/69.bin header/69.bin enemy/69.bin foreground/69.bin block/69.bin background/15.bin 
+6A	platform/00.asm bgscroll/6A.bin header/6A.bin enemy/6A.bin foreground/6A.bin block/6A.bin background/00.bin 
+6B	platform/00.asm bgscroll/6B.bin header/6B.bin enemy/6B.bin foreground/6B.bin block/6B.bin background/00.bin 
+6C	platform/00.asm bgscroll/4A.bin header/6C.bin enemy/6C.bin foreground/6C.bin block/6C.bin background/4A.bin 
+6D	platform/00.asm bgscroll/4A.bin header/6D.bin enemy/6D.bin foreground/6D.bin block/6D.bin background/4A.bin 
+6E	platform/00.asm bgscroll/6E.bin header/6E.bin enemy/6E.bin foreground/6E.bin block/6E.bin background/32.bin 
+6F	platform/00.asm bgscroll/6F.bin header/6F.bin enemy/6F.bin foreground/6F.bin block/6F.bin background/38.bin 
+70	platform/00.asm bgscroll/70.bin header/70.bin enemy/70.bin foreground/70.bin block/70.bin background/36.bin 
+71	platform/00.asm bgscroll/71.bin header/71.bin enemy/71.bin foreground/71.bin block/71.bin background/36.bin 
+72	platform/00.asm bgscroll/72.bin header/72.bin enemy/72.bin foreground/72.bin block/72.bin background/72.bin 
+73	platform/00.asm bgscroll/01.bin header/73.bin enemy/73.bin foreground/73.bin block/73.bin background/18.bin 
+74	platform/00.asm bgscroll/74.bin header/74.bin enemy/74.bin foreground/74.bin block/74.bin background/19.bin 
+75	platform/00.asm bgscroll/75.bin header/75.bin enemy/75.bin foreground/75.bin block/75.bin background/75.bin 
+76	platform/00.asm bgscroll/40.bin header/76.bin enemy/76.bin foreground/76.bin block/76.bin background/40.bin 
+77	platform/00.asm bgscroll/09.bin header/77.bin enemy/77.bin foreground/77.bin block/77.bin background/47.bin 
+78	platform/00.asm bgscroll/43.bin header/78.bin enemy/78.bin foreground/78.bin block/78.bin background/64.bin 
+79	platform/00.asm bgscroll/79.bin header/79.bin enemy/79.bin foreground/79.bin block/79.bin background/00.bin 
+7A	platform/00.asm bgscroll/6E.bin header/7A.bin enemy/7A.bin foreground/7A.bin block/7A.bin background/32.bin 
+7B	platform/00.asm bgscroll/4A.bin header/7B.bin enemy/7B.bin foreground/7B.bin block/7B.bin background/4A.bin 
+7C	platform/00.asm bgscroll/7C.bin header/7C.bin enemy/7C.bin foreground/7C.bin block/7C.bin background/7C.bin 
+7D	platform/00.asm bgscroll/7D.bin header/7D.bin enemy/7D.bin foreground/7D.bin block/7D.bin background/7D.bin 

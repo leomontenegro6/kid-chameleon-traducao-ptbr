@@ -1,0 +1,9 @@
+{
+	"header":	"level/header/64.bin",
+	"platform":	"level/platform/64.asm",
+	"bgscroll":	"level/bgscroll/43.bin",
+	"enemy":	"level/enemy/64.bin",
+	"foreground":	"level/foreground/64.bin",
+	"block":	"level/block/64.bin",
+	"background":	"level/background/64.bin"
+}
