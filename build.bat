@@ -1,5 +1,8 @@
 @ECHO OFF
 
+REM // recompress the edited assets
+call recompress_assets.bat
+
 REM // make sure we can write to the file kid_built.bin
 REM // also make a backup to kid_built.prev.bin
 IF NOT EXIST kid_built.bin goto LABLNOCOPY
