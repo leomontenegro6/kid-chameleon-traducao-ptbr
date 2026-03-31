@@ -31385,7 +31385,7 @@ CTRL_END        = $FF
 	charset '9',$64
 	charset '0',$65
 	charset '.',$66
-	charset	39,$67
+	charset	$B4,$67
 	charset ',',$68
 	charset '!',$69
 	charset '?',$6A
@@ -31424,7 +31424,7 @@ IntroText4:
     dc.b "DEMAIS.", CTRL_LINEBREAK, CTRL_LINEBREAK
     textwait $40
     dc.b "O CHEFXO DO JOGO FUGIU,", CTRL_LINEBREAK
-    dc.b "E COME'OU A CAPTURAR OS", CTRL_LINEBREAK
+    dc.b "E COME´OU A CAPTURAR OS", CTRL_LINEBREAK
     dc.b "JOGADORES AO DERROTAR ELES", CTRL_LINEBREAK
     dc.b "NO JOGO.", CTRL_END
     align 2
