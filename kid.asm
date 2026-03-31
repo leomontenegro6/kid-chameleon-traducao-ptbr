@@ -32175,15 +32175,22 @@ loc_1CEF8:
 OptText5_InnerPtr:
 	perm3 (OptText5_SPEED-OptText5), (OptText5_JUMP-OptText5), (OptText5_SPECIAL-OptText5)
 	align 2
-	
+
+	charset '~',$65
+	charset $B4,$67	; apostrophe
+	charset '^',$6A
+	charset ' ',$6D 
+
 OptText5:
 OptText5_SPEED:
-    dc.b "CORRERgm",0
+    dc.b "CORRER  ",0
 OptText5_JUMP:
-    dc.b "PULARmmm",0
+    dc.b "PULAR   ",0
 OptText5_SPECIAL:
     dc.b "ESPECIAL",0
 	align 2
+
+	charset
 
 OptText6:	dc.b   5
 	dc.b   5
@@ -32386,7 +32393,7 @@ DrawTextLine:
 	beq.w	.clrlineslower
 	move.w	#$00,(a6)
 	bra 	.clrlinesupperloop
-	
+
 .clrlineslower:
 	move.w 	(a7)+,d5	; restore d5
 	move.l 	(a7)+,a4	; restore a4
@@ -32429,13 +32436,20 @@ loc_1D068:
 	move.b	(a4)+,d5	; next letter
 	beq.w	loc_1D07A
 	move.w 	(Options_Plane_Position).w,d3
-	cmpi.b 	#$67,d5		; Compare with ascii letter 'g'... if equal it's accent
-	beq.s	.accent
-	cmpi.b 	#$6A,d5		; Compare with ascii letter 'j'... if equal it's accent
-	beq.s	.accent
+	cmpi.b  #$65,d5		; Compare with letter '~'... if equal it's tilde accent
+	beq.s	.tilde_accent
+	cmpi.b 	#$67,d5		; Compare with letter '´'... if equal it's accute accent
+	beq.s	.accute_accent
+	cmpi.b 	#$6A,d5		; Compare with letter '^'... if equal it's circumflex accent
+	beq.s	.circumflex_accent 
 	bra.s	.normal
+.accute_accent:
+	sub.w 	#2,d3		; Y=Y-1
+	bra.s 	.accent
+.tilde_accent:
+.circumflex_accent:
 .accent:
-	sub.w 	#$2,d3		; Y=Y-1
+	sub.w 	#2,d3		; Y=Y-1
 	move.w 	d3,(Options_Plane_Position).w
 	sub.w 	#$80,d3		; X=X-1
 .normal:
