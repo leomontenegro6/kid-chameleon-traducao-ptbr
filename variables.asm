@@ -206,6 +206,7 @@ Options_Suboption_Speed = $FFFFFDC9	; byte: selected sub-option 3 in options men
 Options_Suboption_Controls = $FFFFFDCA	; word: selected sub-option 2 in options menu: Controls (0-5) 
 Options_Selected_Option = $FFFFFDCC	; word: currently selected option in options menu, also in level select
 Clocks_collected = 	$FFFFFDCE	; word
+Options_Plane_Position = $FFFFFDD0	; word
 
 ; GfxObject RAM offsets
 ; 0: (long) pointer to next objectData

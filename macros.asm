@@ -77,6 +77,19 @@ ptfm		macro	xpos, ypos, bufL, bufR, bufT, bufB, t, s, h, v, pp
 		dc.w	pp
 		endm
 
+; ---------------------------------------------------------------------------
+; Permutation macro: generates 6 combinations of 3 values with one fixed
+; Usage: perm3 a, b, c
+; Output: ABC, ACB, BAC, BCA, CAB, CBA (0 is fixed in position 4)
+perm3	macro	va, vb, vc
+		dc.b	va, vb, vc, 0
+		dc.b	va, vc, vb, 0
+		dc.b	vb, va, vc, 0
+		dc.b	vb, vc, va, 0
+		dc.b	vc, va, vb, 0
+		dc.b	vc, vb, va, 0
+		endm
+
 ; simplifying macros and functions, taken from Sonic 2 disassembly
 ; ---------------------------------------------------------------------------
 ; VDP addresses

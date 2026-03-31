@@ -32149,7 +32149,7 @@ loc_1CED6:
 	move.w	(Options_Suboption_Controls).w,d5
 	add.w	d5,d5
 	add.w	d5,d5
-	lea	unk_1CF28(pc,d5.w),a3
+	lea		OptText5_InnerPtr(pc,d5.w),a3
 	moveq	#2,d2
 
 loc_1CEF8:
@@ -32171,58 +32171,20 @@ loc_1CEF8:
 ; End of function DrawOptText2
 
 ; ---------------------------------------------------------------------------
-unk_1CF28:	dc.b   0
-	dc.b   9
-	dc.b $12
-	dc.b   0
-	dc.b   0
-	dc.b $12
-	dc.b   9
-	dc.b   0
-	dc.b   9
-	dc.b   0
-	dc.b $12
-	dc.b   0
-	dc.b   9
-	dc.b $12
-	dc.b   0
-	dc.b   0
-	dc.b $12
-	dc.b   0
-	dc.b   9
-	dc.b   0
-	dc.b $12
-	dc.b   9
-	dc.b   0
-	dc.b   0
-OptText5:	dc.b $43 ; C
-	dc.b $4F ; O
-	dc.b $52 ; R
-	dc.b $52 ; R
-	dc.b $45 ; E
-	dc.b $52 ; R
-	dc.b $6D ; m
-	dc.b $6D ; m
-	dc.b   0
-	dc.b $50 ; P
-	dc.b $55 ; U
-	dc.b $4C ; L
-	dc.b $41 ; A
-	dc.b $52 ; R
-	dc.b $6D ; m
-	dc.b $6D ; m
-	dc.b $6D ; m
-	dc.b   0
-	dc.b $45 ; E
-	dc.b $53 ; S
-	dc.b $50 ; P
-	dc.b $45 ; E
-	dc.b $43 ; C
-	dc.b $49 ; I
-	dc.b $41 ; A
-	dc.b $4C ; L
-	dc.b   0
-	dc.b   0
+
+OptText5_InnerPtr:
+	perm3 (OptText5_SPEED-OptText5), (OptText5_JUMP-OptText5), (OptText5_SPECIAL-OptText5)
+	align 2
+	
+OptText5:
+OptText5_SPEED:
+    dc.b "CORRERmm",0
+OptText5_JUMP:
+    dc.b "PULARmmm",0
+OptText5_SPECIAL:
+    dc.b "ESPECIAL",0
+	align 2
+
 OptText6:	dc.b   5
 	dc.b   5
 	dc.b $41 ; A
@@ -32403,14 +32365,12 @@ DrawTextLine_Offset:
 
 DrawTextLine:
 				; DrawTextLine_Offset+14p
-	move.w	d7,d5
-	mulu.w	#$80,d5
-	add.w	d6,d5
-	add.w	d6,d5
-	asl.l	#2,d5
-	lsr.w	#2,d5
-	addi.w	#$4000,d5
-	swap	d5
+	move.w	d7,d5		; move line number to d5
+	mulu.w	#$80,d5 	; multiply by $80
+	add.w	d6,d5		;  
+	add.w	d6,d5		; add col * 2
+	move.w 	d5,(Options_Plane_Position).w
+	;swap	d5
 	move.w	#$4DC,d7
 	tst.b	d4
 	beq.w	loc_1D050
@@ -32424,13 +32384,36 @@ loc_1D050:
 
 loc_1D05E:
 	add.w	d6,d7
-	jsr	(j_sub_914).w
-	move.l	d5,4(a6)
+	jsr		(j_sub_914).w
+	;move.l	d5,4(a6) ; write VDPcomm with position to write on plane
+	move.l	d3,-(a7) ; save d3
+	clr.l 	d3		 ; clear d3
 
 loc_1D068:
 	moveq	#0,d5
 	move.b	(a4)+,d5	; next letter
 	beq.w	loc_1D07A
+	move.w 	(Options_Plane_Position).w,d3
+	cmpi.b 	#$67,d5		; Compare with ascii letter 'g'... if equal it's accent
+	cmpi.b 	#$6A,d5		; Compare with ascii letter 'j'... if equal it's accent
+	bne		.normal
+.accent:
+	sub.w 	#$2,d3		; Y=Y-1
+	move.w 	d3,(Options_Plane_Position).w
+	sub.w 	#$80,d3		; X=X-1
+.normal:
+	asl.l	#2,d3		; 
+	lsr.w	#2,d3		; multiply result by 2, later divide by 2, to round value
+	addi.w	#$4000,d3	; add plane
+	swap 	d3
+	move.l	d3,4(a6)
+.incplaneposition
+	clr.l 	d3
+	move.w 	(Options_Plane_Position).w,d3
+	add.w	#1,d3		;  
+	add.w	#1,d3		; add col * 2
+	move.w 	d3,(Options_Plane_Position).w
+.transformasciitotile
 	subi.w	#$41,d5
 	add.w	d7,d5
 	move.w	d5,(a6)		; put onto plane
@@ -32438,7 +32421,8 @@ loc_1D068:
 ; ---------------------------------------------------------------------------
 
 loc_1D07A:
-	jsr	(j_sub_924).w
+	move.l 	(a7)+,d3 ; restore d3
+	jsr		(j_sub_924).w
 	rts			; end of text
 ; End of function DrawTextLine
 
