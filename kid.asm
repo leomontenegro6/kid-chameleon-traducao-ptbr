@@ -31364,41 +31364,92 @@ loc_1C5F4:
 ; End of function sub_1C5D0
 
 ; ---------------------------------------------------------------------------
-; Chart of characters
-; text value - meaning
-;   $5C-$65 - numbers 1-9, 0
-;    f  $66 - .
-;    g  $67 - '
-;    h  $68 - ,
-;    i  $69 - !
-;    j  $6A - ?
-;   kl  $6B,$6C - (c) copyright
-; \xFD  $FD - linebreak
-; \xFE  $FE - delay, followed by a byte indicating the duration of delay
-; \xFF  $FF - end of text
 ; Headers: VRAM destination plane address, VRAM base tile, delay between characters, x pos, y pos
-IntroText1:	dc.w   0, $67D3, 2, 8, 2
-	dc.b $FE, $20, "CHEGOU UMA MZQUINA ARCADE", $FD, "NOVA NOS FLIPERAMAS", $FD
-	dc.b $FE, $20, "ONDE O JOGADOR ENTRAVA", $FD, "NELA PRA JOGARf", $FF
-	align 2
-IntroText2:	dc.w $E000, $C7D3, 2, 7, 3
-	dc.b $FE, $90, "ELA USAVA HOLOGRAMAS PARA", $FD, "CRIAR UMA REALIDADE VIRTUAL", $FD, "FORA DO COMUMf", $FF
-	align 2
-IntroText3:	dc.w   0, $67D3, 2, $A, 4
-	dc.b $FE, $20, "TODO MUNDO JOGOU NELAf", $FF
-	align 2
-IntroText4:	dc.w   0, $C7D3, 2, 6, 8
-	dc.b $FE, $20, "MAS ERA UM TANTO REALISTA", $FD, "DEMAISf", $FD, $FD
-	dc.b $FE, $40, "O CHEFXO DO JOGO FUGIUh", $FD, "E COME", $67, "OU A CAPTURAR OS", $FD, "JOGADORES AO DERROTAR ELES", $FD, "NO JOGOf", $FF
-	align 2
-IntroText5:	dc.w   0, $C7D3, 2, $19, $3
-	dc.b $FE, $20, "ESSA ", $63, " A", $FD, "HIST", $6A, "RIA DE", $FD, "UM CARA DURO", $FD, "DE DERROTARf", $FD, $FD
-	dc.b $FE, $60, "UM CARA", $FD, "CONHECIDO", $FD, "COMOfff", $FF
-	align 2
-SegaText:	dc.w   0, $67D3, 0, $0D, $19
-	dc.b $6B, $6C ; copyright symbol
-	dc.b $5C, $64, $64, $5D, " SEGAh ", $5D, "O", $5D, $61, " FfUfRfTf", $FF	; 1992 SEGA, 2026 F.U.R.T.
-	align 2
+; ===========================================================================
+; Intro Text Data with Constants
+; ===========================================================================
+
+; Constants for Control Codes
+CTRL_LINEBREAK  = $FD
+CTRL_END        = $FF
+
+; Charset Mapping
+	charset '1',$5C
+	charset '2',$5D
+	charset '3',$5E
+	charset '4',$5F
+	charset '5',$60
+	charset '6',$61
+	charset '7',$62
+	charset '8',$63
+	charset '9',$64
+	charset '0',$65
+	charset '.',$66
+	charset	$B4,$67
+	charset ',',$68
+	charset '!',$69
+	charset '?',$6A
+	charset '(',$6B
+	charset ')',$6C
+
+; ---------------------------------------------------------------------------
+IntroText1: 
+    textheader 0, $67D3, 2, 8, 2
+    textwait $20
+    dc.b "CHEGOU UMA MZQUINA ARCADE", CTRL_LINEBREAK
+    dc.b "NOVA NOS FLIPERAMAS", CTRL_LINEBREAK
+    textwait $20
+    dc.b "ONDE O JOGADOR ENTRAVA", CTRL_LINEBREAK
+    dc.b "NELA PRA JOGAR.", CTRL_END
+    align 2
+
+IntroText2: 
+    textheader $E000, $C7D3, 2, 7, 3
+    textwait $90
+    dc.b "ELA USAVA HOLOGRAMAS PARA", CTRL_LINEBREAK
+    dc.b "CRIAR UMA REALIDADE VIRTUAL", CTRL_LINEBREAK
+    dc.b "FORA DO COMUM.", CTRL_END
+    align 2
+
+IntroText3: 
+    textheader 0, $67D3, 2, $0A, 4
+    textwait $20
+	dc.b "TODO MUNDO JOGOU NELA.", CTRL_END
+    align 2
+
+IntroText4: 
+    textheader 0, $C7D3, 2, 6, 8
+    textwait $20
+    dc.b "MAS ERA UM TANTO REALISTA", CTRL_LINEBREAK
+    dc.b "DEMAIS.", CTRL_LINEBREAK, CTRL_LINEBREAK
+    textwait $40
+    dc.b "O CHEFXO DO JOGO FUGIU,", CTRL_LINEBREAK
+    dc.b "E COME´OU A CAPTURAR OS", CTRL_LINEBREAK
+    dc.b "JOGADORES AO DERROTAR ELES", CTRL_LINEBREAK
+    dc.b "NO JOGO.", CTRL_END
+    align 2
+
+IntroText5: 
+    textheader 0, $C7D3, 2, $19, 3
+    textwait $20
+    dc.b "ESSA 8 A", CTRL_LINEBREAK
+    dc.b "HIST?RIA DE", CTRL_LINEBREAK
+    dc.b "UM CARA DURO", CTRL_LINEBREAK
+    dc.b "DE DERROTAR.", CTRL_LINEBREAK, CTRL_LINEBREAK
+    textwait $60
+    dc.b "UM CARA", CTRL_LINEBREAK
+    dc.b "CONHECIDO", CTRL_LINEBREAK
+    dc.b "COMO...", CTRL_END
+    align 2
+
+SegaText:   
+    textheader 0, $67D3, 0, $0D, $19
+    dc.b "()" ; (c) copyright
+    dc.b "1992 SEGA, 2O26 F.U.R.T", CTRL_END
+    align 2
+
+	charset
+
 ; ---------------------------------------------------------------------------
 
 loc_1C7A0:
@@ -31438,38 +31489,76 @@ loc_1C7D2:
 
 loc_1C7DC:
 	cmp.b	(off_20).w,d6	; This is likely a programming error and they forgot the # sign
-	bne.s	loc_1C7E6
+	bne.s	DrawIntroText
 	move.b	#$6D,d6
 
-loc_1C7E6:
-	subi.b	#$41,d6
-	bsr.s	sub_1C7F6
-	addq.w	#1,d1
-	move.w	4(a0),d0
-	beq.s	loc_1C7B6
-	bra.s	loc_1C7AE
+; Constants for Accents
+TILDE       = $65
+ACCUTE      = $67
+CIRCUMFLEX  = $6A 
 
-; =============== S U B	R O U T	I N E =======================================
+; ---------------------------------------------------------------------------
+; Intro Texts Drawing Logic
+; ---------------------------------------------------------------------------
+DrawIntroText:
+    ; --- Accent Check ---
+    cmpi.b  #TILDE, d6
+    beq.s   .is_accent
+    cmpi.b  #ACCUTE, d6
+    beq.s   .is_accute
+    cmpi.b  #CIRCUMFLEX, d6
+    beq.s   .is_accent
 
+    ; --- Standard Character ---
+    subi.b  #$41, d6            ; Convert ASCII to Tile Index
+    bsr.s   sub_1C7F6           ; Draw tile
+    addq.w  #1, d1              ; Increment Column (Next X position)
+    bra.s   .check_next
 
+.is_accute:
+    subq.w  #1, d1              ; Backtrack X (Specific for Accute alignment)
+.is_accent:
+    subi.b  #$41, d6            ; Convert ASCII to Tile Index
+    bsr.s   .draw_accent        ; Draw above current position
+    ; Note: d1 (Column) is NOT incremented here, keeping the cursor on the same X
+
+.check_next:
+    move.w  4(a0), d0           ; Check delay/timer
+    beq.s   loc_1C7B6           ; Exit if needed
+    bra.s   loc_1C7AE           ; Continue loop
+
+; ---------------------------------------------------------------------------
+; VDP Writing Sub-routines
+; ---------------------------------------------------------------------------
+
+; Helper to draw one row above
+.draw_accent:
+    subq.w  #1, d2              ; Move one row up
+    bsr.s   sub_1C7F6           ; Draw the accent tile
+    addq.w  #1, d2              ; Restore row for the next character
+    rts
+
+; Standard Tilemap Drawing Routine
 sub_1C7F6:
-	move.w	d2,d4
-	lsl.w	#7,d4
-	add.w	d1,d4
-	add.w	d1,d4
-	add.w	(a0),d4
-	move.w	d4,d5
-	andi.w	#$3FFF,d5
-	ori.w	#$4000,d5
-	swap	d5
-	rol.w	#2,d4
-	andi.w	#3,d4
-	move.w	d4,d5
-	move.l	d5,4(a6)
-	add.w	2(a0),d6
-	move.w	d6,(a6)
-	rts
-; End of function sub_1C7F6
+    move.w  d2, d4              ; d2 = Row
+    lsl.w   #7, d4              ; d4 = row * 128 (Plane width)
+    add.w   d1, d4              ; d1 = Col
+    add.w   d1, d4              ; Col * 2 (2 bytes per tile)
+    add.w   (a0), d4            ; Add VRAM Base from Header
+    
+    ; Format VDP Command (Address in d4 -> Command in d5)
+    move.w  d4, d5
+    andi.w  #$3FFF, d5
+    ori.w   #$4000, d5
+    swap    d5
+    rol.w   #2, d4
+    andi.w  #3, d4
+    move.w  d4, d5
+    
+    move.l  d5, 4(a6)           ; Send Command to VDP Control Port
+    add.w   2(a0), d6           ; Add Base Tile ID to Character Index
+    move.w  d6, (a6)            ; Write Tile to VDP Data Port
+    rts
 
 
 ; =============== S U B	R O U T	I N E =======================================
