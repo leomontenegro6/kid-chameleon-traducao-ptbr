@@ -77,31 +77,24 @@ ptfm		macro	xpos, ypos, bufL, bufR, bufT, bufB, t, s, h, v, pp
 		dc.w	pp
 		endm
 
-; ===========================================================================
-; MACRO: textheader
-; Parameters:
-;   1: VRAM Plane Address (e.g., $C000 or 0)
-;   2: Base Tile ID (e.g., $67D3)
-;   3: Delay between chars
-;   4: X Position (Column)
-;   5: Y Position (Row)
-; ===========================================================================
-textheader macro addr, tile, delay, xpos, ypos
-    dc.w    addr       ; Destination VRAM address
-    dc.w    tile       ; Starting Tile ID in VRAM
-    dc.w    delay      ; Speed/Delay between characters
-    dc.w    xpos       ; Horizontal Position
-    dc.w    ypos       ; Vertical Position
-    endm
+; ---------------------------------------------------------------------------
+; Permutation macro: generates 6 combinations of 3 values with one fixed
+; Usage: perm3 a, b, c
+; Output: ABC, ACB, BAC, BCA, CAB, CBA (0 is fixed in position 4)
+perm3	macro	va, vb, vc
+		dc.b	va, vb, vc, 0
+		dc.b	va, vc, vb, 0
+		dc.b	vb, va, vc, 0
+		dc.b	vb, vc, va, 0
+		dc.b	vc, va, vb, 0
+		dc.b	vc, vb, va, 0
+		endm
 
-; ===========================================================================
-; MACRO: textwait
-; Parameter:
-;   1: Duration of the delay (byte)
-; ===========================================================================
-textwait macro duration
-    dc.b    $FE, duration
-    endm
+; ---------------------------------------------------------------------------
+textpos	macro	vx,vy
+		dc.b	vx
+		dc.b	vy
+		endm
 
 ; simplifying macros and functions, taken from Sonic 2 disassembly
 ; ---------------------------------------------------------------------------
