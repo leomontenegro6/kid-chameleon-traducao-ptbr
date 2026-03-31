@@ -31489,38 +31489,76 @@ loc_1C7D2:
 
 loc_1C7DC:
 	cmp.b	(off_20).w,d6	; This is likely a programming error and they forgot the # sign
-	bne.s	loc_1C7E6
+	bne.s	DrawIntroText
 	move.b	#$6D,d6
 
-loc_1C7E6:
-	subi.b	#$41,d6
-	bsr.s	sub_1C7F6
-	addq.w	#1,d1
-	move.w	4(a0),d0
-	beq.s	loc_1C7B6
-	bra.s	loc_1C7AE
+; Constants for Accents
+TILDE       = $65
+ACCUTE      = $67
+CIRCUMFLEX  = $6A 
 
-; =============== S U B	R O U T	I N E =======================================
+; ---------------------------------------------------------------------------
+; Intro Texts Drawing Logic
+; ---------------------------------------------------------------------------
+DrawIntroText:
+    ; --- Accent Check ---
+    cmpi.b  #TILDE, d6
+    beq.s   .is_accent
+    cmpi.b  #ACCUTE, d6
+    beq.s   .is_accute
+    cmpi.b  #CIRCUMFLEX, d6
+    beq.s   .is_accent
 
+    ; --- Standard Character ---
+    subi.b  #$41, d6            ; Convert ASCII to Tile Index
+    bsr.s   sub_1C7F6           ; Draw tile
+    addq.w  #1, d1              ; Increment Column (Next X position)
+    bra.s   .check_next
 
+.is_accute:
+    subq.w  #1, d1              ; Backtrack X (Specific for Accute alignment)
+.is_accent:
+    subi.b  #$41, d6            ; Convert ASCII to Tile Index
+    bsr.s   .draw_accent        ; Draw above current position
+    ; Note: d1 (Column) is NOT incremented here, keeping the cursor on the same X
+
+.check_next:
+    move.w  4(a0), d0           ; Check delay/timer
+    beq.s   loc_1C7B6           ; Exit if needed
+    bra.s   loc_1C7AE           ; Continue loop
+
+; ---------------------------------------------------------------------------
+; VDP Writing Sub-routines
+; ---------------------------------------------------------------------------
+
+; Helper to draw one row above
+.draw_accent:
+    subq.w  #1, d2              ; Move one row up
+    bsr.s   sub_1C7F6           ; Draw the accent tile
+    addq.w  #1, d2              ; Restore row for the next character
+    rts
+
+; Standard Tilemap Drawing Routine
 sub_1C7F6:
-	move.w	d2,d4
-	lsl.w	#7,d4
-	add.w	d1,d4
-	add.w	d1,d4
-	add.w	(a0),d4
-	move.w	d4,d5
-	andi.w	#$3FFF,d5
-	ori.w	#$4000,d5
-	swap	d5
-	rol.w	#2,d4
-	andi.w	#3,d4
-	move.w	d4,d5
-	move.l	d5,4(a6)
-	add.w	2(a0),d6
-	move.w	d6,(a6)
-	rts
-; End of function sub_1C7F6
+    move.w  d2, d4              ; d2 = Row
+    lsl.w   #7, d4              ; d4 = row * 128 (Plane width)
+    add.w   d1, d4              ; d1 = Col
+    add.w   d1, d4              ; Col * 2 (2 bytes per tile)
+    add.w   (a0), d4            ; Add VRAM Base from Header
+    
+    ; Format VDP Command (Address in d4 -> Command in d5)
+    move.w  d4, d5
+    andi.w  #$3FFF, d5
+    ori.w   #$4000, d5
+    swap    d5
+    rol.w   #2, d4
+    andi.w  #3, d4
+    move.w  d4, d5
+    
+    move.l  d5, 4(a6)           ; Send Command to VDP Control Port
+    add.w   2(a0), d6           ; Add Base Tile ID to Character Index
+    move.w  d6, (a6)            ; Write Tile to VDP Data Port
+    rts
 
 
 ; =============== S U B	R O U T	I N E =======================================
