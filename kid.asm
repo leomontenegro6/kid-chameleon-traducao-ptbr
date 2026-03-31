@@ -29917,9 +29917,9 @@ loc_1B6A2:
 loc_1B6AC:
 	move.w	#$1E,-(sp)
 	jsr	(j_Hibernate_Object).w
-	move.w	#$FFFF,a0
-	jsr	(j_Allocate_ObjectSlot).w
-	move.l	#loc_1BB10,4(a0)
+	;move.w	#$FFFF,a0
+	;jsr	(j_Allocate_ObjectSlot).w
+	;move.l	#loc_1BB10,4(a0)
 	move.w	#$27,$44(a0)
 	moveq	#$28,d2
 	moveq	#0,d3
@@ -30378,9 +30378,9 @@ loc_1BAB4:
 ; ---------------------------------------------------------------------------
 ;loc_1BAC2:
 Obj_TitleMenu:
-	move.w	#$FFFF,a0
-	jsr	(j_Allocate_ObjectSlot).w
-	move.l	#loc_1BB10,4(a0)
+	;move.w	#$FFFF,a0
+	;jsr	(j_Allocate_ObjectSlot).w
+	;move.l	#loc_1BB10,4(a0)
 	move.w	#$FFFF,a0
 	jsr	(j_Allocate_ObjectSlot).w
 	move.l	#loc_1C7A0,4(a0)
@@ -31425,8 +31425,8 @@ IntroText4:
     dc.b "DEMAIS.", CTRL_LINEBREAK, CTRL_LINEBREAK
     textwait $40
     dc.b "O CHEF~AO DO JOGO FUGIU,", CTRL_LINEBREAK
-    dc.b "E COME", $67, "OU A CAPTURAR OS", CTRL_LINEBREAK
-    dc.b "JOGADORES AO DERROTAR ELES", CTRL_LINEBREAK
+    dc.b "E COME", $67, "OU A APRISIONAR OS", CTRL_LINEBREAK
+    dc.b "JOGADORES AO GANHAR DELES", CTRL_LINEBREAK
     dc.b "NO JOGO.", CTRL_END
     align 2
 
@@ -31436,7 +31436,7 @@ IntroText5:
     dc.b "ESSA ´E A", CTRL_LINEBREAK
     dc.b "HIST´ORIA DE", CTRL_LINEBREAK
     dc.b "UM CARA DURO", CTRL_LINEBREAK
-    dc.b "DE DERROTAR.", CTRL_LINEBREAK, CTRL_LINEBREAK
+    dc.b "DE PERDER.", CTRL_LINEBREAK, CTRL_LINEBREAK
     textwait $60
     dc.b "UM CARA", CTRL_LINEBREAK
     dc.b "CONHECIDO", CTRL_LINEBREAK
