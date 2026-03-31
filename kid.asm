@@ -31425,7 +31425,7 @@ IntroText4:
     dc.b "DEMAIS.", CTRL_LINEBREAK, CTRL_LINEBREAK
     textwait $40
     dc.b "O CHEF~AO DO JOGO FUGIU,", CTRL_LINEBREAK
-    dc.b "E COMECOU A CAPTURAR OS", CTRL_LINEBREAK
+    dc.b "E COME", $67, "OU A CAPTURAR OS", CTRL_LINEBREAK
     dc.b "JOGADORES AO DERROTAR ELES", CTRL_LINEBREAK
     dc.b "NO JOGO.", CTRL_END
     align 2
@@ -31445,8 +31445,8 @@ IntroText5:
 
 SegaText:   
     textheader 0, $67D3, 0, $0D, $19
-    dc.b "()" ; (c) copyright
-    dc.b "1992 SEGA, 2O26 F.U.R.T", CTRL_END
+    dc.b "()1992 SEGA, 2O26 F.U.R.T.", CTRL_LINEBREAK
+    dc.b "  WWW.ROMHACKING.NET.BR  ", CTRL_END
     align 2
 
 	charset
@@ -32272,13 +32272,13 @@ OptText7:
 	align 2
 OptText8:
 	textpos 15,12
-	dc.b "ACA~O NORMAL",0
+	dc.b "A", $67, "A~O NORMAL",0
 	textpos 13,14
 	dc.b "SEGURAR CORRE",0
 	align 2
 OptText9:
 	textpos 15,12
-	dc.b "ACA~O RA´PIDA",0
+	dc.b "A", $67, "A~O RA´PIDA",0
 	textpos 13,14
 	dc.b " SEGURAR ANDA",0
 	align 2
