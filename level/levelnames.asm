@@ -6,7 +6,7 @@
 ; \x83 = "'"
 ; \x84 = " "
 TitleText_00:
-	dc.b	"floresta\0\x7E\x84lagoa\0azul"
+	dc.b	"blue\0lake\0woods"
 	dc.b	$FF
 TitleText_02:
 	dc.b	"highwater\0pass"

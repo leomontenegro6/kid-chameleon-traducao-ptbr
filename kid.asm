@@ -31396,7 +31396,7 @@ CTRL_END        = $FF
 IntroText1: 
     textheader 0, $67D3, 2, 8, 2
     textwait $20
-    dc.b "CHEGOU UMA MZQUINA ARCADE", CTRL_LINEBREAK
+    dc.b "CHEGOU UMA M´AQUINA ARCADE", CTRL_LINEBREAK
     dc.b "NOVA NOS FLIPERAMAS", CTRL_LINEBREAK
     textwait $20
     dc.b "ONDE O JOGADOR ENTRAVA", CTRL_LINEBREAK
@@ -31423,8 +31423,8 @@ IntroText4:
     dc.b "MAS ERA UM TANTO REALISTA", CTRL_LINEBREAK
     dc.b "DEMAIS.", CTRL_LINEBREAK, CTRL_LINEBREAK
     textwait $40
-    dc.b "O CHEFXO DO JOGO FUGIU,", CTRL_LINEBREAK
-    dc.b "E COME´OU A CAPTURAR OS", CTRL_LINEBREAK
+    dc.b "O CHEFA~O DO JOGO FUGIU,", CTRL_LINEBREAK
+    dc.b "E COMECOU A CAPTURAR OS", CTRL_LINEBREAK
     dc.b "JOGADORES AO DERROTAR ELES", CTRL_LINEBREAK
     dc.b "NO JOGO.", CTRL_END
     align 2
@@ -31432,8 +31432,8 @@ IntroText4:
 IntroText5: 
     textheader 0, $C7D3, 2, $19, 3
     textwait $20
-    dc.b "ESSA 8 A", CTRL_LINEBREAK
-    dc.b "HIST?RIA DE", CTRL_LINEBREAK
+    dc.b "ESSA ´E A", CTRL_LINEBREAK
+    dc.b "HIST´ORIA DE", CTRL_LINEBREAK
     dc.b "UM CARA DURO", CTRL_LINEBREAK
     dc.b "DE DERROTAR.", CTRL_LINEBREAK, CTRL_LINEBREAK
     textwait $60
@@ -32136,7 +32136,7 @@ loc_1CE56:
 	include "charset/options.asm"
 OptText1:
 	textpos 0,0
-	dc.b "- JOGADORES -",0
+	dc.b "2 JOGADORES -",0
 	align 2
 OptText2:
 	textpos 14,0
