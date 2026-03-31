@@ -90,6 +90,12 @@ perm3	macro	va, vb, vc
 		dc.b	vc, vb, va, 0
 		endm
 
+; ---------------------------------------------------------------------------
+textpos	macro	vx,vy
+		dc.b	vx
+		dc.b	vy
+		endm
+
 ; simplifying macros and functions, taken from Sonic 2 disassembly
 ; ---------------------------------------------------------------------------
 ; VDP addresses

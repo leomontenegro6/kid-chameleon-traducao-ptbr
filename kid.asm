@@ -32047,74 +32047,28 @@ loc_1CE56:
 ; End of function DrawOptText1
 
 ; ---------------------------------------------------------------------------
-OptText1:	dc.b   0
-	dc.b   0
-	dc.b $5D ; ]
-	dc.b $6D ; m
-	dc.b $4A ; J
-	dc.b $4F ; O
-	dc.b $47 ; G
-	dc.b $41 ; A
-	dc.b $44 ; D
-	dc.b $4F ; O
-	dc.b $52 ; R
-	dc.b $45 ; E
-	dc.b $53 ; S
-	dc.b $6D ; m
-	dc.b $5B ; [
-	dc.b   0
-OptText2:	dc.b  $E
-	dc.b   0
-	dc.b $5C ; 1
-	dc.b $6D ; m
-	dc.b $43 ; C
-	dc.b $4F ; O
-	dc.b $4E ; N
-	dc.b $54 ; T
-	dc.b $52 ; R
-	dc.b $4F ; O
-	dc.b $4C ; L
-	dc.b $45 ; E
-	dc.b $6D ; m
-	dc.b   0
-OptText3:	dc.b  $E
-	dc.b   0
-	dc.b $5D ; 2
-	dc.b $6D ; m
-	dc.b $43 ; C
-	dc.b $4F ; O
-	dc.b $4E ; N
-	dc.b $54 ; T
-	dc.b $52 ; R
-	dc.b $4F ; O
-	dc.b $4C ; L
-	dc.b $45 ; E
-	dc.b $53 ; S
-	dc.b   0
-OptText4:	dc.b   0
-	dc.b   3
-	dc.b $43 ; C
-	dc.b $4F ; O
-	dc.b $4E ; N
-	dc.b $54 ; T
-	dc.b $52 ; R
-	dc.b $4F ; O
-	dc.b $4C ; L
-	dc.b $45 ; E
-	dc.b $53 ; S
-	dc.b $6D ; m
-	dc.b $5B ; [
-	dc.b   0
-	dc.b   0
-	dc.b  $C
-	dc.b   3
-	dc.b $4D ; M
-	dc.b $4F ; O
-	dc.b $44 ; D
-	dc.b $4F ; O
-	dc.b $6D ; m
-	dc.b   0
-	dc.b   0
+	include "charset/options.asm"
+OptText1:
+	textpos 0,0
+	dc.b "- JOGADORES -",0
+	align 2
+OptText2:
+	textpos 14,0
+	dc.b "1 CONTROLE ",0
+	align 2
+OptText3:
+	textpos 14,0
+	dc.b "2 CONTROLES",0
+	align 2
+OptText4:
+	textpos 0,3
+	dc.b "CONTROLES - ",0
+	align 2
+	textpos 12,3
+	dc.b "MODO ",0
+	align 2
+
+	charset
 
 ; =============== S U B	R O U T	I N E =======================================
 
@@ -32176,10 +32130,7 @@ OptText5_InnerPtr:
 	perm3 (OptText5_SPEED-OptText5), (OptText5_JUMP-OptText5), (OptText5_SPECIAL-OptText5)
 	align 2
 
-	charset '~',$65
-	charset $B4,$67	; apostrophe
-	charset '^',$6A
-	charset ' ',$6D 
+	include "charset/options.asm"
 
 OptText5:
 OptText5_SPEED:
@@ -32190,26 +32141,16 @@ OptText5_SPECIAL:
     dc.b "ESPECIAL",0
 	align 2
 
-	charset
+OptText6:
+	textpos 5, 5
+	dc.b "A -",0
+	textpos 5, 7
+	dc.b "B -",0
+	textpos 5, 9
+	dc.b "C -",0
+	align 2
 
-OptText6:	dc.b   5
-	dc.b   5
-	dc.b $41 ; A
-	dc.b $6D ; m
-	dc.b $5B ; [
-	dc.b   0
-	dc.b   5
-	dc.b   7
-	dc.b $42 ; B
-	dc.b $6D ; m
-	dc.b $5B ; [
-	dc.b   0
-	dc.b   5
-	dc.b   9
-	dc.b $43 ; C
-	dc.b $6D ; m
-	dc.b $5B ; [
-	dc.b   0
+	charset
 
 ; =============== S U B	R O U T	I N E =======================================
 
@@ -32237,89 +32178,23 @@ loc_1CF94:
 ; End of function DrawOptText3
 
 ; ---------------------------------------------------------------------------
-OptText7:	dc.b   0
-	dc.b  $C
-	dc.b $42 ; B
-	dc.b $4F ; O
-	dc.b $54 ; T
-	dc.b $58 ; Ã
-	dc.b $4F ; O
-	dc.b $6D ; m
-	dc.b $43 ; C
-	dc.b $4F ; O
-	dc.b $52 ; R
-	dc.b $52 ; R
-	dc.b $45 ; E
-	dc.b $52 ; R
-	dc.b $6D ; m
-	dc.b $5B ; [
-	dc.b $6D ; m
-	dc.b   0
-OptText8:	dc.b  $E
-	dc.b  $C
-	dc.b $41 ; A
-	dc.b $67 ; Ç
-	dc.b $58 ; Ã
-	dc.b $4F ; O
-	dc.b $6D ; m
-	dc.b $4E ; N
-	dc.b $4F ; O
-	dc.b $52 ; R
-	dc.b $4D ; M
-	dc.b $41 ; A
-	dc.b $4C ; L
-	dc.b $6D ; m
-	dc.b $6D ; m
-	
-	dc.b   0
-	dc.b  $E
-	dc.b  $E
-	dc.b $53 ; S
-	dc.b $45 ; E
-	dc.b $47 ; G
-	dc.b $55 ; U
-	dc.b $52 ; R
-	dc.b $41 ; A
-	dc.b $52 ; R
-	dc.b $6D ; m
-	dc.b $43 ; C
-	dc.b $4F ; O
-	dc.b $52 ; R
-	dc.b $52 ; R
-	dc.b $45 ; E
-	dc.b   0
-OptText9:	dc.b  $E
-	dc.b  $C
-	dc.b $41 ; A
-	dc.b $67 ; Ç
-	dc.b $58 ; Ã
-	dc.b $4F ; O
-	dc.b $6D ; m
-	dc.b $52 ; R
-	dc.b $5A ; Á
-	dc.b $50 ; P
-	dc.b $49 ; I
-	dc.b $44 ; D
-	dc.b $41 ; A
-	dc.b $6D ; m
-	dc.b $6D ; m
-	dc.b   0
-	dc.b  $E
-	dc.b  $E
-	dc.b $53 ; S
-	dc.b $45 ; E
-	dc.b $47 ; G
-	dc.b $55 ; U
-	dc.b $52 ; R
-	dc.b $41 ; A
-	dc.b $52 ; R
-	dc.b $6D ; m
-	dc.b $41 ; A
-	dc.b $4E ; N
-	dc.b $44 ; D
-	dc.b $41 ; A
-	dc.b $6D ; m
-	dc.b   0
+	include "charset/options.asm"
+OptText7:	
+	textpos 0,12
+	dc.b "BOTA~O CORRER - ",0
+	align 2
+OptText8:
+	textpos 15,12
+	dc.b "ACA~O NORMAL",0
+	textpos 13,14
+	dc.b "SEGURAR CORRE",0
+	align 2
+OptText9:
+	textpos 15,12
+	dc.b "ACA~O RA´PIDA",0
+	textpos 13,14
+	dc.b " SEGURAR ANDA",0
+	align 2
 
 ; =============== S U B	R O U T	I N E =======================================
 
@@ -32338,16 +32213,10 @@ loc_1CFFE:
 ; End of function DrawOptText4
 
 ; ---------------------------------------------------------------------------
-OptText10:	dc.b   0
-	dc.b $11
-	dc.b $53 ; S
-	dc.b $41 ; A
-	dc.b $49 ; I
-	dc.b $52 ; R
-	dc.b $6D ; m
-	dc.b $5B ; [
-	dc.b   0
-	dc.b   0
+OptText10:
+	textpos 0,17
+	dc.b "SAIR - ",0
+	align 2
 
 ; =============== S U B	R O U T	I N E =======================================
 
@@ -32367,116 +32236,136 @@ DrawTextLine_Offset:
 ; End of function DrawTextLine_Offset
 
 
-; =============== S U B	R O U T	I N E =======================================
+; =============== S U B R O U T I N E =======================================
+; Input: d7 = Line, d6 = Column, a4 = String Pointer
+; Flags: d4 = Highlight flag, d3 = Palette flag
+; Hardware: a6 = VDP Control Port ($C00004), 4(a6) = VDP Data Port ($C00000)
 
+TILDE       = $65
+ACCUTE      = $67
+CIRCUMFLEX  = $6A 
 
 DrawTextLine:
-				; DrawTextLine_Offset+14p
-	move.w	d7,d5		; move line number to d5
-	mulu.w	#$80,d5 	; multiply by $80
-	add.w	d6,d5		;  
-	add.w	d6,d5		; add col * 2
-	move.w 	d5,(Options_Plane_Position).w
+    ; --- 1. Immediate Flag Preservation ---
+    ; Push d3 and d4 to stack; d3 is used as a scratchpad during VDP calculations
+    move.w  d3, -(a7)           
+    move.w  d4, -(a7)
 
-.clrlinesupper:
-	move.l	a4,-(a7)	; save a4
-	move.w 	d5,-(a7)	; save d5
-	sub.w	#$80,d5
-	asl.l	#2,d5		; 
-	lsr.w	#2,d5		; multiply result by 2, later divide by 2, to round value
-	addi.w	#$4000,d5	; add plane
-	swap 	d5
-	move.l	d5,4(a6)
-.clrlinesupperloop:
-	moveq	#0,d5
-	move.b 	(a4)+,d5
-	beq.w	.clrlineslower
-	move.w	#$00,(a6)
-	bra 	.clrlinesupperloop
+    ; --- 2. Position Calculation (Uses d7=Line and d6=Column) ---
+    move.w  d7, d5
+    lsl.w   #7, d5              ; d5 = line * 128 (row width in bytes)
+    add.w   d6, d6              ; d6 = column * 2 (2 bytes per tile)
+    add.w   d6, d5              ; d5 = final VRAM offset
+    move.w  d5, (Options_Plane_Position).w
 
-.clrlineslower:
-	move.w 	(a7)+,d5	; restore d5
-	move.l 	(a7)+,a4	; restore a4
-	move.l 	a4,-(a7)	; save a4
-	asl.l	#2,d5		; 
-	lsr.w	#2,d5		; multiply result by 2, later divide by 2, to round value
-	addi.w	#$4000,d5	; add plane
-	swap 	d5
-	move.l	d5,4(a6)
-.clrlineslowerloop:
-	moveq	#0,d5
-	move.b 	(a4)+,d5
-	beq.w	.ishighlight
-	move.w	#$00,(a6)
-	bra 	.clrlineslowerloop
+    ; --- 3. Row Clearing Logic ---
+    move.l  a4, -(a7)           ; Save string pointer
+    subi.w  #$80, d5            ; Target upper row (accents)
+    bsr.s   .ClearRow
+    addi.w  #$80, d5            ; Target current row (text)
+    bsr.s   .ClearRow
+    move.l  (a7)+, a4           ; Restore string pointer
 
-.ishighlight:
-	move.l 	(a7)+,a4	; restore a4
-	;swap	d5
-	move.w	#$4DC,d7
-	tst.b	d4
-	beq.w	loc_1D050
-	move.w	#$509,d7
+    ; --- 4. Attribute Configuration (Retrieve flags from stack) ---
+    move.w  (a7)+, d4           ; d4 = Original Highlight flag
+    move.w  (a7)+, d3           ; d3 = Original Palette flag
+    bsr.s   .SetupAttributes    ; d7 becomes: Palette | Base Tile - ASCII 'A'
+    
+    jsr     (j_sub_914).w       ; External setup routine (if applicable)
+    move.l  d3, -(a7)           ; Save d3 for final cleanup (standard procedure)
 
-loc_1D050:
-	move.w	#$C000,d6
-	tst.b	d3		; set palette line
-	beq.w	loc_1D05E
-	move.w	#$E000,d6
+    ; --- 5. Main Drawing Loop ---
+.main_loop:
+    moveq   #0, d5
+    move.b  (a4)+, d5
+    beq.s   .done               ; End of string reached
 
-loc_1D05E:
-	add.w	d6,d7
-	jsr		(j_sub_914).w
-	;move.l	d5,4(a6) ; write VDPcomm with position to write on plane
-	move.l	d3,-(a7) ; save d3
-	clr.l 	d3		 ; clear d3
+    move.w  (Options_Plane_Position).w, d3
 
-loc_1D068:
-	moveq	#0,d5
-	move.b	(a4)+,d5	; next letter
-	beq.w	loc_1D07A
-	move.w 	(Options_Plane_Position).w,d3
-	cmpi.b  #$65,d5		; Compare with letter '~'... if equal it's tilde accent
-	beq.s	.tilde_accent
-	cmpi.b 	#$67,d5		; Compare with letter '´'... if equal it's accute accent
-	beq.s	.accute_accent
-	cmpi.b 	#$6A,d5		; Compare with letter '^'... if equal it's circumflex accent
-	beq.s	.circumflex_accent 
-	bra.s	.normal
-.accute_accent:
-	sub.w 	#2,d3		; Y=Y-1
-	bra.s 	.accent
-.tilde_accent:
-.circumflex_accent:
-.accent:
-	sub.w 	#2,d3		; Y=Y-1
-	move.w 	d3,(Options_Plane_Position).w
-	sub.w 	#$80,d3		; X=X-1
-.normal:
-	asl.l	#2,d3		; 
-	lsr.w	#2,d3		; multiply result by 2, later divide by 2, to round value
-	addi.w	#$4000,d3	; add plane
-	swap 	d3
-	move.l	d3,4(a6)
-.incplaneposition
-	clr.l 	d3
-	move.w 	(Options_Plane_Position).w,d3
-	add.w	#1,d3		;  
-	add.w	#1,d3		; add col * 2
-	move.w 	d3,(Options_Plane_Position).w
-.transformasciitotile
-	subi.w	#$41,d5
-	add.w	d7,d5
-	move.w	d5,(a6)		; put onto plane
-	bra.s	loc_1D068
+    ; Check for accent marks
+    cmpi.b  #TILDE, d5
+    beq.s   .is_accent
+    cmpi.b  #ACCUTE, d5
+    beq.s   .is_accute
+    cmpi.b  #CIRCUMFLEX, d5
+    beq.s   .is_accent
+
+    ; Standard Character Rendering
+    bsr.s   .PrepareVDP
+    add.w   d7, d5              ; Final Tile ID = Attributes + ASCII index
+    move.w  d5, (a6)            ; Write tile to VRAM data port
+    addq.w  #2, (Options_Plane_Position).w
+    bra.s   .main_loop
+
+.is_accute:
+    subq.w  #2, (Options_Plane_Position).w
+    move.w  (Options_Plane_Position).w, d3
+.is_accent:
+    subi.w  #$82, d3            ; Move VRAM target up one row
+    bsr.s   .PrepareVDP
+    add.w   d7, d5              ; Final Tile ID = Attributes + ASCII index
+    move.w  d5, (a6)            ; Write tile to VRAM (X cursor does not advance)
+    bra.s   .main_loop
+
+.done:
+    move.l  (a7)+, d3           ; Restore original d3
+    jsr     (j_sub_924).w       ; Final external cleanup routine
+    rts
+
+; ---------------------------------------------------------------------------
+; Internal Subroutines
 ; ---------------------------------------------------------------------------
 
-loc_1D07A:
-	move.l 	(a7)+,d3 ; restore d3
-	jsr		(j_sub_924).w
-	rts			; end of text
-; End of function DrawTextLine
+.SetupAttributes:
+    ; Set Base Tile index based on Highlight flag
+    move.w  #$4DC, d7           ; Default font base
+    tst.b   d4                  ; Is highlight active?
+    beq.s   .check_pal
+    move.w  #$509, d7           ; Highlighted font base
 
+.check_pal:
+    move.w  #$C000, d6          ; Palette line 2
+    tst.b   d3                  ; Check palette selection flag
+    beq.s   .combine
+    move.w  #$E000, d6          ; Palette line 3
+
+.combine:
+    add.w   d6, d7              ; Combine Palette bits with Tile base
+    subi.w  #$41, d7            ; Pre-calculate ASCII 'A' offset
+    rts
+
+.ClearRow:
+    move.l  a4, -(a7)           ; Preserve pointer for clearing pass
+    move.w  d5, d3              ; Target VRAM address
+    bsr.s   .PrepareVDP
+.clr_loop:
+    move.b  (a4)+, d0
+    beq.s   .clr_exit           ; End of string
+    ; Skip clearing for accent codes (they occupy existing character columns)
+    cmpi.b  #TILDE, d0
+    beq.s   .clr_loop
+    cmpi.b  #ACCUTE, d0
+    beq.s   .clr_loop
+    cmpi.b  #CIRCUMFLEX, d0
+    beq.s   .clr_loop
+    move.w  #0, (a6)            ; Write empty tile
+    bra.s   .clr_loop
+.clr_exit:
+    move.l  (a7)+, a4           ; Restore original pointer
+    rts
+
+.PrepareVDP:
+    ; Formats VRAM address for VDP Control Port command
+    move.l  d0, -(a7)           ; Use d0 as scratch to preserve d3
+    move.w  d3, d0
+    and.l   #$FFFF, d0
+    lsl.l   #2, d0
+    lsr.w   #2, d0
+    ori.w   #$4000, d0          ; Set VRAM Write command bits
+    swap    d0
+    move.l  d0, 4(a6)           ; Send command to VDP Control Port
+    move.l  (a7)+, d0
+    rts
 
 ; =============== S U B	R O U T	I N E =======================================
 
