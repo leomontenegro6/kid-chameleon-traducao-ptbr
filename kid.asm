@@ -32051,21 +32051,21 @@ OptText1:	dc.b   0
 	dc.b   0
 	dc.b $5D ; ]
 	dc.b $6D ; m
-	dc.b $50 ; P
-	dc.b $4C ; L
+	dc.b $4A ; J
+	dc.b $4F ; O
+	dc.b $47 ; G
 	dc.b $41 ; A
-	dc.b $59 ; Y
-	dc.b $45 ; E
+	dc.b $44 ; D
+	dc.b $4F ; O
 	dc.b $52 ; R
+	dc.b $45 ; E
 	dc.b $53 ; S
 	dc.b $6D ; m
 	dc.b $5B ; [
 	dc.b   0
-OptText2:	dc.b  $C
+OptText2:	dc.b  $E
 	dc.b   0
-	dc.b $4F ; O
-	dc.b $4E ; N
-	dc.b $45 ; E
+	dc.b $5C ; 1
 	dc.b $6D ; m
 	dc.b $43 ; C
 	dc.b $4F ; O
@@ -32074,16 +32074,12 @@ OptText2:	dc.b  $C
 	dc.b $52 ; R
 	dc.b $4F ; O
 	dc.b $4C ; L
-	dc.b $4C ; L
 	dc.b $45 ; E
-	dc.b $52 ; R
 	dc.b $6D ; m
 	dc.b   0
-OptText3:	dc.b  $C
+OptText3:	dc.b  $E
 	dc.b   0
-	dc.b $54 ; T
-	dc.b $57 ; W
-	dc.b $4F ; O
+	dc.b $5D ; 2
 	dc.b $6D ; m
 	dc.b $43 ; C
 	dc.b $4F ; O
@@ -32092,9 +32088,7 @@ OptText3:	dc.b  $C
 	dc.b $52 ; R
 	dc.b $4F ; O
 	dc.b $4C ; L
-	dc.b $4C ; L
 	dc.b $45 ; E
-	dc.b $52 ; R
 	dc.b $53 ; S
 	dc.b   0
 OptText4:	dc.b   0
@@ -32106,18 +32100,20 @@ OptText4:	dc.b   0
 	dc.b $52 ; R
 	dc.b $4F ; O
 	dc.b $4C ; L
+	dc.b $45 ; E
 	dc.b $53 ; S
 	dc.b $6D ; m
 	dc.b $5B ; [
 	dc.b   0
 	dc.b   0
-	dc.b  $B
+	dc.b  $C
 	dc.b   3
 	dc.b $4D ; M
 	dc.b $4F ; O
 	dc.b $44 ; D
-	dc.b $45 ; E
+	dc.b $4F ; O
 	dc.b $6D ; m
+	dc.b   0
 	dc.b   0
 
 ; =============== S U B	R O U T	I N E =======================================
@@ -32176,45 +32172,48 @@ loc_1CEF8:
 
 ; ---------------------------------------------------------------------------
 unk_1CF28:	dc.b   0
-	dc.b   8
-	dc.b $10
+	dc.b   9
+	dc.b $12
 	dc.b   0
 	dc.b   0
-	dc.b $10
-	dc.b   8
+	dc.b $12
+	dc.b   9
 	dc.b   0
-	dc.b   8
+	dc.b   9
 	dc.b   0
-	dc.b $10
+	dc.b $12
 	dc.b   0
-	dc.b   8
-	dc.b $10
-	dc.b   0
-	dc.b   0
-	dc.b $10
-	dc.b   0
-	dc.b   8
-	dc.b   0
-	dc.b $10
-	dc.b   8
+	dc.b   9
+	dc.b $12
 	dc.b   0
 	dc.b   0
-OptText5:	dc.b $53 ; S
+	dc.b $12
+	dc.b   0
+	dc.b   9
+	dc.b   0
+	dc.b $12
+	dc.b   9
+	dc.b   0
+	dc.b   0
+OptText5:	dc.b $43 ; C
+	dc.b $4F ; O
+	dc.b $52 ; R
+	dc.b $52 ; R
+	dc.b $45 ; E
+	dc.b $52 ; R
+	dc.b $6D ; m
+	dc.b $6D ; m
+	dc.b   0
 	dc.b $50 ; P
-	dc.b $45 ; E
-	dc.b $45 ; E
-	dc.b $44 ; D
-	dc.b $6D ; m
-	dc.b $6D ; m
-	dc.b   0
-	dc.b $4A ; J
 	dc.b $55 ; U
-	dc.b $4D ; M
-	dc.b $50 ; P
+	dc.b $4C ; L
+	dc.b $41 ; A
+	dc.b $52 ; R
 	dc.b $6D ; m
 	dc.b $6D ; m
 	dc.b $6D ; m
 	dc.b   0
+	dc.b $45 ; E
 	dc.b $53 ; S
 	dc.b $50 ; P
 	dc.b $45 ; E
@@ -32222,6 +32221,7 @@ OptText5:	dc.b $53 ; S
 	dc.b $49 ; I
 	dc.b $41 ; A
 	dc.b $4C ; L
+	dc.b   0
 	dc.b   0
 OptText6:	dc.b   5
 	dc.b   5
@@ -32270,24 +32270,29 @@ loc_1CF94:
 ; ---------------------------------------------------------------------------
 OptText7:	dc.b   0
 	dc.b  $C
-	dc.b $53 ; S
-	dc.b $50 ; P
-	dc.b $45 ; E
-	dc.b $45 ; E
-	dc.b $44 ; D
-	dc.b $6D ; m
 	dc.b $42 ; B
-	dc.b $55 ; U
-	dc.b $54 ; T
-	dc.b $54 ; T
 	dc.b $4F ; O
-	dc.b $4E ; N
+	dc.b $54 ; T
+	dc.b $58 ; Ã
+	dc.b $4F ; O
+	dc.b $6D ; m
+	dc.b $43 ; C
+	dc.b $4F ; O
+	dc.b $52 ; R
+	dc.b $52 ; R
+	dc.b $45 ; E
+	dc.b $52 ; R
 	dc.b $6D ; m
 	dc.b $5B ; [
 	dc.b $6D ; m
 	dc.b   0
 OptText8:	dc.b  $E
 	dc.b  $C
+	dc.b $41 ; A
+	dc.b $67 ; Ç
+	dc.b $58 ; Ã
+	dc.b $4F ; O
+	dc.b $6D ; m
 	dc.b $4E ; N
 	dc.b $4F ; O
 	dc.b $52 ; R
@@ -32295,60 +32300,56 @@ OptText8:	dc.b  $E
 	dc.b $41 ; A
 	dc.b $4C ; L
 	dc.b $6D ; m
-	dc.b $41 ; A
-	dc.b $43 ; C
-	dc.b $54 ; T
-	dc.b $49 ; I
-	dc.b $4F ; O
-	dc.b $4E ; N
+	dc.b $6D ; m
+	
 	dc.b   0
 	dc.b  $E
 	dc.b  $E
-	dc.b $50 ; P
-	dc.b $55 ; U
 	dc.b $53 ; S
-	dc.b $48 ; H
-	dc.b $6D ; m
-	dc.b $46 ; F
-	dc.b $4F ; O
+	dc.b $45 ; E
+	dc.b $47 ; G
+	dc.b $55 ; U
+	dc.b $52 ; R
+	dc.b $41 ; A
 	dc.b $52 ; R
 	dc.b $6D ; m
-	dc.b $46 ; F
-	dc.b $41 ; A
-	dc.b $53 ; S
-	dc.b $54 ; T
+	dc.b $43 ; C
+	dc.b $4F ; O
+	dc.b $52 ; R
+	dc.b $52 ; R
+	dc.b $45 ; E
 	dc.b   0
 OptText9:	dc.b  $E
 	dc.b  $C
-	dc.b $46 ; F
 	dc.b $41 ; A
-	dc.b $53 ; S
-	dc.b $54 ; T
-	dc.b $6D ; m
-	dc.b $41 ; A
-	dc.b $43 ; C
-	dc.b $54 ; T
-	dc.b $49 ; I
+	dc.b $67 ; Ç
+	dc.b $58 ; Ã
 	dc.b $4F ; O
-	dc.b $4E ; N
+	dc.b $6D ; m
+	dc.b $52 ; R
+	dc.b $5A ; Á
+	dc.b $50 ; P
+	dc.b $49 ; I
+	dc.b $44 ; D
+	dc.b $41 ; A
 	dc.b $6D ; m
 	dc.b $6D ; m
 	dc.b   0
 	dc.b  $E
 	dc.b  $E
-	dc.b $50 ; P
-	dc.b $55 ; U
 	dc.b $53 ; S
-	dc.b $48 ; H
-	dc.b $6D ; m
-	dc.b $46 ; F
-	dc.b $4F ; O
+	dc.b $45 ; E
+	dc.b $47 ; G
+	dc.b $55 ; U
+	dc.b $52 ; R
+	dc.b $41 ; A
 	dc.b $52 ; R
 	dc.b $6D ; m
-	dc.b $53 ; S
-	dc.b $4C ; L
-	dc.b $4F ; O
-	dc.b $57 ; W
+	dc.b $41 ; A
+	dc.b $4E ; N
+	dc.b $44 ; D
+	dc.b $41 ; A
+	dc.b $6D ; m
 	dc.b   0
 
 ; =============== S U B	R O U T	I N E =======================================
@@ -32370,10 +32371,10 @@ loc_1CFFE:
 ; ---------------------------------------------------------------------------
 OptText10:	dc.b   0
 	dc.b $11
-	dc.b $45 ; E
-	dc.b $58 ; X
+	dc.b $53 ; S
+	dc.b $41 ; A
 	dc.b $49 ; I
-	dc.b $54 ; T
+	dc.b $52 ; R
 	dc.b $6D ; m
 	dc.b $5B ; [
 	dc.b   0
