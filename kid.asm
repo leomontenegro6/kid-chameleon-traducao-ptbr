@@ -32017,9 +32017,11 @@ loc_1CE1C:
 ; End of function sub_1CDFA
 
 ; ---------------------------------------------------------------------------
-word_1CE2A:	dc.w 7
+OptTextBasePos:	
+			textpos 0,7
 				; DrawTextLine_Offsetr
-word_1CE2C:	dc.w $A
+OptTextSuboptionBasePos:	
+			textpos 0,10
 				; DrawTextLine_Offset+Ar
 
 ; =============== S U B	R O U T	I N E =======================================
@@ -32098,7 +32100,7 @@ loc_1CED6:
 	addi.w	#$1B,d5
 	add.w	d7,d5
 	move.w	d5,(a6)
-	move.w	word_1CE2C(pc),d1
+	move.w	OptTextSuboptionBasePos(pc),d1
 	addq.w	#5,d1
 	move.w	(Options_Suboption_Controls).w,d5
 	add.w	d5,d5
@@ -32110,7 +32112,7 @@ loc_1CEF8:
 	move.b	(a3)+,d5
 	ext.w	d5
 	lea	OptText5(pc,d5.w),a4
-	move.w	word_1CE2A(pc),d6
+	move.w	OptTextBasePos(pc),d6
 	addi.w	#9,d6
 	move.w	d1,d7
 	bsr.w	DrawTextLine
@@ -32223,11 +32225,11 @@ OptText10:
 
 DrawTextLine_Offset:
 				; DrawOptText1:loc_1CE56p ...
-	move.w	word_1CE2A(pc),d6
+	move.w	OptTextBasePos(pc),d6
 	moveq	#0,d5		; 7 - d6
 	move.b	(a4)+,d5	; x_pos	of text
 	add.w	d5,d6
-	move.w	word_1CE2C(pc),d7 ; A - d7
+	move.w	OptTextSuboptionBasePos(pc),d7 ; A - d7
 	moveq	#0,d5
 	move.b	(a4)+,d5	; y_pos	of text
 	add.w	d5,d7
