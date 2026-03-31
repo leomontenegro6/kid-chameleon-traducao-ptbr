@@ -31374,6 +31374,7 @@ CTRL_LINEBREAK  = $FD
 CTRL_END        = $FF
 
 ; Charset Mapping
+	charset '~',TILDE
 	charset '1',$5C
 	charset '2',$5D
 	charset '3',$5E
@@ -31385,10 +31386,10 @@ CTRL_END        = $FF
 	charset '9',$64
 	charset '0',$65
 	charset '.',$66
-	charset	$B4,$67
+	charset	$B4,ACCUTE
 	charset ',',$68
 	charset '!',$69
-	charset '?',$6A
+	charset '?',CIRCUMFLEX
 	charset '(',$6B
 	charset ')',$6C
 
@@ -31423,7 +31424,7 @@ IntroText4:
     dc.b "MAS ERA UM TANTO REALISTA", CTRL_LINEBREAK
     dc.b "DEMAIS.", CTRL_LINEBREAK, CTRL_LINEBREAK
     textwait $40
-    dc.b "O CHEFA~O DO JOGO FUGIU,", CTRL_LINEBREAK
+    dc.b "O CHEF~AO DO JOGO FUGIU,", CTRL_LINEBREAK
     dc.b "E COMECOU A CAPTURAR OS", CTRL_LINEBREAK
     dc.b "JOGADORES AO DERROTAR ELES", CTRL_LINEBREAK
     dc.b "NO JOGO.", CTRL_END
