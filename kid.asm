@@ -31492,11 +31492,6 @@ loc_1C7DC:
 	bne.s	DrawIntroText
 	move.b	#$6D,d6
 
-; Constants for Accents
-TILDE       = $65
-ACCUTE      = $67
-CIRCUMFLEX  = $6A 
-
 ; ---------------------------------------------------------------------------
 ; Intro Texts Drawing Logic
 ; ---------------------------------------------------------------------------
@@ -32331,10 +32326,6 @@ DrawTextLine_Offset:
 ; Input: d7 = Line, d6 = Column, a4 = String Pointer
 ; Flags: d4 = Highlight flag, d3 = Palette flag
 ; Hardware: a6 = VDP Control Port ($C00004), 4(a6) = VDP Data Port ($C00000)
-
-TILDE       = $65
-ACCUTE      = $67
-CIRCUMFLEX  = $6A 
 
 DrawTextLine:
     ; --- 1. Immediate Flag Preservation ---

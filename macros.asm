@@ -77,6 +77,32 @@ ptfm		macro	xpos, ypos, bufL, bufR, bufT, bufB, t, s, h, v, pp
 		dc.w	pp
 		endm
 
+; ===========================================================================
+; MACRO: textheader
+; Parameters:
+;   1: VRAM Plane Address (e.g., $C000 or 0)
+;   2: Base Tile ID (e.g., $67D3)
+;   3: Delay between chars
+;   4: X Position (Column)
+;   5: Y Position (Row)
+; ===========================================================================
+textheader macro addr, tile, delay, xpos, ypos
+    dc.w    addr       ; Destination VRAM address
+    dc.w    tile       ; Starting Tile ID in VRAM
+    dc.w    delay      ; Speed/Delay between characters
+    dc.w    xpos       ; Horizontal Position
+    dc.w    ypos       ; Vertical Position
+    endm
+
+; ===========================================================================
+; MACRO: textwait
+; Parameter:
+;   1: Duration of the delay (byte)
+; ===========================================================================
+textwait macro duration
+    dc.b    $FE, duration
+    endm
+
 ; ---------------------------------------------------------------------------
 ; Permutation macro: generates 6 combinations of 3 values with one fixed
 ; Usage: perm3 a, b, c

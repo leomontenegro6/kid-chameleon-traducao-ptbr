@@ -439,3 +439,8 @@ M_Elsewhere_26 = $7A
 M_Elsewhere_27 = $7B
 M_Elsewhere_24 = $7C
 M_Elsewhere_25 = $7D
+
+; Accents
+TILDE       = $65
+ACCUTE      = $67
+CIRCUMFLEX  = $6A 
