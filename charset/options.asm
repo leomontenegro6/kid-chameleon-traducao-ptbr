@@ -8,7 +8,7 @@
     charset '7',$62
     charset '8',$63
     charset '9',$64
-	charset '~',$65
-	charset $B4,$67	; apostrophe
-	charset '^',$6A
+	charset '~',TILDE
+	charset $B4,ACCUTE	; apostrophe
+	charset '^',CIRCUMFLEX
 	charset ' ',$6D 
