@@ -31389,7 +31389,7 @@ IntroText3:	dc.w   0, $67D3, 2, $A, 4
 	align 2
 IntroText4:	dc.w   0, $C7D3, 2, 6, 8
 	dc.b $FE, $20, "MAS ERA UM TANTO REALISTA", $FD, "DEMAISf", $FD, $FD
-	dc.b $FE, $40, "O CHEFE DO JOGO FUGIUh", $FD, "E COME", $67, "OU A CAPTURAR OS", $FD, "JOGADORES AO DERROTAR ELES", $FD, "NO JOGOf", $FF
+	dc.b $FE, $40, "O CHEFXO DO JOGO FUGIUh", $FD, "E COME", $67, "OU A CAPTURAR OS", $FD, "JOGADORES AO DERROTAR ELES", $FD, "NO JOGOf", $FF
 	align 2
 IntroText5:	dc.w   0, $C7D3, 2, $19, $3
 	dc.b $FE, $20, "ESSA ", $63, " A", $FD, "HIST", $6A, "RIA DE", $FD, "UM CARA DURO", $FD, "DE DERROTARf", $FD, $FD
