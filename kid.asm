@@ -32178,7 +32178,7 @@ OptText5_InnerPtr:
 	
 OptText5:
 OptText5_SPEED:
-    dc.b "CORRERmm",0
+    dc.b "CORRERgm",0
 OptText5_JUMP:
     dc.b "PULARmmm",0
 OptText5_SPECIAL:
@@ -32370,6 +32370,41 @@ DrawTextLine:
 	add.w	d6,d5		;  
 	add.w	d6,d5		; add col * 2
 	move.w 	d5,(Options_Plane_Position).w
+
+.clrlinesupper:
+	move.l	a4,-(a7)	; save a4
+	move.w 	d5,-(a7)	; save d5
+	sub.w	#$80,d5
+	asl.l	#2,d5		; 
+	lsr.w	#2,d5		; multiply result by 2, later divide by 2, to round value
+	addi.w	#$4000,d5	; add plane
+	swap 	d5
+	move.l	d5,4(a6)
+.clrlinesupperloop:
+	moveq	#0,d5
+	move.b 	(a4)+,d5
+	beq.w	.clrlineslower
+	move.w	#$00,(a6)
+	bra 	.clrlinesupperloop
+	
+.clrlineslower:
+	move.w 	(a7)+,d5	; restore d5
+	move.l 	(a7)+,a4	; restore a4
+	move.l 	a4,-(a7)	; save a4
+	asl.l	#2,d5		; 
+	lsr.w	#2,d5		; multiply result by 2, later divide by 2, to round value
+	addi.w	#$4000,d5	; add plane
+	swap 	d5
+	move.l	d5,4(a6)
+.clrlineslowerloop:
+	moveq	#0,d5
+	move.b 	(a4)+,d5
+	beq.w	.ishighlight
+	move.w	#$00,(a6)
+	bra 	.clrlineslowerloop
+
+.ishighlight:
+	move.l 	(a7)+,a4	; restore a4
 	;swap	d5
 	move.w	#$4DC,d7
 	tst.b	d4
@@ -32395,8 +32430,10 @@ loc_1D068:
 	beq.w	loc_1D07A
 	move.w 	(Options_Plane_Position).w,d3
 	cmpi.b 	#$67,d5		; Compare with ascii letter 'g'... if equal it's accent
+	beq.s	.accent
 	cmpi.b 	#$6A,d5		; Compare with ascii letter 'j'... if equal it's accent
-	bne		.normal
+	beq.s	.accent
+	bra.s	.normal
 .accent:
 	sub.w 	#$2,d3		; Y=Y-1
 	move.w 	d3,(Options_Plane_Position).w
