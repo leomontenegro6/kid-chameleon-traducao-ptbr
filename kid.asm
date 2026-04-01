@@ -32845,31 +32845,31 @@ loc_1D464:
 ; ---------------------------------------------------------------------------
 EndText1:	dc.b  $F
 	dc.b   2
-	dc.b "PARABENSiii", 0
+	dc.b "PARAB´ENSiii", 0
 	dc.b  7
 	dc.b   4
-	dc.b "VOCEmLIBERTOUmOSmJOGADORES", 0
+	dc.b "VOC^EmLIBERTOUmOSmJOGADORES", 0
 	dc.b  $A
 	dc.b   6
-	dc.b "DOmCHEFAOmDIABOLICOf", 0
+	dc.b "DOmCHEF~AOmDIAB´OLICOf", 0
 	dc.b   7
 	dc.b   8
-	dc.b "VOCEmSERAmLEMBRADOmCOMOmO", 0
+	dc.b "VOC^EmSER´AmLEMBRADOmCOMOmO", 0
 	dc.b   7
 	dc.b  $A
-	dc.b "PRIMEIROmCAMPEAOmDEmJOGOS", 0
+	dc.b "PRIMEIROmCAMPE~AOmDEmJOGOS", 0
 	dc.b  $C
 	dc.b  $C
-	dc.b "HOLOGRAFICOSfff", 0
+	dc.b "HOLOGR´AFICOSfff", 0
 	dc.b  $C
 	dc.b  $F
-	dc.b "OmKIDmCAMALEAOf", 0
+	dc.b "OmKIDmCAMALE~AOfm", 0
 	dc.b $FF
 	dc.b $FF
 
 	dc.b  $B
 	dc.b   2
-	dc.b "EmAGORAmCOMmVOCESfff", 0
+	dc.b "EmAGORAmCOMmVOC^ESfff", 0
 	dc.b  7
 	dc.b   4
 	dc.b "ASmPESSOASmQUEmDESISTIRAM", 0
@@ -32884,22 +32884,22 @@ EndText1:	dc.b  $F
 	dc.b "ESSEmJOGOmREALIDADEfff", 0
 	dc.b   9
 	dc.b  $C
-	dc.b "mmmm", 0
+	dc.b "mmm", 0
 	dc.b  9
 	dc.b  $D
 	dc.b "AmEQUIPEmDOmINSTITUTOm", 0
 	dc.b  9
 	dc.b  $F
-	dc.b "mTECNOLOGICOmDA SEGAi", 0
+	dc.b "mTECNOL´OGICOmDA SEGAi", 0
 	dc.b $FF
 	dc.b $FF
 
-	dc.b  $D
+	dc.b  $A
 	dc.b   0
-	dc.b "ffmGAMEmDESIGNmff", 0
+	dc.b "ffmDESIGNmDOmJOGOmff", 0
 	dc.b   8
 	dc.b  $A
-	dc.b "HOYTmNGmm", 0
+	dc.b "HOYTmNGm", 0
 	dc.b $15
 	dc.b $11
 	dc.b "BILLmDUNN", 0
@@ -32930,12 +32930,12 @@ EndText1:	dc.b  $F
 	dc.b $FF
 	dc.b $FF
 
-	dc.b  $F
+	dc.b  $C
 	dc.b   0
-	dc.b "fffmARTmfff", 0
+	dc.b "fffmARTISTASmfff", 0
 	dc.b $13
 	dc.b   8
-	dc.b "mALANmACKERMANm", 0
+	dc.b "mALANmACKERMAN", 0
 	dc.b   7
 	dc.b $12
 	dc.b "BRENDAmROSS", 0
@@ -32953,25 +32953,25 @@ EndText1:	dc.b  $F
 
 	dc.b  $A
 	dc.b   2
-	dc.b "SOUNDmBYm", 0
+	dc.b "SOMmPORm", 0
 	dc.b  $A
 	dc.b   4
-	dc.b "NUmROMANTICmPRODUCTIONS", 0
+	dc.b "NUmROMANTICmPRODU", $67, "~OES", 0
+	dc.b  7
 	dc.b  $A
+	dc.b "AGRADECIMENTOSmESPECIAISmA", 0
 	dc.b  $A
-	dc.b "SPECIALmTHANKSmTOmfff", 0
-	dc.b  $C
 	dc.b  $C
 	dc.b "SCOTTmCHANDLERm", 0
-	dc.b  $C
+	dc.b  $A
 	dc.b  $E
 	dc.b "HUGHmBOWENm", 0
-	dc.b  $C
+	dc.b  $A
 	dc.b $10
 	dc.b "HAVENmCARTERm", 0
-	dc.b  $C
+	dc.b  $A
 	dc.b $12
-	dc.b "ANDmTHEmTESTmGROUPm", 0
+	dc.b "EmOmPESSOALmDEmTESTESm", 0
 	dc.b   0
 	dc.b   0
 unk_1D75A:	dc.b   0
