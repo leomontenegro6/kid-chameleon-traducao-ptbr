@@ -32450,47 +32450,81 @@ DrawTextLine:
     move.l  (a7)+, d0
     rts
 
-; =============== S U B	R O U T	I N E =======================================
-
-
+; =============== S U B R O U T I N E =======================================
 sub_1D080:
-	moveq	#0,d6
-	moveq	#0,d5
-	move.b	(a4)+,d6
-	move.b	(a4)+,d5
-	addi.w	#9,d5
-	mulu.w	#$80,d5
-	add.w	d6,d5
-	add.w	d6,d5
-	addi.w	#-$2000,d5
-	asl.l	#2,d5
-	lsr.w	#2,d5
-	addi.w	#$4000,d5
-	swap	d5
+    moveq   #0, d6
+    moveq   #0, d5
+    move.b  (a4)+, d6           ; Get X/Column
+    move.b  (a4)+, d5           ; Get Y/Row
+    addi.w  #9, d5              ; Vertical offset adjustment
+    mulu.w  #$80, d5            ; Row * Plane Width
+    add.w   d6, d5              ; Add X
+    add.w   d6, d5              ; X * 2 (2 bytes per tile)
+    addi.w  #-$2000, d5         ; VRAM Base adjustment
+    
+    ; Convert raw VRAM address to VDP Command in d5
+    asl.l   #2, d5
+    lsr.w   #2, d5
+    addi.w  #$4000, d5
+    swap    d5
 
 loc_1D0A2:
-	move.l	d5,4(a6)
-	moveq	#0,d7
-	move.b	(a4)+,d7
-	beq.w	return_1D0EA
-	subi.w	#$41,d7
-	addi.w	#-$1B24,d7
-	jsr	(j_sub_914).w
-	move.w	d7,(a6)
-	jsr	(j_sub_924).w
-	moveq	#2,d6
+    moveq   #0, d7
+    move.b  (a4)+, d7           ; Read next character from string
+    beq.w   return_1D0EA        ; If 0, end of string
+    
+    ; --- Accent Handling Logic ---
+    cmpi.b  #TILDE, d7
+    beq.s   .is_accent
+    cmpi.b  #ACCUTE, d7
+    beq.s   .is_accute
+    cmpi.b  #CIRCUMFLEX, d7
+    beq.s   .is_accent
+    
+    ; Standard Character Rendering
+    bsr.s   .write_to_vdp
+    
+    ; Advance to next tile position (VDP command increment)
+    ; This adds to the address part of the longword command
+    addi.l  #$20000, d5         
+    bra.s   loc_1D0A2
 
-loc_1D0C2:
-	bsr.w	sub_1DA24
-	bsr.w	sub_1CC88
-	movem.l	d0-a5,-(sp)
-	jsr	(j_Make_SpritesFromGfxObjects).w
-	jsr	(j_WaitForVint).w
-	jsr	(j_Transfer_SpriteAndKidToVRAM).w
-	movem.l	(sp)+,d0-a5
-	dbf	d6,loc_1D0C2
-	addi.l	#$20000,d5
-	bra.s	loc_1D0A2
+.is_accute:
+    ; For Accute, we shift back one position visually if needed
+    ; (Adjusting d5 directly is complex, usually handled by string padding)
+	subi.l 	#$020000, d5		;(-$2 in VRAM = -$020000 in VDP Command)
+.is_accent:
+    ; Draw accent one row above (-$80 in VRAM = -$800000 in VDP Command)
+    subi.l  #$800000, d5        
+    bsr.s   .write_to_vdp
+    addi.l  #$800000, d5        ; Restore original row
+    bra.s   loc_1D0A2           ; Loop without advancing X (addi.l #$20000)
+
+; --- Internal helper to perform the VDP write and wait cycle ---
+.write_to_vdp:
+    move.l  d5, 4(a6)           ; Set VDP Address
+    move.w  d7, -(sp)           ; Save original char
+    subi.w  #$41, d7            ; Normalize ASCII
+    addi.w  #-$1B24, d7         ; Apply Font Base Offset
+    
+    jsr     (j_sub_914).w       ; External attribute setup
+    move.w  d7, (a6)            ; Write Tile to VRAM
+    jsr     (j_sub_924).w       ; External cleanup
+    
+    ; Animation/Wait Loop
+    moveq   #2, d6
+.wait_loop:
+    bsr.w   sub_1DA24
+    bsr.w   sub_1CC88
+    movem.l d0-a5, -(sp)
+    jsr     (j_Make_SpritesFromGfxObjects).w
+    jsr     (j_WaitForVint).w
+    jsr     (j_Transfer_SpriteAndKidToVRAM).w
+    movem.l (sp)+, d0-a5
+    dbf     d6, .wait_loop
+    
+    move.w  (sp)+, d7           ; Restore original char
+    rts
 ; ---------------------------------------------------------------------------
 
 return_1D0EA:
