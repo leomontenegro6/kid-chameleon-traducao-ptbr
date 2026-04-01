@@ -7073,19 +7073,19 @@ MapUnc_PauseMenu_GiveUp:
 	dc.w $8E76
 	dc.w $867B
 	dc.w $867C
-	dc.w $8682
-	dc.w $8681
-	dc.w $8680
-	dc.w $867D
-	dc.w $8685
-	dc.w $8681
-	dc.w $8678
-	dc.w $8684
-	dc.w $868A
-	dc.w $8683
-	dc.w $8689
-	dc.w $8678
-	dc.w $8678
+	dc.w $8682 ; R
+	dc.w $8681 ; E
+	dc.w $8680 ; S
+	dc.w $867D ; U
+	dc.w $8685 ; M
+	dc.w $867E ; I
+	dc.w $8682 ; R
+	dc.w $8678 ;  
+	dc.w $867F ; J
+	dc.w $8686 ; O
+	dc.w $867A ; G
+	dc.w $8686 ; O
+	dc.w $8678 ; 
 	dc.w $8E7B
 	dc.w $867B
 	dc.w $8678
@@ -7105,14 +7105,14 @@ MapUnc_PauseMenu_GiveUp:
 	dc.w $8E7B
 	dc.w $867B
 	dc.w $8678
-	dc.w $867A
-	dc.w $867E
-	dc.w $867F
-	dc.w $8681
-	dc.w $8678
-	dc.w $867D
-	dc.w $8684
-	dc.w $8678
+	dc.w $8679 ; D
+	dc.w $8681 ; E
+	dc.w $8680 ; S
+	dc.w $867E ; I
+	dc.w $8680 ; S
+	dc.w $8688 ; T
+	dc.w $867E ; I
+	dc.w $8682 ; R
 	dc.w $8678
 	dc.w $8678
 	dc.w $8678
@@ -7155,19 +7155,19 @@ MapUnc_PauseMenu_Restart:
 	dc.w $8E76
 	dc.w $867B
 	dc.w $867C
-	dc.w $8682
-	dc.w $8681
-	dc.w $8680
-	dc.w $867D
-	dc.w $8685
-	dc.w $8681
-	dc.w $8678
-	dc.w $8684
-	dc.w $868A
-	dc.w $8683
-	dc.w $8689
-	dc.w $8678
-	dc.w $8678
+	dc.w $8682 ; R
+	dc.w $8681 ; E
+	dc.w $8680 ; S
+	dc.w $867D ; U
+	dc.w $8685 ; M
+	dc.w $867E ; I
+	dc.w $8682 ; R
+	dc.w $8678 ;  
+	dc.w $867F ; J
+	dc.w $8686 ; O
+	dc.w $867A ; G
+	dc.w $8686 ; O
+	dc.w $8678 ; 
 	dc.w $8E7B
 	dc.w $867B
 	dc.w $8678
@@ -7187,19 +7187,19 @@ MapUnc_PauseMenu_Restart:
 	dc.w $8E7B
 	dc.w $867B
 	dc.w $8678
-	dc.w $8682
-	dc.w $8681
-	dc.w $8680
-	dc.w $8688
-	dc.w $8683
-	dc.w $8682
-	dc.w $8688
-	dc.w $8678
-	dc.w $8682
-	dc.w $8686
-	dc.w $867D
-	dc.w $8687
-	dc.w $8679
+	dc.w $8682 ; R
+	dc.w $8681 ; E
+	dc.w $8680 ; S
+	dc.w $8681 ; E
+	dc.w $8688 ; T
+	dc.w $8683 ; A
+	dc.w $8682 ; R
+	dc.w $8678 ; 
+	dc.w $8684 ; F
+	dc.w $8683 ; A
+	dc.w $8680 ; S
+	dc.w $8681 ; E
+	dc.w $8678 ; 
 	dc.w $8E7B
 	dc.w $9676
 	dc.w $9677
@@ -32809,54 +32809,54 @@ loc_1D464:
 	move.l	(off_7192).w,a0
 	jmp	(a0)
 ; ---------------------------------------------------------------------------
-EndText1:	dc.b  $B
+EndText1:	dc.b  $F
 	dc.b   2
-	dc.b "CONGRATULATIONSmiii", 0
-	dc.b  $B
+	dc.b "PARABENSiii", 0
+	dc.b  7
 	dc.b   4
-	dc.b "YOUmHAVEmFREEDmTHEM", 0
-	dc.b  $B
-	dc.b   6
-	dc.b "FROMmTHEmEVILmBOSSf", 0
-	dc.b   9
-	dc.b   8
-	dc.b "YOUmWILLmBEmREMEMBEREDm", 0
-	dc.b   8
+	dc.b "VOCEmLIBERTOUmOSmJOGADORES", 0
 	dc.b  $A
-	dc.b "ASmTHEmFIRSTmHOLOGRAPHICm", 0
+	dc.b   6
+	dc.b "DOmCHEFAOmDIABOLICOf", 0
+	dc.b   7
+	dc.b   8
+	dc.b "VOCEmSERAmLEMBRADOmCOMOmO", 0
+	dc.b   7
+	dc.b  $A
+	dc.b "PRIMEIROmCAMPEAOmDEmJOGOS", 0
 	dc.b  $C
 	dc.b  $C
-	dc.b "GAMEmCHAMPIONmfffmm", 0
-	dc.b  $B
+	dc.b "HOLOGRAFICOSfff", 0
+	dc.b  $C
 	dc.b  $F
-	dc.b "THEmKIDmCHAMELEONfm", 0
+	dc.b "OmKIDmCAMALEAOf", 0
 	dc.b $FF
 	dc.b $FF
 
-	dc.b  $D
-	dc.b   2
-	dc.b "ANDhmNOWmffffmmmm", 0
 	dc.b  $B
+	dc.b   2
+	dc.b "EmAGORAmCOMmVOCESfff", 0
+	dc.b  7
 	dc.b   4
-	dc.b "THEmPEOPLEmWHOmGAVE", 0
-	dc.b  $A
+	dc.b "ASmPESSOASmQUEmDESISTIRAM", 0
+	dc.b  9
 	dc.b   6
-	dc.b "UPmTHEIRmLIVEShmWIVES", 0
+	dc.b "DEmSUASmVIDAShmESPOSAS", 0
 	dc.b   9
 	dc.b   8
-	dc.b "ANDmSANITYmTOmMAKEmTHIS", 0
-	dc.b  $B
+	dc.b "EmSANIDADEmPARAmTORNAR", 0
+	dc.b  9
 	dc.b  $A
-	dc.b "GAMEmAmREALITYmfffmmm", 0
+	dc.b "ESSEmJOGOmREALIDADEfff", 0
 	dc.b   9
 	dc.b  $C
-	dc.b "mmmmm", 0
-	dc.b  $C
+	dc.b "mmmm", 0
+	dc.b  9
 	dc.b  $D
-	dc.b "THEmSEGAmTECHNICALm", 0
-	dc.b  $C
+	dc.b "AmEQUIPEmDOmINSTITUTOm", 0
+	dc.b  9
 	dc.b  $F
-	dc.b "mINSTITUTEmTEAMmimm", 0
+	dc.b "mTECNOLOGICOmDA SEGAi", 0
 	dc.b $FF
 	dc.b $FF
 
