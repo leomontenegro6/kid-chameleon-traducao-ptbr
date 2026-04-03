@@ -1,189 +1,189 @@
 ; \0   = end of line
 ; \x7C = "The"
 ; \x7D = "the"
-; \x7E = "of"
-; \x7F = "to"
+; \x7E = "do"
+; \x7F = "da"
 ; \x83 = "'"
 ; \x84 = " "
 TitleText_00:
-	dc.b	"blue\0lake\0woods"
+	dc.b	"matas\x84\x7E\0lago\0azul"
 	dc.b	$FF
 TitleText_02:
-	dc.b	"highwater\0pass"
+	dc.b	"passagem\0rio\x84acima"
 	dc.b	$FF
 TitleText_04:
-	dc.b	"under\0skull\0mountain"
+	dc.b	"montanha\0debaixo\x84\x7F\0caveira"
 	dc.b	$FF
 TitleText_07:
-	dc.b	"isle\0\x7E\x84\x7D\0lion\0lord"
+	dc.b	"ilha\x84\x7E\0lorde\0leao"
 	dc.b	$FF
 TitleText_08:
-	dc.b	"hills\0\x7E\x84\x7D\0warrior"
+	dc.b	"colinas\0\x7E\0guerreiro"
 	dc.b	$FF
 TitleText_0A:
-	dc.b	"windy\0city"
+	dc.b	"cidade\0arejada"
 	dc.b	$FF
 TitleText_0B:
-	dc.b	"sinister\0sewers"
+	dc.b	"esgotos\0sinistros"
 	dc.b	$FF
 TitleText_0C:
-	dc.b	"\x7C\0crystal\0crags"
+	dc.b	"as\0fragas\0cristalinas"
 	dc.b	$FF
 TitleText_0E:
-	dc.b	"dragonspike"
+	dc.b	"pico\x84\x7E\0dragao"
 	dc.b	$FF
 TitleText_0F:
-	dc.b	"stormwalk\0mountain"
+	dc.b	"montanha\0tempestuosa"
 	dc.b	$FF
 TitleText_10:
-	dc.b	"shishkaboss"
+	dc.b	"shishkachefe"
 	dc.b	$FF
 TitleText_34:
-	dc.b	"\x7C\0pinnacle"
+	dc.b	"o\x84pinaculo"
 	dc.b	$FF
 TitleText_35:
-	dc.b	"hidden\0canyon"
+	dc.b	"desfiladeiro\0oculto"
 	dc.b	$FF
 TitleText_11:
-	dc.b	"\x7C\0whispering\0woods"
+	dc.b	"as\0matas\0sussurrantes"
 	dc.b	$FF
 TitleText_13:
-	dc.b	"devil\x83s\0marsh"
+	dc.b	"brejo\x84\x7E\0diabo"
 	dc.b	$FF
 TitleText_15:
-	dc.b	"knight\x83s\0isle"
+	dc.b	"ilha\x84\x7E\0cavaleiro"
 	dc.b	$FF
 TitleText_16:
-	dc.b	"whale\0grotto"
+	dc.b	"gruta\x84\x7F\0baleia"
 	dc.b	$FF
 TitleText_17:
-	dc.b	"hoverboard\0beach"
+	dc.b	"praia\x84\x7F\0prancha"
 	dc.b	$FF
 TitleText_18:
-	dc.b	"pyramids\0\x7E\0peril"
+	dc.b	"piramides\0\x7E\0perigo"
 	dc.b	$FF
 TitleText_19:
-	dc.b	"madmaze\0mountain"
+	dc.b	"montanha\0emaranhada"
 	dc.b	$FF
 TitleText_1A:
-	dc.b	"\x7C\0deadly\0skyscrapers"
+	dc.b	"os\x84arranha\x83ceus\0mortais"
 	dc.b	$FF
 TitleText_1B:
-	dc.b	"skydragon\0castle"
+	dc.b	"castelo\x84\x7E\0dragao\0celeste"
 	dc.b	$FF
 TitleText_1D:
-	dc.b	"coral\0blade\0grotto"
+	dc.b	"gruta\x84\x7E\0coral\0cortante"
 	dc.b	$FF
 TitleText_1E:
-	dc.b	"boomerang\0bosses"
+	dc.b	"chefes\0bumerangues"
 	dc.b	$FF
 TitleText_3E:
-	dc.b	"bloody\0swamp"
+	dc.b	"pantano\0sangrento"
 	dc.b	$FF
 TitleText_37:
-	dc.b	"crab\0cove"
+	dc.b	"enseada\0\x7E\x84siri"
 	dc.b	$FF
 TitleText_39:
-	dc.b	"\x7C\0forbidden\0tombs"
+	dc.b	"as\0tumbas\0proibidas"
 	dc.b	$FF
 TitleText_3A:
-	dc.b	"stairway\0\x7F\0oblivion"
+	dc.b	"escadaria\0\x7E\0esquecimento"
 	dc.b	$FF
 TitleText_1F:
-	dc.b	"woods\0\x7E\0despair"
+	dc.b	"matas\0\x7E\0desespero"
 	dc.b	$FF
 TitleText_21:
-	dc.b	"forced\0entry"
+	dc.b	"entrada\0forcada"
 	dc.b	$FF
 TitleText_22:
-	dc.b	"\x7C\0cliffs\0\x7E\0illusion"
+	dc.b	"as\0falesias\0\x7F\0ilusao"
 	dc.b	$FF
 TitleText_23:
-	dc.b	"lion\x83s\0den"
+	dc.b	"covil\x84\x7E\0leao"
 	dc.b	$FF
 TitleText_24:
-	dc.b	"wind\0castles"
+	dc.b	"castelos\0ventosos"
 	dc.b	$FF
 TitleText_26:
-	dc.b	"blizzard\0mountain"
+	dc.b	"montanha\0\x7F\x84nevasca"
 	dc.b	$FF
 TitleText_27:
-	dc.b	"caves\0\x7E\0ice"
+	dc.b	"cavernas\0\x84\0gelo"
 	dc.b	$FF
 TitleText_28:
-	dc.b	"\x7C\0nightmare\0peaks"
+	dc.b	"os\0picos\x84\x7E\0pesadelo"
 	dc.b	$FF
 TitleText_2A:
-	dc.b	"bagel\0brothers"
+	dc.b	"irmaos\0bagel"
 	dc.b	$FF
 TitleText_3B:
-	dc.b	"\x7C\0valley\0\x7E\0life"
+	dc.b	"o\0vale\0\x7F\0vida"
 	dc.b	$FF
 TitleText_31:
-	dc.b	"\x7C\0land\0below"
+	dc.b	"a\0terra\0abaixo"
 	dc.b	$FF
 TitleText_3C:
-	dc.b	"\x7C\0black\0pit"
+	dc.b	"o\0poco\0negro"
 	dc.b	$FF
 TitleText_3D:
-	dc.b	"frosty\0doom"
+	dc.b	"perdicao\0gelida"
 	dc.b	$FF
 TitleText_2B:
-	dc.b	"diamond\0edge"
+	dc.b	"borda\0diamantina"
 	dc.b	$FF
 TitleText_2C:
-	dc.b	"\x7C\x84hills\0have\x84eyes"
+	dc.b	"as\x84colinas\0tem\x84olhos"
 	dc.b	$FF
 TitleText_2D:
-	dc.b	"secrets\0in\x84\x7D\0rocks"
+	dc.b	"segredos\0nas\0rochas"
 	dc.b	$FF
 TitleText_2E:
-	dc.b	"ice\0god\x83s\0vengeance"
+	dc.b	"vinganca\0x84\x7E\0deus\x84\x7E\0gelo"
 	dc.b	$FF
 TitleText_2F:
-	dc.b	"beneath\0\x7D\0twisted\0hills"
+	dc.b	"alem\x84das\0colinas\0torcidas"
 	dc.b	$FF
 TitleText_30:
-	dc.b	"alien\0isle"
+	dc.b	"ilha\0alienigena"
 	dc.b	$FF
 TitleText_36:
-	dc.b	"the\0caged\0beasts"
+	dc.b	"as\0bestas\0enjauladas"
 	dc.b	$FF
 TitleText_33:
-	dc.b	"plethora"
+	dc.b	"pletora"
 	dc.b	$FF
 TitleText_3F:
-	dc.b	"scorpion\0isle"
+	dc.b	"ilha\x84\x7E\0escorpiao"
 	dc.b	$FF
 TitleText_40:
-	dc.b	"towers\0\x7E\0blood"
+	dc.b	"torres\0de\0sangue"
 	dc.b	$FF
 TitleText_38:
-	dc.b	"\x7C\0crypt"
+	dc.b	"a\0cripta"
 	dc.b	$FF
 TitleText_42:
-	dc.b	"alien\0twilight"
+	dc.b	"crepusculo\0alienigena"
 	dc.b	$FF
 TitleText_43:
-	dc.b	"tunnels\0beneath\0\x7D\0woods"
+	dc.b	"tuneis\0matas\0abaixo"
 	dc.b	$FF
 TitleText_44:
-	dc.b	"hills\0\x7E\0forever"
+	dc.b	"colinas\0\x7E\0eterno"
 	dc.b	$FF
 TitleText_45:
-	dc.b	"monster\0island"
+	dc.b	"ilha\x84dos\0monstros"
 	dc.b	$FF
 TitleText_46:
-	dc.b	"\x7C\0shimmering\0caves"
+	dc.b	"as\0cavernas\0cintilantes"
 	dc.b	$FF
 TitleText_48:
-	dc.b	"sky\0fortress"
+	dc.b	"fortaleza\0celeste"
 	dc.b	$FF
 TitleText_32:
-	dc.b	"the\0final\0marathon"
+	dc.b	"a\0maratona\0final"
 	dc.b	$FF
 TitleText_49:
-	dc.b	"elsewhere"
+	dc.b	"lugar\0qualquer"
 	dc.b	$FF
 
 	align	2
@@ -244,8 +244,8 @@ AddrTbl_LevelNames:   ;1A842
 	levnamhdr	TitleText_18, TitleTextLayout_3Lines, 0	; 18
 	levnamhdr	TitleText_19, TitleTextLayout_2Lines, 0	; 19
 	levnamhdr	TitleText_1A, TitleTextLayout_3Lines, 0	; 1A
-	levnamhdr	TitleText_1B, TitleTextLayout_2Lines, 1	; 1B
-	levnamhdr	TitleText_1B, TitleTextLayout_2Lines, 2	; 1C
+	levnamhdr	TitleText_1B, TitleTextLayout_3Lines, 1	; 1B
+	levnamhdr	TitleText_1B, TitleTextLayout_3Lines, 2	; 1C
 	levnamhdr	TitleText_1D, TitleTextLayout_3Lines, 0	; 1D
 	levnamhdr	TitleText_1E, TitleTextLayout_2Lines, 0	; 1E
 	levnamhdr	TitleText_1F, TitleTextLayout_3Lines, 1	; 1F
@@ -290,4 +290,4 @@ AddrTbl_LevelNames:   ;1A842
 	levnamhdr	TitleText_46, TitleTextLayout_3Lines, 0	; 46
 	levnamhdr	TitleText_38, TitleTextLayout_2Lines, 0	; 47
 	levnamhdr	TitleText_48, TitleTextLayout_2Lines, 0	; 48
-	levnamhdr	TitleText_49, TitleTextLayout_1Line, 0	; 49
+	levnamhdr	TitleText_49, TitleTextLayout_2Lines, 0	; 49
