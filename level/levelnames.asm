@@ -21,7 +21,7 @@ TitleText_08:
 	dc.b	"colinas\0\x7E\0guerreiro"
 	dc.b	$FF
 TitleText_0A:
-	dc.b	"cidade\0arejada"
+	dc.b	"cidade\0ventosa"
 	dc.b	$FF
 TitleText_0B:
 	dc.b	"esgotos\0sinistros"
@@ -102,7 +102,7 @@ TitleText_23:
 	dc.b	"covil\x84\x7E\0leao"
 	dc.b	$FF
 TitleText_24:
-	dc.b	"castelos\0ventosos"
+	dc.b	"castelos\0dos\0ventos"
 	dc.b	$FF
 TitleText_26:
 	dc.b	"montanha\0\x7F\x84nevasca"
@@ -253,8 +253,8 @@ AddrTbl_LevelNames:   ;1A842
 	levnamhdr	TitleText_21, TitleTextLayout_2Lines, 0	; 21
 	levnamhdr	TitleText_22, TitleTextLayout_4Lines, 0	; 22
 	levnamhdr	TitleText_23, TitleTextLayout_2Lines, 0	; 23
-	levnamhdr	TitleText_24, TitleTextLayout_2Lines, 1	; 24
-	levnamhdr	TitleText_24, TitleTextLayout_2Lines, 2	; 25
+	levnamhdr	TitleText_24, TitleTextLayout_3Lines, 1	; 24
+	levnamhdr	TitleText_24, TitleTextLayout_3Lines, 2	; 25
 	levnamhdr	TitleText_26, TitleTextLayout_2Lines, 0	; 26
 	levnamhdr	TitleText_27, TitleTextLayout_3Lines, 0	; 27
 	levnamhdr	TitleText_28, TitleTextLayout_3Lines, 1	; 28
