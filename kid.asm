@@ -28883,14 +28883,14 @@ off_1AC2A:	dc.w LnkTo_unk_C86E8-Data_Index
 	dc.w LnkTo_unk_C87A8-Data_Index
 	dc.w LnkTo_unk_C87B0-Data_Index
 	dc.w LnkTo_unk_C87B8-Data_Index
-	dc.w LnkTo_unk_C87C0-Data_Index
-	dc.w LnkTo_unk_C87C8-Data_Index
-	dc.w LnkTo_unk_C87D0-Data_Index
-	dc.w LnkTo_unk_C87D8-Data_Index
+	dc.w LnkTo_Spr_TitleLetter_The-Data_Index
+	dc.w LnkTo_Spr_TitleLetter_The_lower-Data_Index
+	dc.w LnkTo_Spr_TitleLetter_of-Data_Index
+	dc.w LnkTo_Spr_TitleLetter_to-Data_Index
 	dc.w LnkTo_unk_C87E0-Data_Index
 	dc.w LnkTo_unk_C87E8-Data_Index
 	dc.w LnkTo_unk_C87F0-Data_Index
-	dc.w LnkTo_unk_C87F8-Data_Index
+	dc.w LnkTo_Spr_TitleLetter_apostrophe-Data_Index
 ; ---------------------------------------------------------------------------
 
 loc_1AC70:
@@ -48122,14 +48122,14 @@ LnkTo_unk_C87A0:	dc.l unk_C87A0
 LnkTo_unk_C87A8:	dc.l unk_C87A8
 LnkTo_unk_C87B0:	dc.l unk_C87B0
 LnkTo_unk_C87B8:	dc.l unk_C87B8
-LnkTo_unk_C87C0:	dc.l unk_C87C0
-LnkTo_unk_C87C8:	dc.l unk_C87C8
-LnkTo_unk_C87D0:	dc.l unk_C87D0
-LnkTo_unk_C87D8:	dc.l unk_C87D8
+LnkTo_Spr_TitleLetter_The:	dc.l Spr_TitleLetter_The
+LnkTo_Spr_TitleLetter_The_lower:	dc.l Spr_TitleLetter_The_lower
+LnkTo_Spr_TitleLetter_of:	dc.l Spr_TitleLetter_of
+LnkTo_Spr_TitleLetter_to:	dc.l Spr_TitleLetter_to
 LnkTo_unk_C87E0:	dc.l unk_C87E0
 LnkTo_unk_C87E8:	dc.l unk_C87E8
 LnkTo_unk_C87F0:	dc.l unk_C87F0
-LnkTo_unk_C87F8:	dc.l unk_C87F8
+LnkTo_Spr_TitleLetter_apostrophe:	dc.l Spr_TitleLetter_apostrophe
 LnkTo_unk_C8800:	dc.l unk_C8800
 LnkTo_unk_CA1ED:	dc.l unk_CA1ED
 LnkTo_unk_CAD8E:	dc.l unk_CAD8E
@@ -49304,14 +49304,14 @@ unk_C87A0:  sprite_frame_vram   $05A, $00, $00, $10, $10
 unk_C87A8:  sprite_frame_vram   $05E, $00, $00, $10, $10
 unk_C87B0:  sprite_frame_vram   $062, $00, $00, $10, $10
 unk_C87B8:  sprite_frame_vram   $066, $00, $00, $10, $20
-unk_C87C0:  sprite_frame_vram   $06E, $00, $00, $28, $10
-unk_C87C8:  sprite_frame_vram   $078, $00, $00, $20, $10
-unk_C87D0:  sprite_frame_vram   $080, $00, $00, $18, $10
-unk_C87D8:  sprite_frame_vram   $086, $00, $00, $18, $10
+Spr_TitleLetter_The:  sprite_frame_vram   $072, $00, $00, $10, $10
+Spr_TitleLetter_The_lower:  sprite_frame_vram   $06E, $00, $00, $10, $10
+Spr_TitleLetter_of:  sprite_frame_vram   $080, $00, $00, $18, $10
+Spr_TitleLetter_to:  sprite_frame_vram   $086, $00, $00, $18, $10
 unk_C87E0:  sprite_frame_vram   $08C, $00, $00, $60, $10
 unk_C87E8:  sprite_frame_vram   $0A4, $00, $00, $08, $18
 unk_C87F0:  sprite_frame_vram   $0A7, $00, $00, $10, $18
-unk_C87F8:  sprite_frame_vram   $0AD, $00, $00, $08, $08
+Spr_TitleLetter_apostrophe:  sprite_frame_vram   $076, $00, $00, $10, $10
 
 unk_C8800:  binclude    "ingame/artcomp/Enemy0C_Dragon.bin"
 unk_CA1ED:  binclude    "ingame/artcomp/Enemy08_Orca.bin"

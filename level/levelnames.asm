@@ -1,9 +1,12 @@
 ; \0   = end of line
-; \x7C = "The"
-; \x7D = "the"
+; \x7C = "~"
+; \x7D = "´"
 ; \x7E = "do"
 ; \x7F = "da"
-; \x83 = "'"
+; \x80 = "JOGADOR"
+; \x81 = "1"
+; \x82 = "2"
+; \x83 = "^"
 ; \x84 = " "
 TitleText_00:
 	dc.b	"matas\x84\x7E\0lago\0azul"
@@ -15,7 +18,7 @@ TitleText_04:
 	dc.b	"montanha\0debaixo\x84\x7F\0caveira"
 	dc.b	$FF
 TitleText_07:
-	dc.b	"ilha\x84\x7E\0lorde\0leao"
+	dc.b	"ilha\x84\x7E\0lorde\0\x7C\0leao"
 	dc.b	$FF
 TitleText_08:
 	dc.b	"colinas\0\x7E\0guerreiro"
@@ -30,7 +33,7 @@ TitleText_0C:
 	dc.b	"as\0fragas\0cristalinas"
 	dc.b	$FF
 TitleText_0E:
-	dc.b	"pico\x84\x7E\0dragao"
+	dc.b	"pico\x84\x7E\0\x7C\0dragao"
 	dc.b	$FF
 TitleText_0F:
 	dc.b	"montanha\0tempestuosa"
@@ -39,7 +42,7 @@ TitleText_10:
 	dc.b	"shishkachefe"
 	dc.b	$FF
 TitleText_34:
-	dc.b	"o\x84pinaculo"
+	dc.b	"\x7D\0o\x84pinaculo"
 	dc.b	$FF
 TitleText_35:
 	dc.b	"desfiladeiro\0oculto"
@@ -60,7 +63,7 @@ TitleText_17:
 	dc.b	"praia\x84\x7F\0prancha"
 	dc.b	$FF
 TitleText_18:
-	dc.b	"piramides\0\x7E\0perigo"
+	dc.b	"\x83\0piramides\0\x7E\0perigo"
 	dc.b	$FF
 TitleText_19:
 	dc.b	"montanha\0emaranhada"
@@ -215,6 +218,27 @@ TitleTextLayout_3LinesDense: ; last row is level number. Less vertical spacing b
 	dc.w	$DC, $48
 TitleTextLayout_1Line: ; no level number here
 	dc.w	$20, $28
+TitleTextLayout_Ptbr_Lvl_07: ; last row is level number
+	dc.w	$20, $28
+	dc.w	$20, $3E
+	dc.w	$41, $48
+	dc.w	$20, $56
+	dc.w	$20, $66
+TitleTextLayout_Ptbr_Lvl_0E: ; last row is level number
+	dc.w	$20, $28
+	dc.w	$61, $38 ; ~
+	dc.w	$20, $46 ; Dragao
+	dc.w	$DC, $50
+TitleTextLayout_Ptbr_Lvl_18:
+	dc.w	$48, $20
+	dc.w	$20, $28
+	dc.w	$20, $48
+	dc.w	$20, $68
+	dc.w	$DC, $50
+TitleTextLayout_Ptbr_Lvl_34:
+	dc.w	$68, $18
+	dc.w	$20, $28
+	dc.w	$DC, $3C
 
 AddrTbl_LevelNames:   ;1A842
 	levnamhdr	TitleText_00, TitleTextLayout_3Lines, 1	;  0
@@ -224,14 +248,14 @@ AddrTbl_LevelNames:   ;1A842
 	levnamhdr	TitleText_04, TitleTextLayout_3Lines, 1	;  4
 	levnamhdr	TitleText_04, TitleTextLayout_3Lines, 2	;  5
 	levnamhdr	TitleText_04, TitleTextLayout_3Lines, 3	;  6
-	levnamhdr	TitleText_07, TitleTextLayout_4Lines, 0	;  7
+	levnamhdr	TitleText_07, TitleTextLayout_Ptbr_Lvl_07, 0	;  7
 	levnamhdr	TitleText_08, TitleTextLayout_3LinesDense, 1	;  8
 	levnamhdr	TitleText_08, TitleTextLayout_3LinesDense, 2	;  9
 	levnamhdr	TitleText_0A, TitleTextLayout_2Lines, 0	;  A
 	levnamhdr	TitleText_0B, TitleTextLayout_2Lines, 0	;  B
 	levnamhdr	TitleText_0C, TitleTextLayout_3Lines, 1	;  C
 	levnamhdr	TitleText_0C, TitleTextLayout_3Lines, 2	;  D
-	levnamhdr	TitleText_0E, TitleTextLayout_3Lines, 0	;  E
+	levnamhdr	TitleText_0E, TitleTextLayout_Ptbr_Lvl_0E, 0	;  E
 	levnamhdr	TitleText_0F, TitleTextLayout_2Lines, 0	;  F
 	levnamhdr	TitleText_10, TitleTextLayout_3Lines, 0	; 10
 	levnamhdr	TitleText_11, TitleTextLayout_3Lines, 1	; 11
@@ -241,7 +265,7 @@ AddrTbl_LevelNames:   ;1A842
 	levnamhdr	TitleText_15, TitleTextLayout_2Lines, 0	; 15
 	levnamhdr	TitleText_16, TitleTextLayout_2Lines, 0	; 16
 	levnamhdr	TitleText_17, TitleTextLayout_2Lines, 0	; 17
-	levnamhdr	TitleText_18, TitleTextLayout_3Lines, 0	; 18
+	levnamhdr	TitleText_18, TitleTextLayout_Ptbr_Lvl_18, 0	; 18
 	levnamhdr	TitleText_19, TitleTextLayout_2Lines, 0	; 19
 	levnamhdr	TitleText_1A, TitleTextLayout_3Lines, 0	; 1A
 	levnamhdr	TitleText_1B, TitleTextLayout_3Lines, 1	; 1B
@@ -269,7 +293,7 @@ AddrTbl_LevelNames:   ;1A842
 	levnamhdr	TitleText_31, TitleTextLayout_3Lines, 0	; 31
 	levnamhdr	TitleText_32, TitleTextLayout_3Lines, 0	; 32
 	levnamhdr	TitleText_33, TitleTextLayout_3Lines, 0	; 33
-	levnamhdr	TitleText_34, TitleTextLayout_2Lines, 0	; 34
+	levnamhdr	TitleText_34, TitleTextLayout_Ptbr_Lvl_34, 0	; 34
 	levnamhdr	TitleText_35, TitleTextLayout_2Lines, 0	; 35
 	levnamhdr	TitleText_36, TitleTextLayout_3Lines, 0	; 36
 	levnamhdr	TitleText_37, TitleTextLayout_2Lines, 0	; 37
