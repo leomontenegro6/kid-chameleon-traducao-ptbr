@@ -16698,11 +16698,11 @@ loc_D4CE:
 	add.w	d1,d0
 	mulu.w	#10,d0
 	move.l	d0,-(sp)
-	move.w	#(LnkTo_Spr_EOL_Time-Data_Index),d0
-	move.w	#$FF60,d1
-	bsr.w	Load_Object_EOL_Text
 	move.w	#(LnkTo_Spr_EOL_Bonus-Data_Index),d0
-	move.w	#$FF98,d1
+	move.w	#$FF64,d1
+	bsr.w	Load_Object_EOL_Text
+	move.w	#(LnkTo_Spr_EOL_Time-Data_Index),d0
+	move.w	#$FFA8,d1
 	bsr.w	Load_Object_EOL_Text
 	move.l	(sp)+,d0	; Time bonus amount
 	move.w	#$1B0,d1
@@ -16714,11 +16714,11 @@ loc_D4CE:
 	addq.w	#8,d5
 	tst.b	(NoHit_Bonus_Flag).w
 	bne.w	loc_D5D2
-	move.w	#(LnkTo_Spr_EOL_NoHit-Data_Index),d0
-	move.w	#$FF38,d1
-	bsr.w	Load_Object_EOL_Text
 	move.w	#(LnkTo_Spr_EOL_Bonus-Data_Index),d0
-	move.w	#$FF98,d1
+	move.w	#$FF3A,d1
+	bsr.w	Load_Object_EOL_Text
+	move.w	#(LnkTo_Spr_EOL_NoHit-Data_Index),d0
+	move.w	#$FF80,d1
 	bsr.w	Load_Object_EOL_Text
 	move.l	#5000,d0
 	move.w	#$1B0,d1
@@ -16732,11 +16732,11 @@ loc_D4CE:
 loc_D5D2:
 	tst.b	(NoPrize_Bonus_Flag).w
 	bne.w	loc_D60E
-	move.w	#(LnkTo_Spr_EOL_NoPrize-Data_Index),d0
-	move.w	#$FF20,d1
-	bsr.w	Load_Object_EOL_Text
 	move.w	#(LnkTo_Spr_EOL_Bonus-Data_Index),d0
-	move.w	#$FF98,d1
+	move.w	#$FF22,d1
+	bsr.w	Load_Object_EOL_Text
+	move.w	#(LnkTo_Spr_EOL_NoPrize-Data_Index),d0
+	move.w	#$FF68,d1
 	bsr.w	Load_Object_EOL_Text
 	move.l	#5000,d0
 	move.w	#$1B0,d1
@@ -16757,11 +16757,11 @@ loc_D60E:
 	mulu.w	#1000,d0
 	beq.w	loc_D660
 	move.l	d0,-(sp)
-	move.w	#(LnkTo_Spr_EOL_Path-Data_Index),d0
-	move.w	#$FF58,d1
-	bsr.w	Load_Object_EOL_Text
 	move.w	#(LnkTo_Spr_EOL_Bonus-Data_Index),d0
-	move.w	#$FF98,d1
+	move.w	#$FF5C,d1
+	bsr.w	Load_Object_EOL_Text
+	move.w	#(LnkTo_Spr_EOL_Path-Data_Index),d0
+	move.w	#$FFA0,d1
 	bsr.w	Load_Object_EOL_Text
 	move.l	(sp)+,d0	; value of path bonus
 	move.w	#$1B0,d1
@@ -16783,10 +16783,10 @@ loc_D660:
 	move.b	(a1,d0.w),d0
 	andi.l	#$FF,d0
 	move.l	d0,-(sp)
-	move.w	#(LnkTo_Spr_EOL_Speed-Data_Index),d0
-	move.w	#$FF50,d1
-	bsr.w	Load_Object_EOL_Text
 	move.w	#(LnkTo_Spr_EOL_Bonus-Data_Index),d0
+	move.w	#$FF54,d1
+	bsr.w	Load_Object_EOL_Text
+	move.w	#(LnkTo_Spr_EOL_Speed-Data_Index),d0
 	move.w	#$FF98,d1
 	bsr.w	Load_Object_EOL_Text
 	move.l	#10000,d0
