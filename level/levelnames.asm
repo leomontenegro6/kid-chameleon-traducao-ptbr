@@ -69,10 +69,10 @@ TitleText_19:
 	dc.b	"montanha\0emaranhada"
 	dc.b	$FF
 TitleText_1A:
-	dc.b	"os\x84arranha\x83ceus\0mortais"
+	dc.b	"\x7D\0os\x84arranha\x83ceus\0mortais"
 	dc.b	$FF
 TitleText_1B:
-	dc.b	"castelo\x84\x7E\0dragao\0celeste"
+	dc.b	"castelo\x84\x7E\0\x7C\0dragao\0celeste"
 	dc.b	$FF
 TitleText_1D:
 	dc.b	"gruta\x84\x7E\0coral\0cortante"
@@ -81,7 +81,7 @@ TitleText_1E:
 	dc.b	"chefes\0bumerangues"
 	dc.b	$FF
 TitleText_3E:
-	dc.b	"pantano\0sangrento"
+	dc.b	"\x83\0pantano\0sangrento"
 	dc.b	$FF
 TitleText_37:
 	dc.b	"enseada\0\x7E\x84siri"
@@ -96,13 +96,13 @@ TitleText_1F:
 	dc.b	"matas\0\x7E\0desespero"
 	dc.b	$FF
 TitleText_21:
-	dc.b	"entrada\0forcada"
+	dc.b	"entrada\0forcada\0c"
 	dc.b	$FF
 TitleText_22:
-	dc.b	"as\0falesias\0\x7F\0ilusao"
+	dc.b	"\x7D\0as\x84falesias\0\x7C\0\x7F\x84ilusao"
 	dc.b	$FF
 TitleText_23:
-	dc.b	"covil\x84\x7E\0leao"
+	dc.b	"covil\x84\x7E\0\x7C\0leao"
 	dc.b	$FF
 TitleText_24:
 	dc.b	"castelos\0dos\0ventos"
@@ -111,13 +111,13 @@ TitleText_26:
 	dc.b	"montanha\0\x7F\x84nevasca"
 	dc.b	$FF
 TitleText_27:
-	dc.b	"cavernas\0\x84\0gelo"
+	dc.b	"cavernas\0de\0gelo"
 	dc.b	$FF
 TitleText_28:
 	dc.b	"os\0picos\x84\x7E\0pesadelo"
 	dc.b	$FF
 TitleText_2A:
-	dc.b	"irmaos\0bagel"
+	dc.b	"\x7C\0irmaos\0bagel"
 	dc.b	$FF
 TitleText_3B:
 	dc.b	"o\0vale\0\x7F\0vida"
@@ -126,28 +126,28 @@ TitleText_31:
 	dc.b	"a\0terra\0abaixo"
 	dc.b	$FF
 TitleText_3C:
-	dc.b	"o\0poco\0negro"
+	dc.b	"o\x84poco\0c\0negro"
 	dc.b	$FF
 TitleText_3D:
-	dc.b	"perdicao\0gelida"
+	dc.b	"\x7C\0perdicao\0c\0\x7D\0gelida"
 	dc.b	$FF
 TitleText_2B:
 	dc.b	"borda\0diamantina"
 	dc.b	$FF
 TitleText_2C:
-	dc.b	"as\x84colinas\0tem\x84olhos"
+	dc.b	"as\x84colinas\0\x83\0tem\x84olhos"
 	dc.b	$FF
 TitleText_2D:
 	dc.b	"segredos\0nas\0rochas"
 	dc.b	$FF
 TitleText_2E:
-	dc.b	"vinganca\0x84\x7E\0deus\x84\x7E\0gelo"
+	dc.b	"vinganca\x84\x7E\0c\0deus\x84\x7E\0gelo"
 	dc.b	$FF
 TitleText_2F:
-	dc.b	"alem\x84das\0colinas\0torcidas"
+	dc.b	"\x7D\0alem\x84das\0colinas\0torcidas"
 	dc.b	$FF
 TitleText_30:
-	dc.b	"ilha\0alienigena"
+	dc.b	"ilha\0\x7D\0alienigena"
 	dc.b	$FF
 TitleText_36:
 	dc.b	"as\0bestas\0enjauladas"
@@ -156,7 +156,7 @@ TitleText_33:
 	dc.b	"pletora"
 	dc.b	$FF
 TitleText_3F:
-	dc.b	"ilha\x84\x7E\0escorpiao"
+	dc.b	"ilha\x84\x7E\0\x7C\0escorpiao"
 	dc.b	$FF
 TitleText_40:
 	dc.b	"torres\0de\0sangue"
@@ -165,10 +165,10 @@ TitleText_38:
 	dc.b	"a\0cripta"
 	dc.b	$FF
 TitleText_42:
-	dc.b	"crepusculo\0alienigena"
+	dc.b	"\x7D\0crepusculo\0alienigena"
 	dc.b	$FF
 TitleText_43:
-	dc.b	"tuneis\0matas\0abaixo"
+	dc.b	"\x7D\0tuneis\0matas\0abaixo"
 	dc.b	$FF
 TitleText_44:
 	dc.b	"colinas\0\x7E\0eterno"
@@ -239,6 +239,88 @@ TitleTextLayout_Ptbr_Lvl_34:
 	dc.w	$68, $18
 	dc.w	$20, $28
 	dc.w	$DC, $3C
+TitleTextLayout_Ptbr_Lvl_1A:
+	dc.w	$D8, $28
+	dc.w	$20, $38
+	dc.w	$20, $58
+	dc.w	$DC, $40
+TitleTextLayout_Ptbr_Lvl_1B:
+	dc.w	$20, $28
+	dc.w	$60, $38
+	dc.w	$20, $48
+	dc.w	$20, $68
+	dc.w	$DC, $3C
+TitleTextLayout_Ptbr_Lvl_3E:
+	dc.w	$30, $28
+	dc.w	$20, $30
+	dc.w	$20, $50
+	dc.w	$DC, $38
+TitleTextLayout_Ptbr_Lvl_21:
+	dc.w	$20, $28
+	dc.w	$20, $40
+	dc.w	$50, $50
+	dc.w	$DC, $50
+TitleTextLayout_Ptbr_Lvl_22:
+	dc.w	$80, $2C
+	dc.w	$20, $3C
+	dc.w	$80, $4C
+	dc.w	$20, $5C
+TitleTextLayout_Ptbr_Lvl_23:
+	dc.w	$20, $28
+	dc.w	$40, $40
+	dc.w	$20, $50
+	dc.w	$DC, $50
+TitleTextLayout_Ptbr_Lvl_2A:
+	dc.w	$48, $28
+	dc.w	$20, $38
+	dc.w	$20, $50
+	dc.w	$DC, $50
+TitleTextLayout_Ptbr_Lvl_3C:
+	dc.w	$20, $28
+	dc.w	$60, $38
+	dc.w	$20, $48
+	dc.w	$DC, $50
+TitleTextLayout_Ptbr_Lvl_3D:
+	dc.w	$78, $18
+	dc.w	$20, $28
+	dc.w	$68, $38
+	dc.w	$30, $38
+	dc.w	$20, $48
+TitleTextLayout_Ptbr_Lvl_2C:
+	dc.w	$20, $28
+	dc.w	$30, $40
+	dc.w	$20, $48
+	dc.w	$DC, $50
+TitleTextLayout_Ptbr_Lvl_2E:
+	dc.w	$20, $28
+	dc.w	$78, $38
+	dc.w	$20, $48
+	dc.w	$20, $68
+TitleTextLayout_Ptbr_Lvl_2F:
+	dc.w	$40, $28
+	dc.w	$20, $38
+	dc.w	$20, $50
+	dc.w	$20, $68
+TitleTextLayout_Ptbr_Lvl_30:
+	dc.w	$20, $28
+	dc.w	$60, $38
+	dc.w	$20, $48
+	dc.w	$DC, $50
+TitleTextLayout_Ptbr_Lvl_3F:
+	dc.w	$20, $28
+	dc.w	$88, $38
+	dc.w	$20, $48
+	dc.w	$DC, $50
+TitleTextLayout_Ptbr_Lvl_42:
+	dc.w	$60, $28
+	dc.w	$20, $38
+	dc.w	$20, $50
+	dc.w	$DC, $50
+TitleTextLayout_Ptbr_Lvl_43:
+	dc.w	$30, $20
+	dc.w	$20, $30
+	dc.w	$20, $48
+	dc.w	$20, $60
 
 AddrTbl_LevelNames:   ;1A842
 	levnamhdr	TitleText_00, TitleTextLayout_3Lines, 1	;  0
@@ -267,29 +349,29 @@ AddrTbl_LevelNames:   ;1A842
 	levnamhdr	TitleText_17, TitleTextLayout_2Lines, 0	; 17
 	levnamhdr	TitleText_18, TitleTextLayout_Ptbr_Lvl_18, 0	; 18
 	levnamhdr	TitleText_19, TitleTextLayout_2Lines, 0	; 19
-	levnamhdr	TitleText_1A, TitleTextLayout_3Lines, 0	; 1A
-	levnamhdr	TitleText_1B, TitleTextLayout_3Lines, 1	; 1B
-	levnamhdr	TitleText_1B, TitleTextLayout_3Lines, 2	; 1C
+	levnamhdr	TitleText_1A, TitleTextLayout_Ptbr_Lvl_1A, 0	; 1A
+	levnamhdr	TitleText_1B, TitleTextLayout_Ptbr_Lvl_1B, 1	; 1B
+	levnamhdr	TitleText_1B, TitleTextLayout_Ptbr_Lvl_1B, 2	; 1C
 	levnamhdr	TitleText_1D, TitleTextLayout_3Lines, 0	; 1D
 	levnamhdr	TitleText_1E, TitleTextLayout_2Lines, 0	; 1E
 	levnamhdr	TitleText_1F, TitleTextLayout_3Lines, 1	; 1F
 	levnamhdr	TitleText_1F, TitleTextLayout_3Lines, 2	; 20
-	levnamhdr	TitleText_21, TitleTextLayout_2Lines, 0	; 21
-	levnamhdr	TitleText_22, TitleTextLayout_4Lines, 0	; 22
-	levnamhdr	TitleText_23, TitleTextLayout_2Lines, 0	; 23
+	levnamhdr	TitleText_21, TitleTextLayout_Ptbr_Lvl_21, 0	; 21
+	levnamhdr	TitleText_22, TitleTextLayout_Ptbr_Lvl_22, 0	; 22
+	levnamhdr	TitleText_23, TitleTextLayout_Ptbr_Lvl_23, 0	; 23
 	levnamhdr	TitleText_24, TitleTextLayout_3Lines, 1	; 24
 	levnamhdr	TitleText_24, TitleTextLayout_3Lines, 2	; 25
 	levnamhdr	TitleText_26, TitleTextLayout_2Lines, 0	; 26
 	levnamhdr	TitleText_27, TitleTextLayout_3Lines, 0	; 27
 	levnamhdr	TitleText_28, TitleTextLayout_3Lines, 1	; 28
 	levnamhdr	TitleText_28, TitleTextLayout_3Lines, 2	; 29
-	levnamhdr	TitleText_2A, TitleTextLayout_2Lines, 0	; 2A
+	levnamhdr	TitleText_2A, TitleTextLayout_Ptbr_Lvl_2A, 0	; 2A
 	levnamhdr	TitleText_2B, TitleTextLayout_2Lines, 0	; 2B
-	levnamhdr	TitleText_2C, TitleTextLayout_2Lines, 0	; 2C
+	levnamhdr	TitleText_2C, TitleTextLayout_Ptbr_Lvl_2C, 0	; 2C
 	levnamhdr	TitleText_2D, TitleTextLayout_4Lines, 0	; 2D
-	levnamhdr	TitleText_2E, TitleTextLayout_3Lines, 0	; 2E
-	levnamhdr	TitleText_2F, TitleTextLayout_4Lines, 0	; 2F
-	levnamhdr	TitleText_30, TitleTextLayout_2Lines, 0	; 30
+	levnamhdr	TitleText_2E, TitleTextLayout_Ptbr_Lvl_2E, 0	; 2E
+	levnamhdr	TitleText_2F, TitleTextLayout_Ptbr_Lvl_2F, 0	; 2F
+	levnamhdr	TitleText_30, TitleTextLayout_Ptbr_Lvl_30, 0	; 30
 	levnamhdr	TitleText_31, TitleTextLayout_3Lines, 0	; 31
 	levnamhdr	TitleText_32, TitleTextLayout_3Lines, 0	; 32
 	levnamhdr	TitleText_33, TitleTextLayout_3Lines, 0	; 33
@@ -301,14 +383,14 @@ AddrTbl_LevelNames:   ;1A842
 	levnamhdr	TitleText_39, TitleTextLayout_3Lines, 0	; 39
 	levnamhdr	TitleText_3A, TitleTextLayout_3Lines, 0	; 3A
 	levnamhdr	TitleText_3B, TitleTextLayout_4Lines, 0	; 3B
-	levnamhdr	TitleText_3C, TitleTextLayout_3Lines, 0	; 3C
-	levnamhdr	TitleText_3D, TitleTextLayout_3Lines, 0	; 3D
-	levnamhdr	TitleText_3E, TitleTextLayout_2Lines, 0	; 3E
-	levnamhdr	TitleText_3F, TitleTextLayout_2Lines, 0	; 3F
+	levnamhdr	TitleText_3C, TitleTextLayout_Ptbr_Lvl_3C, 0	; 3C
+	levnamhdr	TitleText_3D, TitleTextLayout_Ptbr_Lvl_3D, 0	; 3D
+	levnamhdr	TitleText_3E, TitleTextLayout_Ptbr_Lvl_3E, 0	; 3E
+	levnamhdr	TitleText_3F, TitleTextLayout_Ptbr_Lvl_3F, 0	; 3F
 	levnamhdr	TitleText_40, TitleTextLayout_3Lines, 0	; 40
 	levnamhdr	TitleText_38, TitleTextLayout_2Lines, 0	; 41
-	levnamhdr	TitleText_42, TitleTextLayout_2Lines, 0	; 42
-	levnamhdr	TitleText_43, TitleTextLayout_4Lines, 0	; 43
+	levnamhdr	TitleText_42, TitleTextLayout_Ptbr_Lvl_42, 0	; 42
+	levnamhdr	TitleText_43, TitleTextLayout_Ptbr_Lvl_43, 0	; 43
 	levnamhdr	TitleText_44, TitleTextLayout_3Lines, 0	; 44
 	levnamhdr	TitleText_45, TitleTextLayout_2Lines, 0	; 45
 	levnamhdr	TitleText_46, TitleTextLayout_3Lines, 0	; 46
