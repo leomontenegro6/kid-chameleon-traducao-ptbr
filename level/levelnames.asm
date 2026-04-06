@@ -165,7 +165,7 @@ TitleText_38:
 	dc.b	"a\0cripta"
 	dc.b	$FF
 TitleText_42:
-	dc.b	"\x7D\0crepusculo\0alienigena"
+	dc.b	"\x7D\0crepusculo\0\x7D\0alienigena"
 	dc.b	$FF
 TitleText_43:
 	dc.b	"\x7D\0tuneis\0matas\0abaixo"
@@ -314,7 +314,8 @@ TitleTextLayout_Ptbr_Lvl_3F:
 TitleTextLayout_Ptbr_Lvl_42:
 	dc.w	$60, $28
 	dc.w	$20, $38
-	dc.w	$20, $50
+	dc.w	$60, $48
+	dc.w	$20, $58
 	dc.w	$DC, $50
 TitleTextLayout_Ptbr_Lvl_43:
 	dc.w	$30, $20
