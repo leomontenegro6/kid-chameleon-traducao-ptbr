@@ -33484,6 +33484,7 @@ byte_216B7:  binclude    "scenes/artcomp/Juggernaut_helmet_from_intro.bin"
 byte_219C1:  binclude    "scenes/artcomp/Maniaxe_helmet_from_intro.bin"
 byte_21B79:  binclude    "scenes/artcomp/Broken_Glass_plane.bin"
 byte_22080:  binclude    "scenes/artcomp/Title_text_CHAMELEON.bin"
+	align 2
 byte_23E77:  binclude    "ingame/artcomp/Goo_from_Boss.bin"
 byte_243D5:  binclude    "scenes/artcomp/Sky_castle_and_night_sky_from_intro_scene.bin"
 byte_24985:  binclude    "scenes/artcomp/Title_text_KID.bin"

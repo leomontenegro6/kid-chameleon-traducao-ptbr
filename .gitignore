@@ -10,3 +10,4 @@ planeed_prj/*.exe
 *.kcm
 /kid.lst
 test.bat
+copy_rom_to_anbernic.bat
