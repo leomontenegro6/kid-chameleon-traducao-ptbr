@@ -49306,8 +49306,8 @@ unk_C87B0:  sprite_frame_vram   $062, $00, $00, $10, $10
 unk_C87B8:  sprite_frame_vram   $066, $00, $00, $10, $20
 Spr_TitleLetter_The:  sprite_frame_vram   $072, $00, $00, $10, $10
 Spr_TitleLetter_The_lower:  sprite_frame_vram   $06E, $00, $00, $10, $10
-Spr_TitleLetter_of:  sprite_frame_vram   $080, $00, $00, $18, $10
-Spr_TitleLetter_to:  sprite_frame_vram   $086, $00, $00, $18, $10
+Spr_TitleLetter_of:  sprite_frame_vram   $07A, $00, $00, $10, $10
+Spr_TitleLetter_to:  sprite_frame_vram   $07E, $00, $00, $08, $10
 unk_C87E0:  sprite_frame_vram   $08C, $00, $00, $60, $10
 unk_C87E8:  sprite_frame_vram   $0A4, $00, $00, $08, $18
 unk_C87F0:  sprite_frame_vram   $0A7, $00, $00, $10, $18

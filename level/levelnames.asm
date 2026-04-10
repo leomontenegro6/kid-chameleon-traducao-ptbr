@@ -1,27 +1,27 @@
 ; \0   = end of line
 ; \x7C = "~"
 ; \x7D = "´"
-; \x7E = "do"
-; \x7F = "da"
+; \x7E = "ç"
+; \x7F = "-"
 ; \x80 = "JOGADOR"
 ; \x81 = "1"
 ; \x82 = "2"
 ; \x83 = "^"
 ; \x84 = " "
 TitleText_00:
-	dc.b	"matas\x84\x7E\0lago\0azul"
+	dc.b	"matas\x84do\0lago\0azul"
 	dc.b	$FF
 TitleText_02:
 	dc.b	"passagem\0rio\x84acima"
 	dc.b	$FF
 TitleText_04:
-	dc.b	"montanha\0debaixo\x84\x7F\0caveira"
+	dc.b	"montanha\0debaixo\x84da\0caveira"
 	dc.b	$FF
 TitleText_07:
-	dc.b	"ilha\x84\x7E\0lorde\0\x7C\0leao"
+	dc.b	"ilha\x84do\0lorde\0\x7C\0leao"
 	dc.b	$FF
 TitleText_08:
-	dc.b	"colinas\0\x7E\0guerreiro"
+	dc.b	"colinas\0do\0guerreiro"
 	dc.b	$FF
 TitleText_0A:
 	dc.b	"cidade\0ventosa"
@@ -33,7 +33,7 @@ TitleText_0C:
 	dc.b	"as\0fragas\0cristalinas"
 	dc.b	$FF
 TitleText_0E:
-	dc.b	"pico\x84\x7E\0\x7C\0dragao"
+	dc.b	"pico\x84do\0\x7C\0dragao"
 	dc.b	$FF
 TitleText_0F:
 	dc.b	"montanha\0tempestuosa"
@@ -51,31 +51,31 @@ TitleText_11:
 	dc.b	"as\0matas\0sussurrantes"
 	dc.b	$FF
 TitleText_13:
-	dc.b	"brejo\x84\x7E\0diabo"
+	dc.b	"brejo\x84do\0diabo"
 	dc.b	$FF
 TitleText_15:
-	dc.b	"ilha\x84\x7E\0cavaleiro"
+	dc.b	"ilha\x84do\0cavaleiro"
 	dc.b	$FF
 TitleText_16:
-	dc.b	"gruta\x84\x7F\0baleia"
+	dc.b	"gruta\x84da\0baleia"
 	dc.b	$FF
 TitleText_17:
-	dc.b	"praia\x84\x7F\0prancha"
+	dc.b	"praia\x84da\0prancha"
 	dc.b	$FF
 TitleText_18:
-	dc.b	"\x83\0piramides\0\x7E\0perigo"
+	dc.b	"\x83\0piramides\0do\0perigo"
 	dc.b	$FF
 TitleText_19:
 	dc.b	"montanha\0emaranhada"
 	dc.b	$FF
 TitleText_1A:
-	dc.b	"\x7D\0os\x84arranha\x83ceus\0mortais"
+	dc.b	"\x7D\0os\x84arranha\x7F\0ceus\0mortais\0"
 	dc.b	$FF
 TitleText_1B:
-	dc.b	"castelo\x84\x7E\0\x7C\0dragao\0celeste"
+	dc.b	"castelo\x84do\0\x7C\0dragao\0celeste"
 	dc.b	$FF
 TitleText_1D:
-	dc.b	"gruta\x84\x7E\0coral\0cortante"
+	dc.b	"gruta\x84do\0coral\0cortante"
 	dc.b	$FF
 TitleText_1E:
 	dc.b	"chefes\0bumerangues"
@@ -84,52 +84,52 @@ TitleText_3E:
 	dc.b	"\x83\0pantano\0sangrento"
 	dc.b	$FF
 TitleText_37:
-	dc.b	"enseada\0\x7E\x84siri"
+	dc.b	"enseada\0do\x84siri"
 	dc.b	$FF
 TitleText_39:
 	dc.b	"as\0tumbas\0proibidas"
 	dc.b	$FF
 TitleText_3A:
-	dc.b	"escadaria\0\x7E\0esquecimento"
+	dc.b	"escadaria\0do\0esquecimento"
 	dc.b	$FF
 TitleText_1F:
-	dc.b	"matas\0\x7E\0desespero"
+	dc.b	"matas\0do\0desespero"
 	dc.b	$FF
 TitleText_21:
-	dc.b	"entrada\0forcada\0c"
+	dc.b	"entrada\0forcada\0\x7E"
 	dc.b	$FF
 TitleText_22:
-	dc.b	"\x7D\0as\x84falesias\0\x7C\0\x7F\x84ilusao"
+	dc.b	"\x7D\0as\x84falesias\0\x7C\0da\x84ilusao"
 	dc.b	$FF
 TitleText_23:
-	dc.b	"covil\x84\x7E\0\x7C\0leao"
+	dc.b	"covil\x84do\0\x7C\0leao"
 	dc.b	$FF
 TitleText_24:
 	dc.b	"castelos\0dos\0ventos"
 	dc.b	$FF
 TitleText_26:
-	dc.b	"montanha\0\x7F\x84nevasca"
+	dc.b	"montanha\0da\x84nevasca"
 	dc.b	$FF
 TitleText_27:
 	dc.b	"cavernas\0de\0gelo"
 	dc.b	$FF
 TitleText_28:
-	dc.b	"os\0picos\x84\x7E\0pesadelo"
+	dc.b	"os\0picos\x84do\0pesadelo"
 	dc.b	$FF
 TitleText_2A:
 	dc.b	"\x7C\0irmaos\0bagel"
 	dc.b	$FF
 TitleText_3B:
-	dc.b	"o\0vale\0\x7F\0vida"
+	dc.b	"o\x84vale\0da\x84vida"
 	dc.b	$FF
 TitleText_31:
 	dc.b	"a\0terra\0abaixo"
 	dc.b	$FF
 TitleText_3C:
-	dc.b	"o\x84poco\0c\0negro"
+	dc.b	"o\x84poco\0\x7E\0negro"
 	dc.b	$FF
 TitleText_3D:
-	dc.b	"\x7C\0perdicao\0c\0\x7D\0gelida"
+	dc.b	"\x7C\0perdicao\0\x7E\0\x7D\0gelida"
 	dc.b	$FF
 TitleText_2B:
 	dc.b	"borda\0diamantina"
@@ -141,7 +141,7 @@ TitleText_2D:
 	dc.b	"segredos\0nas\0rochas"
 	dc.b	$FF
 TitleText_2E:
-	dc.b	"vinganca\x84\x7E\0c\0deus\x84\x7E\0gelo"
+	dc.b	"vinganca\x84do\0\x7E\0deus\x84do\0gelo"
 	dc.b	$FF
 TitleText_2F:
 	dc.b	"\x7D\0alem\x84das\0colinas\0torcidas"
@@ -156,7 +156,7 @@ TitleText_33:
 	dc.b	"pletora"
 	dc.b	$FF
 TitleText_3F:
-	dc.b	"ilha\x84\x7E\0\x7C\0escorpiao"
+	dc.b	"ilha\x84do\0\x7C\0escorpiao"
 	dc.b	$FF
 TitleText_40:
 	dc.b	"torres\0de\0sangue"
@@ -171,7 +171,7 @@ TitleText_43:
 	dc.b	"\x7D\0tuneis\0matas\0abaixo"
 	dc.b	$FF
 TitleText_44:
-	dc.b	"colinas\0\x7E\0eterno"
+	dc.b	"colinas\0do\0eterno"
 	dc.b	$FF
 TitleText_45:
 	dc.b	"ilha\x84dos\0monstros"
@@ -242,6 +242,7 @@ TitleTextLayout_Ptbr_Lvl_34:
 TitleTextLayout_Ptbr_Lvl_1A:
 	dc.w	$D8, $28
 	dc.w	$20, $38
+	dc.w	$C8, $38
 	dc.w	$20, $58
 	dc.w	$DC, $40
 TitleTextLayout_Ptbr_Lvl_1B:
@@ -258,12 +259,12 @@ TitleTextLayout_Ptbr_Lvl_3E:
 TitleTextLayout_Ptbr_Lvl_21:
 	dc.w	$20, $28
 	dc.w	$20, $40
-	dc.w	$50, $50
+	dc.w	$50, $4F
 	dc.w	$DC, $50
 TitleTextLayout_Ptbr_Lvl_22:
 	dc.w	$80, $2C
 	dc.w	$20, $3C
-	dc.w	$80, $4C
+	dc.w	$88, $4C
 	dc.w	$20, $5C
 TitleTextLayout_Ptbr_Lvl_23:
 	dc.w	$20, $28
@@ -277,13 +278,13 @@ TitleTextLayout_Ptbr_Lvl_2A:
 	dc.w	$DC, $50
 TitleTextLayout_Ptbr_Lvl_3C:
 	dc.w	$20, $28
-	dc.w	$60, $38
+	dc.w	$60, $37
 	dc.w	$20, $48
 	dc.w	$DC, $50
 TitleTextLayout_Ptbr_Lvl_3D:
 	dc.w	$78, $18
 	dc.w	$20, $28
-	dc.w	$68, $38
+	dc.w	$68, $37
 	dc.w	$30, $38
 	dc.w	$20, $48
 TitleTextLayout_Ptbr_Lvl_2C:
@@ -293,7 +294,7 @@ TitleTextLayout_Ptbr_Lvl_2C:
 	dc.w	$DC, $50
 TitleTextLayout_Ptbr_Lvl_2E:
 	dc.w	$20, $28
-	dc.w	$78, $38
+	dc.w	$78, $37
 	dc.w	$20, $48
 	dc.w	$20, $68
 TitleTextLayout_Ptbr_Lvl_2F:
@@ -383,7 +384,7 @@ AddrTbl_LevelNames:   ;1A842
 	levnamhdr	TitleText_38, TitleTextLayout_2Lines, 0	; 38
 	levnamhdr	TitleText_39, TitleTextLayout_3Lines, 0	; 39
 	levnamhdr	TitleText_3A, TitleTextLayout_3Lines, 0	; 3A
-	levnamhdr	TitleText_3B, TitleTextLayout_4Lines, 0	; 3B
+	levnamhdr	TitleText_3B, TitleTextLayout_2Lines, 0	; 3B
 	levnamhdr	TitleText_3C, TitleTextLayout_Ptbr_Lvl_3C, 0	; 3C
 	levnamhdr	TitleText_3D, TitleTextLayout_Ptbr_Lvl_3D, 0	; 3D
 	levnamhdr	TitleText_3E, TitleTextLayout_Ptbr_Lvl_3E, 0	; 3E

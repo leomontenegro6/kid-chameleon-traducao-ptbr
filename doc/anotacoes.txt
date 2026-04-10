@@ -1,8 +1,2 @@
 - Corrigir bug na rotina de acentos separados da tela-título, onde os caracteres aparecem bugados por um breve instante, antes do acento aparecer em cima
-- Implementar formas de acessar o hífen e cedilha, na fonte dos nomes das fases. Com isso, ajeitar nomes de fases como:
-  - OS ARRANHA-CÉUS MORTAIS
-  - ENTRADA FORÇADA
-  - PERDIÇÃO GÉLIDA
-  - O POÇO NEGRO
-  - VINGANÇA DO DEUS DO GELO
 - Cogitar implementar splash-screen
