@@ -32854,10 +32854,10 @@ EndText1:	dc.b  $F
 	dc.b "DOmCHEF~AOmDIAB´OLICOf", 0
 	dc.b   7
 	dc.b   8
-	dc.b "VOC^EmSER´AmLEMBRADOmCOMOmO", 0
+	dc.b "VOC^EmSER´AmLEMBRADOmCOMOmOm", 0
 	dc.b   7
 	dc.b  $A
-	dc.b "PRIMEIROmCAMPE~AOmDEmJOGOS", 0
+	dc.b "PRIMEIROmCAMPE~AOmDEmJOGOSm", 0
 	dc.b  $C
 	dc.b  $C
 	dc.b "HOLOGR´AFICOSfff", 0
@@ -32875,19 +32875,19 @@ EndText1:	dc.b  $F
 	dc.b "ASmPESSOASmQUEmDESISTIRAM", 0
 	dc.b  9
 	dc.b   6
-	dc.b "DEmSUASmVIDAShmESPOSAS", 0
+	dc.b "DEmSUASmVIDAShmESPOSASm", 0
 	dc.b   9
 	dc.b   8
-	dc.b "EmSANIDADEmPARAmTORNAR", 0
+	dc.b "EmSANIDADEmPARAmTORNARm", 0
 	dc.b  9
 	dc.b  $A
-	dc.b "ESSEmJOGOmREALIDADEfff", 0
+	dc.b "ESSEmJOGOmREALIDADEfffm", 0
 	dc.b   9
 	dc.b  $C
 	dc.b "mmm", 0
 	dc.b  9
 	dc.b  $D
-	dc.b "AmEQUIPEmDOmINSTITUTOm", 0
+	dc.b "AmEQUIPEmDOmINSTITUTOmm", 0
 	dc.b  9
 	dc.b  $F
 	dc.b "mTECNOL´OGICOmDA SEGAi", 0
@@ -32896,19 +32896,19 @@ EndText1:	dc.b  $F
 
 	dc.b  $A
 	dc.b   0
-	dc.b "ffmDESIGNmDOmJOGOmff", 0
+	dc.b "ffmDESIGNmDOmJOGOmffm", 0
 	dc.b   8
 	dc.b  $A
-	dc.b "HOYTmNGm", 0
+	dc.b "HOYTmNGmm", 0
 	dc.b $15
 	dc.b $11
-	dc.b "BILLmDUNN", 0
+	dc.b "BILLmDUNNmm", 0
 	dc.b $13
 	dc.b   8
-	dc.b "RICKmMACARAEG", 0
+	dc.b "RICKmMACARAEGmm", 0
 	dc.b   8
 	dc.b $13
-	dc.b "mGRAEMEmBAYLESS", 0
+	dc.b "mGRAEMEmBAYLESSmm", 0
 	dc.b $FF
 	dc.b $FF
 
@@ -32932,10 +32932,10 @@ EndText1:	dc.b  $F
 
 	dc.b  $C
 	dc.b   0
-	dc.b "fffmARTISTASmfff", 0
+	dc.b "fffmARTISTASmfffm", 0
 	dc.b $13
 	dc.b   8
-	dc.b "mALANmACKERMAN", 0
+	dc.b "mALANmACKERMANm", 0
 	dc.b   7
 	dc.b $12
 	dc.b "BRENDAmROSS", 0
@@ -32953,16 +32953,16 @@ EndText1:	dc.b  $F
 
 	dc.b  $A
 	dc.b   2
-	dc.b "SOMmPORm", 0
+	dc.b "SOMmPORmm", 0
 	dc.b  $A
 	dc.b   4
-	dc.b "NUmROMANTICmPRODU", $67, "~OES", 0
+	dc.b "NUmROMANTICmPRODU", $67, "~OESmmm", 0
 	dc.b  7
 	dc.b  $A
-	dc.b "AGRADECIMENTOSmESPECIAISmA", 0
+	dc.b "AGRADECIMENTOSmESPECIAISmAm", 0
 	dc.b  $A
 	dc.b  $C
-	dc.b "SCOTTmCHANDLERm", 0
+	dc.b "SCOTTmCHANDLERmmm", 0
 	dc.b  $A
 	dc.b  $E
 	dc.b "HUGHmBOWENm", 0
@@ -32971,7 +32971,7 @@ EndText1:	dc.b  $F
 	dc.b "HAVENmCARTERm", 0
 	dc.b  $A
 	dc.b $12
-	dc.b "EmOmPESSOALmDEmTESTESm", 0
+	dc.b "EmOmPESSOALmDEmTESTESmm", 0
 	dc.b   0
 	dc.b   0
 unk_1D75A:	dc.b   0
