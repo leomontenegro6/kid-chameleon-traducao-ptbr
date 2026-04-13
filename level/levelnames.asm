@@ -211,11 +211,6 @@ TitleTextLayout_4Lines: ; no level number here
 	dc.w	$20, $3C
 	dc.w	$20, $4C
 	dc.w	$20, $5C
-TitleTextLayout_3LinesDense: ; last row is level number. Less vertical spacing between lines.
-	dc.w	$20, $28
-	dc.w	$20, $3C
-	dc.w	$20, $4C
-	dc.w	$DC, $48
 TitleTextLayout_1Line: ; no level number here
 	dc.w	$20, $28
 TitleTextLayout_Ptbr_Lvl_07: ; last row is level number
@@ -333,8 +328,8 @@ AddrTbl_LevelNames:   ;1A842
 	levnamhdr	TitleText_04, TitleTextLayout_3Lines, 2	;  5
 	levnamhdr	TitleText_04, TitleTextLayout_3Lines, 3	;  6
 	levnamhdr	TitleText_07, TitleTextLayout_Ptbr_Lvl_07, 0	;  7
-	levnamhdr	TitleText_08, TitleTextLayout_3LinesDense, 1	;  8
-	levnamhdr	TitleText_08, TitleTextLayout_3LinesDense, 2	;  9
+	levnamhdr	TitleText_08, TitleTextLayout_3Lines, 1	;  8
+	levnamhdr	TitleText_08, TitleTextLayout_3Lines, 2	;  9
 	levnamhdr	TitleText_0A, TitleTextLayout_2Lines, 0	;  A
 	levnamhdr	TitleText_0B, TitleTextLayout_2Lines, 0	;  B
 	levnamhdr	TitleText_0C, TitleTextLayout_3Lines, 1	;  C

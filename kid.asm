@@ -31445,7 +31445,7 @@ IntroText5:
 
 SegaText:   
     textheader 0, $67D3, 0, $0D, $19
-    dc.b "()1992 SEGA, 2O26 F.U.R.T.", CTRL_LINEBREAK
+    dc.b "()1992 SEGA, 2026 F.U.R.T.", CTRL_LINEBREAK
     dc.b "  WWW.ROMHACKING.NET.BR  ", CTRL_END
     align 2
 
@@ -49981,6 +49981,11 @@ GEMS_Sounddriver_End:
 	dc.b $FF
 	dc.b $FF
 	dc.b $FF
+FillUp:
+; filler
+    rept $200000-FillUp
+    dc.b    $FF
+    endm
 EndOfROM:
 	END
 	END

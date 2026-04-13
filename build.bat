@@ -42,6 +42,9 @@ IF NOT EXIST kid_built.bin goto LABLNOBIN
 
 IF EXIST kid.log goto LABLWARNING
 
+REM // fix the header checksum
+.\fixheader.exe .\kid_built.bin
+
 REM // comment this in if you want to immediately run the ROM
 REM "../Fusion 3.63.exe" kid_built.bin
 exit /b
