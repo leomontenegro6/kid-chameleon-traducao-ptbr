@@ -642,7 +642,8 @@ PSGInitLoop:
 	move	#$2700,sr	; set the sr
 
 PortC_OK:
-	bra.s	GameProgram	; Branch to game program.
+	jmp		SplashScreen
+	;bra.s	GameProgram	; Branch to game program.
 ; ---------------------------------------------------------------------------
 SetupValues:
 	dc.w	$8000,bytesToLcnt($10000),$100
@@ -49981,11 +49982,19 @@ GEMS_Sounddriver_End:
 	dc.b $FF
 	dc.b $FF
 	dc.b $FF
+
+	align 2
+
+SplashScreen:
+	binclude 	"./credits.bin"
+	align 2
+
 FillUp:
 ; filler
     rept $200000-FillUp
     dc.b    $FF
     endm
+	
 EndOfROM:
 	END
 	END
