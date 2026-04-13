@@ -23568,7 +23568,8 @@ LoadGameModeData:
 ; End of function j_LoadGameModeData
 
 ; ---------------------------------------------------------------------------
-GameLoadArray:	dc.l Load_SegaScreen
+GameLoadArray:	
+	dc.l Load_SegaScreen
 	dc.l Load_IntroSequence1
 	dc.l Load_TitleCard
 	dc.l Load_InGame	; also Results screen
