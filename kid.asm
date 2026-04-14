@@ -31499,11 +31499,14 @@ loc_1C7DC:
 ; Intro Texts Drawing Logic
 ; ---------------------------------------------------------------------------
 DrawIntroText:
+    ; --- Skip UTF-8 lead byte $C2 (produced by ´ U+00B4 encoding) ---
+    cmpi.b  #$C2, d6
+    beq.s   .check_next             ; Ignore lead byte, read next char (will be ACCUTE $5A)
     ; --- Accent Check ---
     cmpi.b  #TILDE, d6
     beq.s   .is_accent
     cmpi.b  #ACCUTE, d6
-    beq.s   .is_accute
+    beq.s   .is_accent
     cmpi.b  #CIRCUMFLEX, d6
     beq.s   .is_accent
 
@@ -31513,12 +31516,10 @@ DrawIntroText:
     addq.w  #1, d1              ; Increment Column (Next X position)
     bra.s   .check_next
 
-.is_accute:
-    subq.w  #1, d1              ; Backtrack X (Specific for Accute alignment)
 .is_accent:
     subi.b  #$41, d6            ; Convert ASCII to Tile Index
-    bsr.s   .draw_accent        ; Draw above current position
-    ; Note: d1 (Column) is NOT incremented here, keeping the cursor on the same X
+    bsr.s   .draw_accent        ; Draw above current position (PREFIX: letter follows the accent code)
+    ; Note: d1 (Column) is NOT incremented here — next char (the letter) draws at this same column
 
 .check_next:
     move.w  4(a0), d0           ; Check delay/timer
@@ -31557,7 +31558,6 @@ sub_1C7F6:
     add.w   2(a0), d6           ; Add Base Tile ID to Character Index
     move.w  d6, (a6)            ; Write Tile to VDP Data Port
     rts
-
 
 ; =============== S U B	R O U T	I N E =======================================
 
