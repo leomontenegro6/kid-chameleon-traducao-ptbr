@@ -20,6 +20,8 @@ insertLevelSelect = 0
 ; e.g. allows combining robots with other (non-UFO) enemies,
 ; makes trap platforms move smoothly.
 minorBugFixes = 0
+; Upgrade GEMS Sound Driver to 2.5
+useGEMS25 = 1
 ; Introduce type of scripted platform that starts the script only once the
 ; kid stands on the platform.
 ; In the layout, such a platform is used when the platform parameter t=1.
@@ -49585,8 +49587,13 @@ BranchTo_Stop_z80:
 loc_E136C:
 	btst	#0,($A11100).l
 	bne.s	loc_E136C
+	if useGEMS25 = 0
 	move.b	#1,($A01A20).l
 	move.b	($A01A21).l,d0
+	else
+	move.b	#1,($A01B20).l
+	move.b	($A01B21).l,d0
+	endif
 	move.w	#0,($A11100).l
 	tst.b	d0
 	beq.s	return_E1396
@@ -49608,7 +49615,11 @@ BranchTo_Start_z80:
 
 ; ---------------------------------------------------------------------------
 	jsr	(Stop_z80).l
+	if useGEMS25 = 0
 	move.b	#0,($A01A20).l
+	else
+	move.b	#0,($A01B20).l
+	endif
 	jsr	(Start_z80).l
 
 loc_E13B0:
@@ -49691,7 +49702,11 @@ sub_E143A:
 	move	sr,-(sp)
 	move.l	a0,-(sp)
 	lea	($A00036).l,a0
+	if useGEMS25 = 0
 	lea	($A01A40).l,a1
+	else
+	lea	($A01B40).l,a1
+	endif
 	or	#$700,sr
 	move.w	#$100,($A11100).l
 
@@ -49974,7 +49989,11 @@ unk_E8716:
 	binclude	"sound/samples.bin"
 ; FE976
 GEMS_Sounddriver:
+	if useGEMS25 = 0
 	binclude	"sound/GEMS_Sounddriver.bin"
+	else
+	include		"sound/GEMS_Sounddriver_25.asm"
+	endif
 ; FFFFA
 GEMS_Sounddriver_End:
 	dc.b   0
@@ -49987,7 +50006,11 @@ GEMS_Sounddriver_End:
 	align 2
 
 SplashScreen:
-	binclude 	"./credits.bin"
+	if useGEMS25 = 0
+	binclude 	"credits.bin"
+	else
+	binclude 	"credits_gems25.bin"
+	endif
 	align 2
 
 FillUp:
