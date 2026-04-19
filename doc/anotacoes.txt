@@ -1,2 +1,3 @@
-- Corrigir bug na rotina de acentos separados da tela-título, onde os caracteres aparecem bugados por um breve instante, antes do acento aparecer em cima
-- Cogitar implementar splash-screen
+- Implementar suporte à tela de Level Select, junto com a tradução
+- Ver possível bug na tela de opções, onde após descer o painel, o tom das batidas de bateria ficam um tom abaixo do normal.
+- Na fase "Crepúsculo Alienígena" (Alien Twilight), ver por que os tiles do foreground na janela de cima do prédio do meio (escrito "Café") estão ligeiramente bugados

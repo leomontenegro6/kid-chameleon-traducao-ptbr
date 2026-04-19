@@ -21,7 +21,7 @@ insertLevelSelect = 0
 ; makes trap platforms move smoothly.
 minorBugFixes = 0
 ; Upgrade GEMS Sound Driver to 2.5
-useGEMS25 = 1
+useGEMS25 = 0
 ; Introduce type of scripted platform that starts the script only once the
 ; kid stands on the platform.
 ; In the layout, such a platform is used when the platform parameter t=1.
