@@ -207,6 +207,11 @@ Options_Suboption_Controls = $FFFFFDCA	; word: selected sub-option 2 in options 
 Options_Selected_Option = $FFFFFDCC	; word: currently selected option in options menu, also in level select
 Clocks_collected = 	$FFFFFDCE	; word
 Options_Plane_Position = $FFFFFDD0	; word
+LevelSelect_MarqueeOffset    = $FFFFFDD2	; word: current scroll offset (chars skipped)
+LevelSelect_MarqueeTimer     = $FFFFFDD4	; word: frames countdown to next scroll step
+LevelSelect_MarqueeMaxOffset = $FFFFFDD6	; word: max scroll offset for current name
+LevelSelect_PrevSelected     = $FFFFFDD8	; word: previous selected option (change detection)
+CostumeSelect_PrevOption     = $FFFFFDDA	; word: previous costume selection (change detection)
 
 ; GfxObject RAM offsets
 ; 0: (long) pointer to next objectData

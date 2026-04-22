@@ -15,7 +15,7 @@
 ; (Takes less space but is not bit-perfect.)
 zeroOffsetOptimization = 0
 ; Set to 1 to add a level/helmet select to the game.
-insertLevelSelect = 0
+insertLevelSelect = 1
 ; Set to 1 to fix minor bugs in the game.
 ; e.g. allows combining robots with other (non-UFO) enemies,
 ; makes trap platforms move smoothly.
@@ -7238,23 +7238,23 @@ sub_6E24:
 ; ---------------------------------------------------------------------------
 
 
-	if insertLevelSelect = 0
+	; if insertLevelSelect = 0
 ; filler
     rept 814
 	dc.b	$FF
     endm
 
-	else
-LevelSelect_Start:
-; LevelSelect_Loop_Pre:
-	include	"scenes/levelselect.asm"
-LevelSelect_End:
-	; pad with $FF. Not really necessary but this ensures
-	; consistency with the existing binary patch
-    rept 814-(LevelSelect_End-LevelSelect_Start)
-    	dc.b	$FF
-    endm
-	endif
+; 	else
+; LevelSelect_Start:
+; ; LevelSelect_Loop_Pre:
+; 	include	"scenes/levelselect.asm"
+; LevelSelect_End:
+; 	; pad with $FF. Not really necessary but this ensures
+; 	; consistency with the existing binary patch
+;     rept 814-(LevelSelect_End-LevelSelect_Start)
+;     	dc.b	$FF
+;     endm
+; 	endif
 
 
 ; =============== S U B	R O U T	I N E =======================================
@@ -30469,7 +30469,7 @@ loc_1BBD6:
 	if insertLevelSelect = 0
 	jmp	(j_loc_6E2).w
 	else
-	jmp	(LevelSelect_ChkKey).w
+	jmp	(LevelSelect_ChkKey).l
 	endif
 ; ---------------------------------------------------------------------------
 
@@ -33223,7 +33223,7 @@ loc_1D8FA:
 Chk_LevelSelect:
 	tst.b	(LevelSelect_Flag).w
 	beq.w	OptionScreen_Loop
-	jmp	LevelSelect_Loop
+	jmp	LevelSelect_Init
 	endif
 
 unk_1D91C:	dc.b $3C ; <
@@ -50012,6 +50012,13 @@ SplashScreen:
 	binclude 	"credits_gems25.bin"
 	endif
 	align 2
+
+	if insertLevelSelect = 1
+LevelSelect_Start:
+; LevelSelect_Loop_Pre:
+	include	"scenes/levelselect.asm"
+LevelSelect_End:
+	endif
 
 FillUp:
 ; filler
