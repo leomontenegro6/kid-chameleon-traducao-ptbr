@@ -340,7 +340,32 @@ LevelSelect_make_cmd:
 ; ---------------------------------------------------------------------------
 CostumeSelect:
 	clr.w	(Options_Selected_Option).w
-	move.w	#-1,(CostumeSelect_PrevOption).w	; force update on first frame
+	move.w	#-1,(CostumeSelect_PrevOption).w
+
+	; Allocate GfxObject for costume preview sprite ($12=1: kid mode, tiles DMA'd automatically)
+	move.l	#$2000000,a3
+	jsr	(j_Load_GfxObjectSlot).w
+	move.l	a3,(CostumeSelect_PreviewObj).w
+	st	$13(a3)			; enable display
+	move.b	#1,$12(a3)		; kid mode: tiles DMA'd from ROM to VRAM $C4A0 each frame
+	move.b	#1,priority(a3)		; high priority: sprite appears over background tiles
+	move.b	#3,palette_line(a3)	; palette 3
+	move.w	#$120,x_pos(a3)		; x anchor (xcenter will be subtracted)
+	; y_pos = Camera_Y_pos + $C0: sprite appears at screen-Y $C0 regardless of camera scroll
+	move.w	(Camera_Y_pos).w,d0
+	add.w	#$C0,d0
+	move.w	d0,y_pos(a3)
+	lea	(off_79B2).l,a4
+	move.w	(a4),d0			; Data_Index byte offset for costume 0
+	move.w	d0,addroffset_sprite(a3)
+	; Pre-load costume 0 tiles directly to VRAM $C4A0 (bypasses $FFFFFB49 DMA gate)
+	lea	(Data_Index).l,a1
+	move.l	(a1,d0.w),a1		; a1 = sprite_frame_unc for costume 0
+	bsr.w	CostumeSelect_LoadTilesToVRAM
+
+	; Load costume 0 palette
+	moveq	#0,d7
+	jsr	(sub_80D0).l
 
 	move.w	#$A,d4
 
@@ -364,7 +389,6 @@ CostumeSelect_loop:
 	movem.l	d0-d3/a0-a3,-(sp)
 	bsr.w	CostumeSelect_UpdatePreview
 	bsr.w	CostumeSelect_DrawText
-	; bsr.w	CostumeSelect_SetupSprites
 	movem.l	(sp)+,d0-d3/a0-a3
 	move.w	#9,d6
 	bsr.w	LevelSelect_Input
@@ -405,22 +429,22 @@ CostumeSelect_DrawText:
 	rts
 
 ; ---------------------------------------------------------------------------
-; Updates costume preview: palette, GfxObject frame, and VRAM tiles.
+; Updates costume preview: palette, GfxObject frame, and tiles.
 CostumeSelect_UpdatePreview:
 	move.w	(Options_Selected_Option).w,d7
 	cmp.w	(CostumeSelect_PrevOption).w,d7
 	beq.s	+
 	move.w	d7,(CostumeSelect_PrevOption).w
-	; Update palette (destroys d7)
-	jsr	(sub_80D0).l
-	; Get Data_Index offset for current costume
+	jsr	(sub_80D0).l			; update palette (destroys d7)
 	move.w	(CostumeSelect_PrevOption).w,d7
-	add.w	d7,d7			; word index
+	add.w	d7,d7				; word index
 	lea	(off_79B2).l,a1
-	move.w	(a1,d7.w),d7		; d7 = Data_Index byte offset
-	; Load tiles directly to VRAM $C4A0
+	move.w	(a1,d7.w),d7			; d7 = Data_Index byte offset for this costume
+	move.l	(CostumeSelect_PreviewObj).w,a3
+	move.w	d7,addroffset_sprite(a3)	; update GfxObject sprite frame
+	; Write tiles directly to VRAM $C4A0 (bypasses $FFFFFB49 DMA gate)
 	lea	(Data_Index).l,a1
-	move.l	(a1,d7.w),a1		; a1 -> sprite_frame_unc for this costume
+	move.l	(a1,d7.w),a1			; a1 = sprite_frame_unc for this costume
 	bsr.w	CostumeSelect_LoadTilesToVRAM
 +	rts
 
@@ -445,7 +469,7 @@ CostumeSelect_LoadTilesToVRAM:
 -	move.w	(a1)+,(a6)		; write word to VDP data port
 	dbf	d0,-
 	rts
-	
+
 ; ---------------------------------------------------------------------------
 CostumeTextOffsets:
 	dc.w	cost0-CostumeTextOffsets
