@@ -68,7 +68,7 @@ DrawLevelSelectName:
 	bsr.w	.clear_row
 
 	; If selected line, skip LevelSelect_MarqueeOffset visual columns
-	cmpi.w	#$E509,d3
+	cmpi.w	#$8509,d3
 	bne.s	.start_draw
 	move.w	(LevelSelect_MarqueeOffset).w,d0
 	beq.s	.start_draw
@@ -182,7 +182,7 @@ LevelSelect_DrawText_Loop:
 	move.w	#$C509,d3
 	cmpi.w	#$10,d2
 	bne.s	+
-	move.w	#$E509,d3
+	move.w	#$8509,d3
 +
 	; Bounds check
 	tst.w	d6
@@ -332,7 +332,7 @@ LevelSelect_make_cmd:
 	move.w	#$C509,d7
 	tst.b	d3		; set palette line
 	beq.s	+
-	move.w	#$E509,d7
+	move.w	#$8509,d7
 +
 	jsr	(j_sub_914).w
 	move.l	d5,4(a6)
@@ -431,11 +431,20 @@ CostumeSelect_DrawText:
 	moveq	#0,d5
 	move.b	(LevelSelect_ActNumber).w,d5
 	cmp.w	(Options_Selected_Option).w,d5
-	seq	d3
+	bne.s	.normal
+	move.w	#$8509,d3		; selected palette
+	bra.s	.draw
+.normal:
+	move.w	#$C509,d3		; normal palette
+.draw:
 	lea	CostumeTextOffsets(pc),a4
 	add.w	d5,d5
-	add.w	(a4,d5.w),a4
-	jsr	(DrawTextLine_Offset).l
+	add.w	(a4,d5.w),a4		; a4 → cost* entry [x_pos, y_pos, string...]
+	addq.w	#1,a4			; skip x_pos byte
+	moveq	#0,d2
+	move.b	(a4)+,d2		; d2 = y_pos byte (0, 2, 4, ...)
+	add.w	#$A,d2			; + base row $A
+	bsr.w	DrawLevelSelectName
 	sub.b	#1,(LevelSelect_ActNumber).w
 	bge.s	-
 	rts
