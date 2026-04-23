@@ -58,7 +58,7 @@ LevelSelect_Input:
 ; Input:  a4 = pointer to null-terminated string
 ;         d2 = row
 ;         d3.w = tile base (palette + font - $41):
-;                  normal:   $C509
+;                  normal:   $64DC
 ;                  selected: $E509
 ;         a6 = VDP base ($C00000)
 DrawLevelSelectName:
@@ -68,7 +68,7 @@ DrawLevelSelectName:
 	bsr.w	.clear_row
 
 	; If selected line, skip LevelSelect_MarqueeOffset visual columns
-	cmpi.w	#$8509,d3
+	cmpi.w	#$E509,d3
 	bne.s	.start_draw
 	move.w	(LevelSelect_MarqueeOffset).w,d0
 	beq.s	.start_draw
@@ -179,10 +179,10 @@ LevelSelect_DrawText:
 	move.w	#8,d0		; 9 entries (dbf 8..0)
 LevelSelect_DrawText_Loop:
 	; Select tile base: row $10 = selected
-	move.w	#$C509,d3
+	move.w	#$64DC,d3
 	cmpi.w	#$10,d2
 	bne.s	+
-	move.w	#$8509,d3
+	move.w	#$E509,d3
 +
 	; Bounds check
 	tst.w	d6
@@ -329,10 +329,10 @@ LevelSelect_make_cmd:
 	add.w	#$4000,d5
 	swap	d5
 
-	move.w	#$C509,d7
+	move.w	#$64DC,d7
 	tst.b	d3		; set palette line
 	beq.s	+
-	move.w	#$8509,d7
+	move.w	#$E509,d7
 +
 	jsr	(j_sub_914).w
 	move.l	d5,4(a6)
@@ -344,14 +344,14 @@ CostumeSelect:
 
 	; Head GfxObject: kid mode ($12=1), tiles written each frame to VRAM $C4A0.
 	; y_pos = Camera_Y_pos + $C0 keeps the sprite at screen-Y $C0 regardless of scroll.
-	move.l	#$2000000,a3
+	move.l	#$4000000,a3
 	jsr	(j_Load_GfxObjectSlot).w
 	move.l	a3,(CostumeSelect_PreviewObj).w
 	st	$13(a3)
 	move.b	#1,$12(a3)
 	move.b	#1,priority(a3)
-	move.b	#3,palette_line(a3)
-	move.w	#$120,x_pos(a3)
+	move.b	#2,palette_line(a3)
+	move.w	#$E0,x_pos(a3)
 	move.w	(Camera_Y_pos).w,d0
 	add.w	#$C0,d0
 	move.w	d0,y_pos(a3)
@@ -363,21 +363,21 @@ CostumeSelect:
 	bsr.w	CostumeSelect_LoadHeadTiles
 
 	; JUGGERNAUT body GfxObject: same settings, hidden until costume 5 is selected.
-	move.l	#$2000000,a3
+	move.l	#$4000000,a3
 	jsr	(j_Load_GfxObjectSlot).w
 	move.l	a3,(CostumeSelect_PreviewObj2).w
 	clr.b	$13(a3)
 	move.b	#1,$12(a3)
 	move.b	#1,priority(a3)
-	move.b	#3,palette_line(a3)
-	move.w	#$120,x_pos(a3)
+	move.b	#2,palette_line(a3)
+	move.w	#$E0,x_pos(a3)
 	move.w	(Camera_Y_pos).w,d0
 	add.w	#$C0,d0
 	move.w	d0,y_pos(a3)
 	move.w	#(LnkTo_unk_BF714-Data_Index),addroffset_sprite(a3)
 
 	moveq	#0,d7
-	jsr	(sub_80D0).l
+	bsr.w	CostumeSelect_LoadPalette
 
 	move.w	#$A,d4
 
@@ -413,8 +413,6 @@ CostumeSelect_Loop:
 	lea	(unk_7EC2).l,a4	; helmet hitpoints
 	move.b	(a4,d7.w),d7
 	move.w	d7,(Number_Hitpoints).w
-	;move.w	d7,(Extra_hitpoint_slots).w
-	;add soundtest: jsr	($E1328).l
 	clr.w	($FFFFFBCC).w
 	st	($FFFFFBCE).w
 	st	($FFFFFC36).w
@@ -432,10 +430,10 @@ CostumeSelect_DrawText:
 	move.b	(LevelSelect_ActNumber).w,d5
 	cmp.w	(Options_Selected_Option).w,d5
 	bne.s	.normal
-	move.w	#$8509,d3		; selected palette
+	move.w	#$E509,d3		; selected palette
 	bra.s	.draw
 .normal:
-	move.w	#$C509,d3		; normal palette
+	move.w	#$64DC,d3		; normal palette
 .draw:
 	lea	CostumeTextOffsets(pc),a4
 	add.w	d5,d5
@@ -456,7 +454,7 @@ CostumeSelect_UpdatePreview:
 	cmp.w	(CostumeSelect_PrevOption).w,d7
 	beq.s	.done
 	move.w	d7,(CostumeSelect_PrevOption).w
-	jsr	(sub_80D0).l			; destroys d7
+	bsr.w	CostumeSelect_LoadPalette			; destroys d7
 	move.w	(CostumeSelect_PrevOption).w,d6	; d6 = costume index (0-9)
 	move.w	d6,d7
 	add.w	d7,d7				; word offset into off_79B2
@@ -505,6 +503,24 @@ CostumeSelect_WriteTiles:
 	lea	6(a1),a1
 -	move.w	(a1)+,(a6)
 	dbf	d0,-
+	rts
+
+; ---------------------------------------------------------------------------
+; Loads costume palette (colors 1-12) into palette 2 only.
+; Mirrors sub_80D0 logic but targets Palette_Buffer+$42 instead of +$62 (palette 3).
+; Input: d7 = costume index (0-9)
+CostumeSelect_LoadPalette:
+	movem.l	a1-a2,-(sp)
+	add.w	d7,d7
+	lea	(Data_Index).l,a4
+	lea	(off_80F2).l,a1
+	add.w	(a1,d7.w),a4		; a4 = pointer to palette data pointer
+	move.l	(a4),a4			; a4 = palette data
+	lea	(Palette_Buffer+$42).l,a2	; palette 2, color 1
+	moveq	#$B,d7
+-	move.w	(a4)+,(a2)+
+	dbf	d7,-
+	movem.l	(sp)+,a1-a2
 	rts
 
 ; ---------------------------------------------------------------------------
