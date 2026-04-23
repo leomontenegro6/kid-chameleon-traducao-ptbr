@@ -342,62 +342,60 @@ CostumeSelect:
 	clr.w	(Options_Selected_Option).w
 	move.w	#-1,(CostumeSelect_PrevOption).w
 
-	; Allocate GfxObject for costume preview sprite ($12=1: kid mode, tiles DMA'd automatically)
+	; Head GfxObject: kid mode ($12=1), tiles written each frame to VRAM $C4A0.
+	; y_pos = Camera_Y_pos + $C0 keeps the sprite at screen-Y $C0 regardless of scroll.
 	move.l	#$2000000,a3
 	jsr	(j_Load_GfxObjectSlot).w
 	move.l	a3,(CostumeSelect_PreviewObj).w
-	st	$13(a3)			; enable display
-	move.b	#1,$12(a3)		; kid mode: tiles DMA'd from ROM to VRAM $C4A0 each frame
-	move.b	#1,priority(a3)		; high priority: sprite appears over background tiles
-	move.b	#3,palette_line(a3)	; palette 3
-	move.w	#$120,x_pos(a3)		; x anchor (xcenter will be subtracted)
-	; y_pos = Camera_Y_pos + $C0: sprite appears at screen-Y $C0 regardless of camera scroll
+	st	$13(a3)
+	move.b	#1,$12(a3)
+	move.b	#1,priority(a3)
+	move.b	#3,palette_line(a3)
+	move.w	#$120,x_pos(a3)
 	move.w	(Camera_Y_pos).w,d0
 	add.w	#$C0,d0
 	move.w	d0,y_pos(a3)
 	lea	(off_79B2).l,a4
-	move.w	(a4),d0			; Data_Index byte offset for costume 0
+	move.w	(a4),d0
 	move.w	d0,addroffset_sprite(a3)
-	; Pre-load costume 0 tiles directly to VRAM $C4A0 (bypasses $FFFFFB49 DMA gate)
 	lea	(Data_Index).l,a1
-	move.l	(a1,d0.w),a1		; a1 = sprite_frame_unc for costume 0
-	bsr.w	CostumeSelect_LoadTilesToVRAM
+	move.l	(a1,d0.w),a1
+	bsr.w	CostumeSelect_LoadHeadTiles
 
-	; Allocate second GfxObject for JUGGERNAUT body (hidden for non-JUGGERNAUT costumes)
+	; JUGGERNAUT body GfxObject: same settings, hidden until costume 5 is selected.
 	move.l	#$2000000,a3
 	jsr	(j_Load_GfxObjectSlot).w
 	move.l	a3,(CostumeSelect_PreviewObj2).w
-	clr.b	$13(a3)				; hidden by default
-	move.b	#1,$12(a3)			; kid mode
-	move.b	#1,priority(a3)			; high priority
-	move.b	#3,palette_line(a3)		; palette 3
-	move.w	#$120,x_pos(a3)			; same x anchor as head
+	clr.b	$13(a3)
+	move.b	#1,$12(a3)
+	move.b	#1,priority(a3)
+	move.b	#3,palette_line(a3)
+	move.w	#$120,x_pos(a3)
 	move.w	(Camera_Y_pos).w,d0
 	add.w	#$C0,d0
-	move.w	d0,y_pos(a3)			; same y anchor as head
-	move.w	#(LnkTo_unk_BF714-Data_Index),addroffset_sprite(a3)	; JUGGERNAUT body frame
+	move.w	d0,y_pos(a3)
+	move.w	#(LnkTo_unk_BF714-Data_Index),addroffset_sprite(a3)
 
-	; Load costume 0 palette
 	moveq	#0,d7
 	jsr	(sub_80D0).l
 
 	move.w	#$A,d4
 
-CostumeSelect_loop:
+CostumeSelect_InitLoop:
 	bsr.w	LevelSelect_make_cmd
-	move.w	#$1A,d3		; line width
+	move.w	#$1A,d3
 -
-	move.w	#0,(a6)	; clear
+	move.w	#0,(a6)
 	dbf	d3,-
 
 	jsr	(j_sub_924).w
 	addq.w	#2,d4
 	cmpi.w	#$1E,d4
-	blt.s	CostumeSelect_loop
+	blt.s	CostumeSelect_InitLoop
 
 	bclr	#7,(Ctrl_Pressed).w
 
--:
+CostumeSelect_Loop:
 	jsr	(j_Hibernate_Object_1Frame).w
 	jsr	(sub_1CC88).l
 	movem.l	d0-d3/a0-a3,-(sp)
@@ -407,7 +405,7 @@ CostumeSelect_loop:
 	move.w	#9,d6
 	bsr.w	LevelSelect_Input
 	bclr	#7,(Ctrl_1_Pressed).w
-	beq.s	-
+	beq.s	CostumeSelect_Loop
 
 ;CostumeSelect_Exit:
 	move.w	(Options_Selected_Option).w,d7
@@ -447,29 +445,45 @@ CostumeSelect_DrawText:
 CostumeSelect_UpdatePreview:
 	move.w	(Options_Selected_Option).w,d7
 	cmp.w	(CostumeSelect_PrevOption).w,d7
-	beq.s	CostumeSelect_UpdatePreview_done
+	beq.s	.done
 	move.w	d7,(CostumeSelect_PrevOption).w
-	jsr	(sub_80D0).l			; update palette (destroys d7)
-	move.w	(CostumeSelect_PrevOption).w,d7
-	add.w	d7,d7				; word index
+	jsr	(sub_80D0).l			; destroys d7
+	move.w	(CostumeSelect_PrevOption).w,d6	; d6 = costume index (0-9)
+	move.w	d6,d7
+	add.w	d7,d7				; word offset into off_79B2
 	lea	(off_79B2).l,a1
-	move.w	(a1,d7.w),d7			; d7 = Data_Index byte offset for this costume
+	move.w	(a1,d7.w),d7
 	move.l	(CostumeSelect_PreviewObj).w,a3
-	move.w	d7,addroffset_sprite(a3)	; update head GfxObject sprite frame
-	; Write head tiles directly to VRAM $C4A0 (bypasses $FFFFFB49 DMA gate)
+	move.w	d7,addroffset_sprite(a3)
 	lea	(Data_Index).l,a1
-	move.l	(a1,d7.w),a1			; a1 = sprite_frame_unc for this costume
-	bsr.w	CostumeSelect_LoadTilesToVRAM
-	; Handle JUGGERNAUT body (costume index 5)
-	move.w	(CostumeSelect_PrevOption).w,d7
+	move.l	(a1,d7.w),a1
+	bsr.w	CostumeSelect_LoadHeadTiles
 	move.l	(CostumeSelect_PreviewObj2).w,a3
-	cmpi.w	#5,d7
-	bne.s	CostumeSelect_HideBody
-	; JUGGERNAUT: enable body GfxObject, load body tiles to VRAM $C620
-	; Head is 26x21px = 4x3 = 12 tiles; body follows at tile $631 = $C4A0 + $180 = $C620
-	st	$13(a3)				; enable body display
-	lea	(unk_BF714).l,a1		; JUGGERNAUT body frame art
+	cmpi.w	#5,d6				; JUGGERNAUT?
+	bne.s	.hide_body
+	st	$13(a3)
+	lea	(unk_BF714).l,a1
+	bsr.w	CostumeSelect_LoadBodyTiles
+	bra.s	.done
+.hide_body:
+	clr.b	$13(a3)
+.done:
+	rts
+
+; ---------------------------------------------------------------------------
+; CostumeSelect_LoadHeadTiles / CostumeSelect_LoadBodyTiles
+; Write sprite_frame_unc art tiles directly to VRAM, bypassing the DMA gate ($FFFFFB49).
+; Body entry point assumes head occupies 12 tiles (26x21px), so body starts at $C620.
+; Input:  a1 = pointer to sprite_frame_unc, a6 = VDP_data_port
+; Clobbers: d0, d1, a1
+CostumeSelect_LoadHeadTiles:
+	move.l	#vdpComm($C4A0,VRAM,WRITE),4(a6)
+	bra.s	CostumeSelect_WriteTiles
+
+CostumeSelect_LoadBodyTiles:
 	move.l	#vdpComm($C620,VRAM,WRITE),4(a6)
+
+CostumeSelect_WriteTiles:
 	move.w	2(a1),d0
 	addq.w	#7,d0
 	lsr.w	#3,d0
@@ -481,32 +495,6 @@ CostumeSelect_UpdatePreview:
 	subq.w	#1,d0
 	lea	6(a1),a1
 -	move.w	(a1)+,(a6)
-	dbf	d0,-
-	bra.s	CostumeSelect_UpdatePreview_done
-CostumeSelect_HideBody:
-	clr.b	$13(a3)				; hide body for non-JUGGERNAUT
-CostumeSelect_UpdatePreview_done:
-	rts
-
-; ---------------------------------------------------------------------------
-; CostumeSelect_LoadTilesToVRAM
-; Writes sprite art tiles directly to VRAM at tile $625 ($C4A0).
-; Input:  a1 = pointer to sprite_frame_unc data
-;         a6 = VDP_data_port ($C00000, global convention)
-; Clobbers: d0, d1, a1
-CostumeSelect_LoadTilesToVRAM:
-	move.w	2(a1),d0		; width in pixels
-	addq.w	#7,d0
-	lsr.w	#3,d0			; ceil(width/8) in 8px cells
-	move.w	4(a1),d1		; height in pixels
-	addq.w	#7,d1
-	lsr.w	#3,d1			; ceil(height/8) in 8px cells
-	mulu.w	d1,d0			; total tiles
-	lsl.w	#4,d0			; * 16 words per tile (32 bytes / 2)
-	subq.w	#1,d0			; dbf loop count
-	move.l	#vdpComm($C4A0,VRAM,WRITE),4(a6)	; set VRAM write address
-	lea	6(a1),a1		; skip 6-byte header, point to art data
--	move.w	(a1)+,(a6)		; write word to VDP data port
 	dbf	d0,-
 	rts
 
