@@ -212,7 +212,8 @@ LevelSelect_MarqueeTimer     = $FFFFFDD4	; word: frames countdown to next scroll
 LevelSelect_MarqueeMaxOffset = $FFFFFDD6	; word: max scroll offset for current name
 LevelSelect_PrevSelected     = $FFFFFDD8	; word: previous selected option (change detection)
 CostumeSelect_PrevOption     = $FFFFFDDA	; word: previous costume selection (change detection)
-CostumeSelect_PreviewObj     = $FFFFFDDC	; long: pointer to costume preview GfxObject
+CostumeSelect_PreviewObj     = $FFFFFDDC	; long: pointer to costume preview GfxObject (head)
+CostumeSelect_PreviewObj2    = $FFFFFDE0	; long: pointer to JUGGERNAUT body GfxObject
 
 ; GfxObject RAM offsets
 ; 0: (long) pointer to next objectData
