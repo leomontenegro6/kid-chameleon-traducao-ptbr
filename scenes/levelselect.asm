@@ -174,12 +174,12 @@ DrawLevelSelectName:
 ; ---------------------------------------------------------------------------
 LevelSelect_DrawText:
 	move.w	(Options_Selected_Option).w,d6
-	subq.w	#3,d6		; first visible LevelID
-	move.w	#$A,d2		; starting row
-	move.w	#8,d0		; 9 entries (dbf 8..0)
+	subq.w	#2,d6		; first visible LevelID
+	move.w	#$C,d2		; starting row
+	move.w	#6,d0		; 7 entries (dbf 7..0)
 LevelSelect_DrawText_Loop:
 	; Select tile base: row $10 = selected
-	move.w	#$64DC,d3
+	move.w	#$6509,d3
 	cmpi.w	#$10,d2
 	bne.s	+
 	move.w	#$E509,d3
@@ -238,7 +238,7 @@ LevelSelect_UpdateMarquee:
 	; Selection changed: reset marquee and recompute max offset
 	move.w	d7,(LevelSelect_PrevSelected).w
 	clr.w	(LevelSelect_MarqueeOffset).w
-	move.w	#60,(LevelSelect_MarqueeTimer).w
+	move.w	#30,(LevelSelect_MarqueeTimer).w
 	bra.w	LevelSelect_ComputeMaxOffset	; tail call
 
 .timer_update:
@@ -253,12 +253,12 @@ LevelSelect_UpdateMarquee:
 	bhi.s	.reset_marquee		; offset > max: wrap
 	move.w	d7,(LevelSelect_MarqueeOffset).w
 	blt.s	.step			; offset < max: short delay
-	move.w	#60,(LevelSelect_MarqueeTimer).w	; offset == max: end pause
+	move.w	#30,(LevelSelect_MarqueeTimer).w	; offset == max: end pause
 	bra.s	.done
 
 .reset_marquee:
 	clr.w	(LevelSelect_MarqueeOffset).w
-	move.w	#60,(LevelSelect_MarqueeTimer).w
+	move.w	#30,(LevelSelect_MarqueeTimer).w
 	bra.s	.done
 
 .step:
@@ -329,7 +329,7 @@ LevelSelect_make_cmd:
 	add.w	#$4000,d5
 	swap	d5
 
-	move.w	#$64DC,d7
+	move.w	#$6509,d7
 	tst.b	d3		; set palette line
 	beq.s	+
 	move.w	#$E509,d7
@@ -395,6 +395,10 @@ CostumeSelect_InitLoop:
 
 	bclr	#7,(Ctrl_Pressed).w
 
+	; Reload head GfxObject pointers: init code clobbered a1 via "lea (Data_Index).l,a1"
+	move.l	$26(a5),a0
+	move.l	$2A(a5),a1
+
 CostumeSelect_Loop:
 	jsr	(j_Hibernate_Object_1Frame).w
 	jsr	(sub_1CC88).l
@@ -433,7 +437,7 @@ CostumeSelect_DrawText:
 	move.w	#$E509,d3		; selected palette
 	bra.s	.draw
 .normal:
-	move.w	#$64DC,d3		; normal palette
+	move.w	#$6509,d3		; normal palette
 .draw:
 	lea	CostumeTextOffsets(pc),a4
 	add.w	d5,d5
