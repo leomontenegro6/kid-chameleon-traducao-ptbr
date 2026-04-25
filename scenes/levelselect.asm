@@ -5,6 +5,7 @@ LevelSelect_ChkKey:
 
 LevelSelect_Init:
 	move.w	#-1,(LevelSelect_PrevSelected).w	; force mismatch on first frame
+	move.w	#-1,(LevelSelect_DrawText_CacheOpt).w	; force first-frame redraw
 
 LevelSelect_Loop:
 	jsr	(j_Hibernate_Object_1Frame).w
@@ -173,10 +174,42 @@ DrawLevelSelectName:
 
 ; ---------------------------------------------------------------------------
 LevelSelect_DrawText:
+	; Skip all VRAM writes if nothing on-screen changed — prevents diagonal tearing
 	move.w	(Options_Selected_Option).w,d6
+	cmp.w	(LevelSelect_DrawText_CacheOpt).w,d6
+	bne.s	LevelSelect_DrawText_Redraw
+	move.w	(LevelSelect_MarqueeOffset).w,d5
+	cmp.w	(LevelSelect_DrawText_CacheMarq).w,d5
+	beq.w	LevelSelect_DrawText_Done
+
+LevelSelect_DrawText_Redraw:
+	move.w	d6,(LevelSelect_DrawText_CacheOpt).w
+	move.w	(LevelSelect_MarqueeOffset).w,(LevelSelect_DrawText_CacheMarq).w
+
 	subq.w	#2,d6		; first visible LevelID
 	move.w	#$C,d2		; starting row
 	move.w	#6,d0		; 7 entries (dbf 7..0)
+
+	; Precompute a1 = pointer to the first valid string.
+	; Scan LevelNamesText once; subsequent entries advance a1 by one string each.
+	; This avoids re-scanning from the start for every entry (O(N) instead of O(N*7)).
+	move.w	d6,d5
+	bpl.s	+
+	moveq	#0,d5			; clamp negative first entry to string 0
++
+	cmpi.w	#FirstElsewhere_LevelID,d5
+	ble.s	+
+	moveq	#FirstElsewhere_LevelID,d5	; cap at Elsewhere string
++
+	lea	LevelNamesText(pc),a1
+	tst.w	d5
+	beq.s	LevelSelect_DrawText_Loop
+	subq.w	#1,d5
+-
+	tst.b	(a1)+
+	bne.s	-
+	dbf	d5,-
+
 LevelSelect_DrawText_Loop:
 	; Select tile base: row $10 = selected
 	move.w	#$6509,d3
@@ -190,37 +223,34 @@ LevelSelect_DrawText_Loop:
 	cmpi.w	#73,d6
 	bgt.s	LevelSelect_DrawText_Blank
 
-	; Map LevelID to index in LevelNamesText
-	move.w	d6,d7
-	cmpi.w	#FirstElsewhere_LevelID,d7
-	blt.s	+
-	moveq	#FirstElsewhere_LevelID,d7
-+
-	moveq	#0,d5
-	move.b	d7,d5
-
-	; Find string at index d5 in LevelNamesText
-	lea	LevelNamesText(pc),a4
-	tst.b	d5
-	beq.s	LevelSelect_DrawText_Call
-	subq.w	#1,d5
--
-	tst.b	(a4)+
-	bne.s	-
-	dbf	d5,-
-	bra.s	LevelSelect_DrawText_Call
-
-LevelSelect_DrawText_Blank:
-	lea	LevelSelect_DrawText_Empty(pc),a4
-
-LevelSelect_DrawText_Call:
+	; a1 already points to the correct string for this entry
+	move.l	a1,a4			; DrawLevelSelectName consumes a4; preserve a1
 	movem.w	d0/d6,-(sp)
 	bsr.w	DrawLevelSelectName
 	movem.w	(sp)+,d0/d6
 
+	; Advance a1 to next string — but only for non-Elsewhere entries
+	cmpi.w	#FirstElsewhere_LevelID,d6
+	bge.s	+			; all Elsewhere entries share the same string
+-
+	tst.b	(a1)+
+	bne.s	-
++
 	addq.w	#1,d6
 	addq.w	#2,d2
 	dbf	d0,LevelSelect_DrawText_Loop
+	rts
+
+LevelSelect_DrawText_Blank:
+	lea	LevelSelect_DrawText_Empty(pc),a4
+	movem.w	d0/d6,-(sp)
+	bsr.w	DrawLevelSelectName
+	movem.w	(sp)+,d0/d6
+	addq.w	#1,d6
+	addq.w	#2,d2
+	dbf	d0,LevelSelect_DrawText_Loop
+
+LevelSelect_DrawText_Done:
 	rts
 
 LevelSelect_DrawText_Empty:

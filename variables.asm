@@ -214,6 +214,8 @@ LevelSelect_PrevSelected     = $FFFFFDD8	; word: previous selected option (chang
 CostumeSelect_PrevOption     = $FFFFFDDA	; word: previous costume selection (change detection)
 CostumeSelect_PreviewObj     = $FFFFFDDC	; long: pointer to costume preview GfxObject (head)
 CostumeSelect_PreviewObj2    = $FFFFFDE0	; long: pointer to JUGGERNAUT body GfxObject
+LevelSelect_DrawText_CacheOpt  = $FFFFFDE4	; word: cached Options_Selected_Option for redraw skip
+LevelSelect_DrawText_CacheMarq = $FFFFFDE6	; word: cached LevelSelect_MarqueeOffset for redraw skip
 
 ; GfxObject RAM offsets
 ; 0: (long) pointer to next objectData
