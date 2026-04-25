@@ -4,6 +4,7 @@ LevelSelect_ChkKey:
 	jmp	(j_loc_6E2).w
 
 LevelSelect_Init:
+	dma68kToVDP LevelSelect_Font,$A120,$640,VRAM
 	move.w	#-1,(LevelSelect_PrevSelected).w	; force mismatch on first frame
 	move.w	#-1,(LevelSelect_DrawText_CacheOpt).w	; force first-frame redraw
 
@@ -79,11 +80,11 @@ DrawLevelSelectName:
 	beq.s	.done
 	cmpi.b	#$C2,d6
 	beq.s	.skip_loop
-	cmpi.b	#TILDE,d6
+	cmpi.b	#$67,d6
 	beq.s	.skip_accent
-	cmpi.b	#ACCUTE,d6
+	cmpi.b	#$6F,d6
 	beq.s	.skip_accent
-	cmpi.b	#CIRCUMFLEX,d6
+	cmpi.b	#$70,d6
 	beq.s	.skip_accent
 	subq.w	#1,d0
 	bne.s	.skip_loop
@@ -107,11 +108,11 @@ DrawLevelSelectName:
 	cmpi.b	#$C2,d6		; skip UTF-8 leader byte
 	beq.s	.loop
 
-	cmpi.b	#TILDE,d6
+	cmpi.b	#$6E,d6
 	beq.s	.accent
-	cmpi.b	#ACCUTE,d6
+	cmpi.b	#$6F,d6
 	beq.s	.accent
-	cmpi.b	#CIRCUMFLEX,d6
+	cmpi.b	#$70,d6
 	beq.s	.accent
 
 	subq.w	#1,d0
@@ -186,7 +187,7 @@ LevelSelect_DrawText_Redraw:
 	move.w	d6,(LevelSelect_DrawText_CacheOpt).w
 	move.w	(LevelSelect_MarqueeOffset).w,(LevelSelect_DrawText_CacheMarq).w
 
-	subq.w	#2,d6		; first visible LevelID
+	subq.w	#3,d6		; first visible LevelID
 	move.w	#$C,d2		; starting row
 	move.w	#6,d0		; 7 entries (dbf 7..0)
 
@@ -211,9 +212,9 @@ LevelSelect_DrawText_Redraw:
 	dbf	d5,-
 
 LevelSelect_DrawText_Loop:
-	; Select tile base: row $10 = selected
+	; Select tile base: row $12 = selected
 	move.w	#$6509,d3
-	cmpi.w	#$10,d2
+	cmpi.w	#$12,d2
 	bne.s	+
 	move.w	#$E509,d3
 +
@@ -324,11 +325,11 @@ LevelSelect_ComputeMaxOffset:
 	beq.s	.count_done
 	cmpi.b	#$C2,d6
 	beq.s	.count_loop
-	cmpi.b	#TILDE,d6
+	cmpi.b	#$6E,d6
 	beq.s	.count_accent
-	cmpi.b	#ACCUTE,d6
+	cmpi.b	#$6F,d6
 	beq.s	.count_accent
-	cmpi.b	#CIRCUMFLEX,d6
+	cmpi.b	#$70,d6
 	beq.s	.count_accent
 	addq.w	#1,d7
 	bra.s	.count_loop
@@ -569,28 +570,42 @@ CostumeTextOffsets:
 	dc.w	cost7-CostumeTextOffsets
 	dc.w	cost8-CostumeTextOffsets
 	dc.w	cost9-CostumeTextOffsets
-; ---------------------------------------------------------------------------
-CostumeTexts:
-cost0:	dc.b	0,  0, "NONE", 0
-cost1:	dc.b	0,  2, "SKYCUTTER", 0
-cost2:	dc.b	0,  4, "CYCLONE", 0
-cost3:	dc.b	0,  6, "REDmSTEALTH", 0
-cost4:	dc.b	0,  8, "EYECLOPS", 0
-cost5:	dc.b	0, $A, "JUGGERNAUT", 0
-cost6:	dc.b	0, $C, "IRONmKNIGHT", 0
-cost7:	dc.b	0, $E, "BERZERKER", 0
-cost8:	dc.b	0,$10, "MANIAXE", 0
-cost9:	dc.b	0,$12, "MICROMAX", 0
 
-; ---------------------------------------------------------------------------
-; Level name strings.
 ; PREFIX accent encoding: accent byte comes BEFORE the letter.
-;   TILDE ($58)      = tilde  (ã, õ)
-;   ACCUTE ($5A)     = acute  (á, é, í, ó, ú)
-;   CIRCUMFLEX ($6A) = circumflex (â, ê)
-;   Ç → C (cedilla not supported by this font)
+;   TILDE ($6E)      = tilde  (ã, õ)
+;   ACCUTE ($6F)     = accute  (á, é, í, ó, ú)
+;   CIRCUMFLEX ($70) = circumflex (â, ê)
+;   [ → Ç(cedilla not supported by this font)
 ; Charset Mapping
-	charset '~',TILDE
+	charset
+	charset ' ',$73
+	charset 'A',$41
+	charset 'B',$42
+	charset 'C',$43
+	charset 'D',$44
+	charset 'E',$45
+	charset 'F',$46
+	charset 'G',$47
+	charset 'H',$48
+	charset 'I',$49
+	charset 'J',$4A
+	charset 'K',$4B
+	charset 'L',$4C
+	charset 'M',$4D
+	charset 'N',$4E
+	charset 'O',$4F
+	charset 'P',$50
+	charset 'Q',$51
+	charset 'R',$52
+	charset 'S',$53
+	charset 'T',$54
+	charset 'U',$55	
+	charset 'V',$56	
+	charset 'W',$57	
+	charset 'X',$58	
+	charset 'Y',$59
+	charset 'Z',$5A	
+	charset '-',$5B
 	charset '1',$5C
 	charset '2',$5D
 	charset '3',$5E
@@ -602,12 +617,31 @@ cost9:	dc.b	0,$12, "MICROMAX", 0
 	charset '9',$64
 	charset '0',$65
 	charset '.',$66
-	charset	$B4,ACCUTE
+	charset '[',$67
 	charset ',',$68
 	charset '!',$69
-	charset '^',CIRCUMFLEX
-	charset '(',$6B
-	charset ')',$6C
+	charset '?',$6A
+	charset '~',$6E
+	charset	$B4,$6F
+	charset '^',$70
+	charset '(',$71
+	charset ')',$72
+
+; ---------------------------------------------------------------------------
+CostumeTexts:
+cost0:	dc.b	0,  0, "NONE", 0
+cost1:	dc.b	0,  2, "SKYCUTTER", 0
+cost2:	dc.b	0,  4, "CYCLONE", 0
+cost3:	dc.b	0,  6, "RED STEALTH", 0
+cost4:	dc.b	0,  8, "EYECLOPS", 0
+cost5:	dc.b	0, $A, "JUGGERNAUT", 0
+cost6:	dc.b	0, $C, "IRON KNIGHT", 0
+cost7:	dc.b	0, $E, "BERZERKER", 0
+cost8:	dc.b	0,$10, "MANIAXE", 0
+cost9:	dc.b	0,$12, "MICROMAX", 0
+
+; ---------------------------------------------------------------------------
+; Level name strings.
 LevelNamesText:
 	dc.b "MATAS DO LAGO AZUL 1",0			; 0
 	dc.b "MATAS DO LAGO AZUL 2",0			; 1
@@ -642,7 +676,7 @@ LevelNamesText:
 	dc.b "CHEFES BUMERANGUES",0				; 1E
 	dc.b "MATAS DO DESESPERO 1",0			; 1F
 	dc.b "MATAS DO DESESPERO 2",0			; 20
-	dc.b "ENTRADA FORCADA",0				; 21
+	dc.b "ENTRADA FOR[ADA",0				; 21
 	dc.b "AS FAL´ESIAS DA ILUS~AO",0		; 22
 	dc.b "COVIL DO LE~AO",0					; 23
 	dc.b "CASTELOS DOS VENTOS 1",0			; 24
@@ -655,7 +689,7 @@ LevelNamesText:
 	dc.b "BORDA DIAMANTINA",0				; 2B
 	dc.b "AS COLINAS T^EM OLHOS",0			; 2C
 	dc.b "SEGREDOS NAS ROCHAS",0			; 2D
-	dc.b "VINGANCA DO DEUS DO GELO",0		; 2E
+	dc.b "VINGAN[A DO DEUS DO GELO",0		; 2E
 	dc.b "AL´EM DAS COLINAS TORCIDAS",0		; 2F
 	dc.b "ILHA ALIEN´IGENA",0				; 30
 	dc.b "A TERRA ABAIXO",0					; 31
@@ -669,8 +703,8 @@ LevelNamesText:
 	dc.b "AS TUMBAS PROIBIDAS",0			; 39
 	dc.b "ESCADARIA DO ESQUECIMENTO",0		; 3A
 	dc.b "O VALE DA VIDA",0					; 3B
-	dc.b "O POCO NEGRO",0					; 3C
-	dc.b "PERDIC~AO G´ELIDA",0				; 3D
+	dc.b "O PO[O NEGRO",0					; 3C
+	dc.b "PERDI[~AO G´ELIDA",0				; 3D
 	dc.b "P^ANTANO SANGRENTO",0				; 3E
 	dc.b "ILHA DO ESCORPI~AO",0				; 3F
 	dc.b "TORRES DE SANGUE",0				; 40
@@ -686,4 +720,9 @@ LevelNamesText:
 
 	charset
 
+	align	2
+
+; ---------------------------------------------------------------------------
+LevelSelect_Font:
+	binclude "assets_br/novos/levelselect_font.bin"
 	align	2
