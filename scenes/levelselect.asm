@@ -29,7 +29,7 @@ LevelSelect_Loop:
 	bsr.w	LevelSelect_UpdateMarquee
 	bsr.w	LevelSelect_DrawText
 	movem.l	(sp)+,d0-d3/a0-a3
-	move.w	#$67,d6
+	move.w	#$68,d6
 	bsr.s	LevelSelect_Input
 	bclr	#7,(Ctrl_1_Pressed).w
 	beq.s	LevelSelect_Loop
@@ -235,7 +235,7 @@ LevelSelect_DrawText_Loop:
 	; Bounds check
 	tst.w	d6
 	bmi.s	LevelSelect_DrawText_Blank
-	cmpi.w	#$67,d6
+	cmpi.w	#$68,d6
 	bgt.s	LevelSelect_DrawText_Blank
 
 	; a1 already points to the correct string for this entry
