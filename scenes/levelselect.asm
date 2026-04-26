@@ -730,37 +730,38 @@ LevelNamesText:
 	dc.b "AS CAVERNAS CINTILANTES",0		; 46
 	dc.b "A CRIPTA 3",0						; 47
 	dc.b "FORTALEZA CELESTE",0				; 48
-	dc.b "LUGAR QUALQUER 1",0				; 49
-	dc.b "LUGAR QUALQUER 2",0				; 4A
-	dc.b "LUGAR QUALQUER 3",0				; 4B
-	dc.b "LUGAR QUALQUER 4",0				; 4C
-	dc.b "LUGAR QUALQUER 5",0				; 4D
-	dc.b "LUGAR QUALQUER 6",0				; 4E
-	dc.b "LUGAR QUALQUER 7",0				; 4F
-	dc.b "LUGAR QUALQUER 8",0				; 50
-	dc.b "LUGAR QUALQUER 9",0				; 51
-	dc.b "LUGAR QUALQUER 10",0				; 52
-	dc.b "LUGAR QUALQUER 11",0				; 53
-	dc.b "LUGAR QUALQUER 12",0				; 54
-	dc.b "LUGAR QUALQUER 13",0				; 55
-	dc.b "LUGAR QUALQUER 14",0				; 56
-	dc.b "LUGAR QUALQUER 15",0				; 57
-	dc.b "LUGAR QUALQUER 16",0				; 58
-	dc.b "LUGAR QUALQUER 17",0				; 59
-	dc.b "LUGAR QUALQUER 18",0				; 5A
-	dc.b "LUGAR QUALQUER 19",0				; 5B
-	dc.b "LUGAR QUALQUER 20",0				; 5C
-	dc.b "LUGAR QUALQUER 21",0				; 5D
-	dc.b "LUGAR QUALQUER 22",0				; 5E
-	dc.b "LUGAR QUALQUER 23",0				; 5F
-	dc.b "LUGAR QUALQUER 24",0				; 60
-	dc.b "LUGAR QUALQUER 25",0				; 61
-	dc.b "LUGAR QUALQUER 26",0				; 62
-	dc.b "LUGAR QUALQUER 27",0				; 63
-	dc.b "LUGAR QUALQUER 28",0				; 64
-	dc.b "LUGAR QUALQUER 29",0				; 65
-	dc.b "LUGAR QUALQUER 30",0				; 66
-	dc.b "LUGAR QUALQUER 31",0				; 67
+	dc.b "LUGAR QUALQUER", 0				; 49
+	dc.b "LUGAR QUALQUER 1",0				; 4A
+	dc.b "LUGAR QUALQUER 2",0				; 4B
+	dc.b "LUGAR QUALQUER 3",0				; 4C
+	dc.b "LUGAR QUALQUER 4",0				; 4D
+	dc.b "LUGAR QUALQUER 5",0				; 4E
+	dc.b "LUGAR QUALQUER 6",0				; 4F
+	dc.b "LUGAR QUALQUER 7",0				; 50
+	dc.b "LUGAR QUALQUER 8",0				; 51
+	dc.b "LUGAR QUALQUER 9",0				; 52
+	dc.b "LUGAR QUALQUER 10",0				; 53
+	dc.b "LUGAR QUALQUER 11",0				; 54
+	dc.b "LUGAR QUALQUER 12",0				; 55
+	dc.b "LUGAR QUALQUER 13",0				; 56
+	dc.b "LUGAR QUALQUER 14",0				; 57
+	dc.b "LUGAR QUALQUER 15",0				; 58
+	dc.b "LUGAR QUALQUER 16",0				; 59
+	dc.b "LUGAR QUALQUER 17",0				; 5A
+	dc.b "LUGAR QUALQUER 18",0				; 5B
+	dc.b "LUGAR QUALQUER 19",0				; 5C
+	dc.b "LUGAR QUALQUER 20",0				; 5D
+	dc.b "LUGAR QUALQUER 21",0				; 5E
+	dc.b "LUGAR QUALQUER 22",0				; 5F
+	dc.b "LUGAR QUALQUER 23",0				; 60
+	dc.b "LUGAR QUALQUER 24",0				; 61
+	dc.b "LUGAR QUALQUER 25",0				; 62
+	dc.b "LUGAR QUALQUER 26",0				; 63
+	dc.b "LUGAR QUALQUER 27",0				; 64
+	dc.b "LUGAR QUALQUER 28",0				; 65
+	dc.b "LUGAR QUALQUER 29",0				; 66
+	dc.b "LUGAR QUALQUER 30",0				; 67
+	dc.b "LUGAR QUALQUER 31",0				; 68
 	charset
 
 	align	2
