@@ -4,7 +4,21 @@ LevelSelect_ChkKey:
 	jmp	(j_loc_6E2).w
 
 LevelSelect_Init:
-	dma68kToVDP LevelSelect_Font,$A120,$640,VRAM
+; 	moveq	#0,d2
+; 	move.w	#$7FF,d0
+; -	move.w	d2,d4
+; 	swap	d4
+; 	clr.w	d4
+; 	move.l	d4,4(a6)		; VRAM read at d2
+; 	move.w	(a6),d3
+; 	cmpi.w	#$A536,d3
+; 	bne.s	+
+; 	ori.l	#$40000000,d4
+; 	move.l	d4,4(a6)		; VRAM write at d2
+; 	clr.w	(a6)
+; +	addq.w	#2,d2
+; 	dbf	d0,-
+	dma68kToVDP LevelSelect_Font,$9B80,$640,VRAM
 	move.w	#-1,(LevelSelect_PrevSelected).w	; force mismatch on first frame
 	move.w	#-1,(LevelSelect_DrawText_CacheOpt).w	; force first-frame redraw
 
@@ -15,7 +29,7 @@ LevelSelect_Loop:
 	bsr.w	LevelSelect_UpdateMarquee
 	bsr.w	LevelSelect_DrawText
 	movem.l	(sp)+,d0-d3/a0-a3
-	move.w	#73,d6
+	move.w	#$67,d6
 	bsr.s	LevelSelect_Input
 	bclr	#7,(Ctrl_1_Pressed).w
 	beq.s	LevelSelect_Loop
@@ -61,7 +75,7 @@ LevelSelect_Input:
 ;         d2 = row
 ;         d3.w = tile base (palette + font - $41):
 ;                  normal:   $64DC
-;                  selected: $E509
+;                  selected: $E4DC
 ;         a6 = VDP base ($C00000)
 DrawLevelSelectName:
 	subq.w	#1,d2		; clear accent row (row - 1)
@@ -70,7 +84,7 @@ DrawLevelSelectName:
 	bsr.w	.clear_row
 
 	; If selected line, skip LevelSelect_MarqueeOffset visual columns
-	cmpi.w	#$E509,d3
+	cmpi.w	#$E4DC,d3
 	bne.s	.start_draw
 	move.w	(LevelSelect_MarqueeOffset).w,d0
 	beq.s	.start_draw
@@ -198,9 +212,9 @@ LevelSelect_DrawText_Redraw:
 	bpl.s	+
 	moveq	#0,d5			; clamp negative first entry to string 0
 +
-	cmpi.w	#FirstElsewhere_LevelID,d5
-	ble.s	+
-	moveq	#FirstElsewhere_LevelID,d5	; cap at Elsewhere string
+;	cmpi.w	#FirstElsewhere_LevelID,d5
+;	ble.s	+
+;	moveq	#FirstElsewhere_LevelID,d5	; cap at Elsewhere string
 +
 	lea	LevelNamesText(pc),a1
 	tst.w	d5
@@ -213,15 +227,15 @@ LevelSelect_DrawText_Redraw:
 
 LevelSelect_DrawText_Loop:
 	; Select tile base: row $12 = selected
-	move.w	#$6509,d3
+	move.w	#$64DC,d3
 	cmpi.w	#$12,d2
 	bne.s	+
-	move.w	#$E509,d3
+	move.w	#$E4DC,d3
 +
 	; Bounds check
 	tst.w	d6
 	bmi.s	LevelSelect_DrawText_Blank
-	cmpi.w	#73,d6
+	cmpi.w	#$67,d6
 	bgt.s	LevelSelect_DrawText_Blank
 
 	; a1 already points to the correct string for this entry
@@ -231,8 +245,8 @@ LevelSelect_DrawText_Loop:
 	movem.w	(sp)+,d0/d6
 
 	; Advance a1 to next string — but only for non-Elsewhere entries
-	cmpi.w	#FirstElsewhere_LevelID,d6
-	bge.s	+			; all Elsewhere entries share the same string
+	;cmpi.w	#FirstElsewhere_LevelID,d6
+	;bge.s	+			; all Elsewhere entries share the same string
 -
 	tst.b	(a1)+
 	bne.s	-
@@ -255,7 +269,7 @@ LevelSelect_DrawText_Done:
 	rts
 
 LevelSelect_DrawText_Empty:
-	dc.b	0
+	dc.b	" "
 	align	2
 
 ; ---------------------------------------------------------------------------
@@ -360,10 +374,10 @@ LevelSelect_make_cmd:
 	add.w	#$4000,d5
 	swap	d5
 
-	move.w	#$6509,d7
+	move.w	#$64DC,d7
 	tst.b	d3		; set palette line
 	beq.s	+
-	move.w	#$E509,d7
+	move.w	#$E4DC,d7
 +
 	jsr	(j_sub_914).w
 	move.l	d5,4(a6)
@@ -465,10 +479,10 @@ CostumeSelect_DrawText:
 	move.b	(LevelSelect_ActNumber).w,d5
 	cmp.w	(Options_Selected_Option).w,d5
 	bne.s	.normal
-	move.w	#$E509,d3		; selected palette
+	move.w	#$E4DC,d3		; selected palette
 	bra.s	.draw
 .normal:
-	move.w	#$6509,d3		; normal palette
+	move.w	#$64DC,d3		; normal palette
 .draw:
 	lea	CostumeTextOffsets(pc),a4
 	add.w	d5,d5
@@ -578,7 +592,7 @@ CostumeTextOffsets:
 ;   [ → Ç(cedilla not supported by this font)
 ; Charset Mapping
 	charset
-	charset ' ',$73
+	charset ' ',$6D
 	charset 'A',$41
 	charset 'B',$42
 	charset 'C',$43
@@ -716,8 +730,37 @@ LevelNamesText:
 	dc.b "AS CAVERNAS CINTILANTES",0		; 46
 	dc.b "A CRIPTA 3",0						; 47
 	dc.b "FORTALEZA CELESTE",0				; 48
-	dc.b "LUGAR QUALQUER",0					; 49
-
+	dc.b "LUGAR QUALQUER 1",0				; 49
+	dc.b "LUGAR QUALQUER 2",0				; 4A
+	dc.b "LUGAR QUALQUER 3",0				; 4B
+	dc.b "LUGAR QUALQUER 4",0				; 4C
+	dc.b "LUGAR QUALQUER 5",0				; 4D
+	dc.b "LUGAR QUALQUER 6",0				; 4E
+	dc.b "LUGAR QUALQUER 7",0				; 4F
+	dc.b "LUGAR QUALQUER 8",0				; 50
+	dc.b "LUGAR QUALQUER 9",0				; 51
+	dc.b "LUGAR QUALQUER 10",0				; 52
+	dc.b "LUGAR QUALQUER 11",0				; 53
+	dc.b "LUGAR QUALQUER 12",0				; 54
+	dc.b "LUGAR QUALQUER 13",0				; 55
+	dc.b "LUGAR QUALQUER 14",0				; 56
+	dc.b "LUGAR QUALQUER 15",0				; 57
+	dc.b "LUGAR QUALQUER 16",0				; 58
+	dc.b "LUGAR QUALQUER 17",0				; 59
+	dc.b "LUGAR QUALQUER 18",0				; 5A
+	dc.b "LUGAR QUALQUER 19",0				; 5B
+	dc.b "LUGAR QUALQUER 20",0				; 5C
+	dc.b "LUGAR QUALQUER 21",0				; 5D
+	dc.b "LUGAR QUALQUER 22",0				; 5E
+	dc.b "LUGAR QUALQUER 23",0				; 5F
+	dc.b "LUGAR QUALQUER 24",0				; 60
+	dc.b "LUGAR QUALQUER 25",0				; 61
+	dc.b "LUGAR QUALQUER 26",0				; 62
+	dc.b "LUGAR QUALQUER 27",0				; 63
+	dc.b "LUGAR QUALQUER 28",0				; 64
+	dc.b "LUGAR QUALQUER 29",0				; 65
+	dc.b "LUGAR QUALQUER 30",0				; 66
+	dc.b "LUGAR QUALQUER 31",0				; 67
 	charset
 
 	align	2
