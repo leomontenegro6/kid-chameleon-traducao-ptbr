@@ -1,28 +1,24 @@
-# [SMD] Kid Chameleon - Tradução PT-BR
-
-Este é um projeto de tradução do jogo Kid Chameleon, de Mega Drive, para português do Brasil. O projeto foi feito com base na versão americana do jogo, usando por base o repositório do [Kid Chameleon Disassembly](https://github.com/sonicretro/kid-chameleon-disasm).
-
-Kid Chameleon é um jogo de plataforma side-scroller onde o personagem principal entra em uma realidade virtual chamada "Wild Side" para libertar outros jogadores que foram capturados. Ele pode alterar a sua forma em várias outras, dando-lhe habilidades especiais que devem ser usadas para passar pelas inúmeras fases do jogo.
-
-Um fato interessante sobre o jogo é que o jogo possui mais de 100 fases (algumas bastante difíceis) e que devem ser jogadas em sequencia e não existe a possibilidade de salvar ou utilizar password, de modo que finalizar esse jogo é basicamente uma maratona, exigindo bastante perseverança e paciência.
-
-# Informações
+------------------
+Informações
+------------------
 
 Nome do jogo: Kid Chameleon
-
 Versão: Americana
-
 Plataforma: Mega Drive
-
 Desenvolvedora: Sega
-
 Distribuidora: Sega
-
 Gênero: Plataforma
-
 Jogadores: 2
 
-# Enredo
+------------------
+Notas do Patch
+------------------
+
+O patch está em formato IPS, e você pode aplicá-lo através de programas como Floating IPS ou similares. O patch deve ser aplicada na ROM "Kid Chameleon (USA, Europe).md", com header, de crc CE36E6CC / md5sum 756e603b6cf9b3ebbb1b0f79d9447e43.
+
+------------------
+Enredo
+------------------
 
 Wild Side é o mais novo jogo de arcade do momento nos fliperamas. É um jogo holográfico que cria uma realidade fora do comum. Você entra para jogar e a porta se fecha atrás de você. Ninguém sabe o que se passsa lá dentro, porque nunca ninguém conseguiu sair!
 
@@ -30,62 +26,63 @@ Os jogadores estão desaparecendo constantemente. Heady Metal, o chefão do jogo
 
 Kid Camaleão adentra o Wild Side com o objetivo de zerar esse jogo tenebroso e resgatar os jogadores capturados. Será ele capaz dessa façanha?
 
-# Sobre a tradução
+------------------
+Sobre a tradução
+------------------
 
 Kid Chameleon é um clássico, e um dos jogos de Mega Drive que mais assisti e joguei ao longo da minha juventude. Foi um dos primeiros jogos lançados pro console, com gráficos bastante coloridos e bem-feitos pra época e uma trilha sonora de impacto pros padrões dos anos 90. Embora o jogo comece fácil, tem uma curva de dificuldade crescentemente difícil que, somado ao fato de ter mais de 100 fases e que o jogo não possui nenhum mecanismo de save ou passwords, faz com que comumente os jogadores tomam "game over" sendo vencidos pelo cansaço. Zerar esse jogo é uma verdadeira maratona onde só os mais persistentes conseguem chegar até o final.
 
 No começo dos anos 90, por vezes vi irmãos e amigos jogando esse jogo em locadoras e alugando sua fita em fins de semana, com o intuito de zerar esse jogo, por vezes sem sucesso. E perto do final dessa década, quando ganhei um segundo Mega Drive, passei a fazer o mesmo, também alugando esse jogo várias vezes e jogando várias partidas até conseguir zerar. E depois disso, sempre que não tinha jogos bons pra alugar, sempre voltava pro bom e velho Kid Chameleon para mais algumas partidas até zerar.
 
-Alguns anos mais tarde, quando ganhei um PC e eventualmente passei a fazer romhacking com foco em fã-traduções para PT-BR, sempre tive interesse em fazer uma tradução completa desse clássico, que contenha não só textos de intro/opções/créditos traduzidos, como também nomes de fases e gráficos editados. Mas essa ideia nunca chegou a ir pra frente por conta das diversas dificuldades técnicas em mexer com jogos antigos de Mega Drive, e pelas pessoas com conhecimento avançado de romhacking de Mega Drive estarem ocupadas no momento. Mas isso mudou quando descobri o repositório do [kid-chameleon-disasm](https://github.com/sonicretro/kid-chameleon-disasm), feito pelo pessoal da Sonic Retro, que facilitou enormemente o processo.
+Alguns anos mais tarde, quando ganhei um PC e eventualmente passei a fazer romhacking com foco em fã-traduções para PT-BR, sempre tive interesse em fazer uma tradução completa desse clássico, que contenha não só textos de intro/opções/créditos traduzidos, como também nomes de fases e gráficos editados. Mas essa ideia nunca chegou a ir pra frente por conta das diversas dificuldades técnicas em mexer com jogos antigos de Mega Drive, e pelas pessoas com conhecimento avançado de romhacking de Mega Drive estarem ocupadas no momento. Mas isso mudou quando descobri o repositório do kid-chameleon-disasm (https://github.com/sonicretro/kid-chameleon-disasm), feito pelo pessoal da Sonic Retro, que facilitou enormemente o processo.
 
 Me debrucei nesse repositório nas últimas semanas, e com ele consegui editar textos sem limitações de espaço e gráficos comprimidos sem ter que criar ferramentas adicionais para isso. Em poucos dias consegui uma prova de conceito, com os textos da introdução traduzidos, sua fonte devidamente acentuados, e a tela-título modificada para "Kid Camaleão", algo que sempre quis fazer. Em seguida mostrei essa prova de conceito para alguns colegas, e o parceiro Anime_World, que tem traduzido diversos jogos de Mega Drive ao longo dos anos e recentemente tem contribuído bastante para a cena de disassembly de jogos desse console, se propôs para me ajudar na tradução. Ele implementou diversos aprimoramentos na tradução, como:
 
 - Acentos em tiles separados em todas as fontes do jogo, para não precisar reduzir altura dos caracteres nem quebrar suas proporções;
-- Adição do [hack de level select](https://github.com/sonicretro/kid-chameleon-disasm/blob/master/scenes/levelselect.asm), deixando ele compatível com a tradução (acessível segurando A+Start ou Correr+Start ao entrar na tela de Opções);
+- Adição do hack de level select (https://github.com/sonicretro/kid-chameleon-disasm/blob/master/scenes/levelselect.asm), deixando ele compatível com a tradução (acessível segurando A+Start ou Correr+Start ao entrar na tela de Opções);
 - Implementou uma splash-screen animada, com uma versão chiptune de uma música de época que combina com o jogo;
 - Expandiu a rom para 2mb, dado que os dados comprimidos ultrapassaram o limite original de 1mb;
-- Tentativa de trocar o driver de som para GEMS 2.5 para melhorar sua qualidade, mas que optamos por não incluir por padrão devido a ela introduzir alguns bugs sonoros inexistentes no original (dá pra ativar buildando a rom pelo [repo da tradução](https://github.com/leomontenegro6/kid-chameleon-traducao-ptbr)).
+- Tentativa de trocar o driver de som para GEMS 2.5 para melhorar sua qualidade, mas que optamos por não incluir por padrão devido a ela introduzir alguns bugs sonoros inexistentes no original (dá pra ativar buildando a rom pelo repo da tradução (https://github.com/leomontenegro6/kid-chameleon-traducao-ptbr)).
 
 A tradução foi testada em diversos emuladores, como Gens, Kega Fusion, Genesis Plus GX, e também em hardware real com flashcard. Zerei o jogo pelo menos quatro vezes durante o projeto, para tentar garantir ao máximo que nenhum travamento ocorra na tradução, e que o jogo esteja 100% jogável do início ao fim. Caso peguem algum problema, devido ao fato do jogo possuir muitas fases e caminhos alternativos, podem relatar aqui.
 
-Após um trabalho de romhacking relativamente intensivo, estamos lançando a versão 1.0 dessa tradução. No futuro, pretendemos lançar ainda mais aprimoramentos nela, como aprimorar os áudios PCM de 8khz pra 22khz pra melhorar sua qualidade, incluir um patch de dublagem de áudios opcional, cogitar tornar ela compatível com o [hack de level randomizer](https://www.romhacking.net/hacks/7490/), etc.
+Após um trabalho de romhacking relativamente intensivo, estamos lançando a versão 1.0 dessa tradução. No futuro, pretendemos lançar ainda mais aprimoramentos nela, como aprimorar os áudios PCM de 8khz pra 22khz pra melhorar sua qualidade, incluir um patch de dublagem de áudios opcional, cogitar tornar ela compatível com o hack de level randomizer (https://www.romhacking.net/hacks/7490/), etc.
 
 Dedico essa tradução a todos os jogadores de Kid Chameleon que jogaram incansavelmente esse jogo até zerar, especialmente aos colegas dos anos 90 que persistiram nesse jogo, tentando zerá-lo na raça em hardware real sem savestates. Espero que usufruam dessa tradução, da mesma forma que também o fizemos nesse processo.
 
-# Equipe
+------------------
+Atualizações da Tradução
+------------------
 
-- **Solid One**: Gráficos, tradução e teste;
-- **Anime_World**: Asm Hacking, e suporte geral;
-- **Ted**: Criação de capas traduzidas;
+Versão 1.0: 28/04/2026
+ Primeiro lançamento.
 
-# Status da Tradução
+------------------
+Status da Tradução
+------------------
 
 Textos: 100%
-
 Acentos: 100%
-
 Gráficos: 100%
-
 Revisão: 100%
 
-# Imagens
+------------------
+Ferramentas Utilizadas/Desenvolvidas
+------------------
 
-Versão Original:
+- Visual Studio Code : Utilizado para editar o código do repositório de disasm;
+- HxD Hex Editor : Editor hexadecimal usado para edições diversas;
+- Tile Molester Mod : Editor de tiles usado para edição dos gráficos do jogo;
+- PlaneEd : Usado para editar o plane mapping da tela-título, possibilitando o logo "Kid Camaleão";
+- Tiled : Usado para editar os planos de algumas fases, para traduzir letreiros de algumas fases da cidade;
+- fixheader : Usado para automaticamente corrigir o checksum das roms, após compilá-las.
 
-![alt text](screenshots/png/01.png) ![alt text](screenshots/png/02.png)
+------------------
+Agradecimentos
+------------------
 
-![alt text](screenshots/png/03.png) ![alt text](screenshots/png/04.png)
-
-![alt text](screenshots/png/05.png) ![alt text](screenshots/png/06.png)
-
-![alt text](screenshots/png/07.png) ![alt text](screenshots/png/08.png)
-
-![alt text](screenshots/png/09.png) ![alt text](screenshots/png/10.png)
-
-![alt text](screenshots/png/11.png) ![alt text](screenshots/png/12.png)
-
-# Patch
-
-O patch de tradução está disponível na seção de releases desse repositório. Está em formato IPS, e vocês podem aplicá-lo através de programas como [Floating IPS](https://www.romhacking.net/utilities/1040/) ou similares.
-
-Esta tradução pode ser aplicada na ROM "Kid Chameleon (USA, Europe).md", com header, de crc CE36E6CC / md5sum 756e603b6cf9b3ebbb1b0f79d9447e43.
+- Sega, por ter criado esse clássico;
+- À comunidade do Sega Retro, pelo disasm do jogo que possibilitou a tradução;
+- Anime_World, por todo o auxílio técnico no repo de disasm que possibilitou refinar bastante a tradução;
+- Ted, pelas capas traduzidas;
+- Ao pessoal do grupo da CEGA, pelo apoio e ajuda na tradução.
